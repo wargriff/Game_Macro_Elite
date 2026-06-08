@@ -62,7 +62,8 @@
       },
       "right": {
         "cps": 15,
-        "delay": 0.019
+        "delay": 0.019,
+        "burst_count": 0
       },
       "side1": {
         "cps": 15,

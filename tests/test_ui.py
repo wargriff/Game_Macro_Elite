@@ -7,8 +7,8 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QPushButton
 from PyQt6.QtCore import Qt, QTimer
 
-from Xmacro_main import EngineProxy
-from engine_win32 import MacroManager
+from services.engine_proxy import EngineProxy
+from core.engine import MacroManager
 
 
 class ClickTest(QWidget):

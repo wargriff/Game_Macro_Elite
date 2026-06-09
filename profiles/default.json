@@ -1,77 +1,110 @@
 {
-  "rgb": {
-    "left": {
-      "mode": "static",
-      "color": [
-        255,
-        211,
-        212
-      ]
+  "name": "default",
+  "master_hotkey": "mouse_x2",
+  "emergency_hotkey": "escape",
+  "resume_restore": false,
+  "start_paused": true,
+  "sound_enabled": true,
+  "always_on_top": false,
+  "minimize_to_tray": true,
+  "global_max_cps": 200,
+  "ui_scale": 100,
+  "auto_start_macros": false,
+  "show_splash": false,
+  "theme_pack": "sanctuary",
+  "remember_window": true,
+  "notify_tray": false,
+  "window_x": 77,
+  "window_y": 105,
+  "window_w": 1766,
+  "window_h": 1013,
+  "auto_game_profiles": true,
+  "first_launch_done": true,
+  "api_enabled": true,
+  "macros": [
+    {
+      "id": "m1left",
+      "name": "Auto clic gauche",
+      "trigger": "mouse_left",
+      "action": "click_left",
+      "key": "f1",
+      "cps": 12,
+      "delay_ms": 25,
+      "toggle_mode": "hold",
+      "jitter_pct": 0,
+      "max_clicks": 0,
+      "enabled": true,
+      "sequence": []
     },
-    "right": {
-      "mode": "static",
-      "color": [
-        0,
-        255,
-        120
-      ]
+    {
+      "id": "m2right",
+      "name": "Auto clic droit",
+      "trigger": "mouse_right",
+      "action": "click_right",
+      "key": "1",
+      "cps": 12,
+      "delay_ms": 25,
+      "toggle_mode": "click",
+      "jitter_pct": 0,
+      "max_clicks": 0,
+      "enabled": true,
+      "sequence": []
     },
-    "wheel": {
-      "mode": "static",
-      "color": [
-        0,
-        255,
-        120
-      ]
+    {
+      "id": "d3s1",
+      "name": "D3 — Compétence 1",
+      "trigger": "key_1",
+      "action": "key",
+      "key": "1",
+      "cps": 18,
+      "delay_ms": 45,
+      "toggle_mode": "skill",
+      "jitter_pct": 0,
+      "max_clicks": 0,
+      "enabled": true,
+      "sequence": []
     },
-    "dpi": {
-      "mode": "static",
-      "color": [
-        0,
-        255,
-        120
-      ]
+    {
+      "id": "d3s2",
+      "name": "D3 — Compétence 2",
+      "trigger": "key_2",
+      "action": "key",
+      "key": "2",
+      "cps": 18,
+      "delay_ms": 45,
+      "toggle_mode": "skill",
+      "jitter_pct": 0,
+      "max_clicks": 0,
+      "enabled": true,
+      "sequence": []
     },
-    "side1": {
-      "mode": "breathing",
-      "color": [
-        0,
-        255,
-        120
-      ]
+    {
+      "id": "d3s3",
+      "name": "D3 — Compétence 3",
+      "trigger": "key_3",
+      "action": "key",
+      "key": "3",
+      "cps": 18,
+      "delay_ms": 45,
+      "toggle_mode": "skill",
+      "jitter_pct": 0,
+      "max_clicks": 0,
+      "enabled": true,
+      "sequence": []
     },
-    "side2": {
-      "mode": "rainbow",
-      "color": [
-        255,
-        0,
-        4
-      ]
+    {
+      "id": "d3s4",
+      "name": "D3 — Compétence 4",
+      "trigger": "key_4",
+      "action": "key",
+      "key": "4",
+      "cps": 18,
+      "delay_ms": 45,
+      "toggle_mode": "skill",
+      "jitter_pct": 0,
+      "max_clicks": 0,
+      "enabled": true,
+      "sequence": []
     }
-  },
-  "bindings": {
-    "side1": "Left Click",
-    "right": "Right Click",
-    "left": "Spam (toggle)"
-  },
-  "macro": {
-    "buttons": {
-      "left": {
-        "cps": 5,
-        "delay": 0.026
-      },
-      "right": {
-        "cps": 15,
-        "delay": 0.019
-      },
-      "side1": {
-        "cps": 15,
-        "delay": 0.01
-      },
-      "side2": {
-        "cps": 15,
-        "delay": 0.01
-      }
-    }
-  }
+  ]
 }

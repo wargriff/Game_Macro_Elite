@@ -1,6 +1,6 @@
 from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtGui import QFont
-from PyQt6.QtWidgets import QComboBox, QLabel, QPushButton, QVBoxLayout, QWidget
+from PyQt6.QtWidgets import QButtonGroup, QComboBox, QLabel, QPushButton, QVBoxLayout, QWidget
 
 from ui.styles.diablo_theme import COLORS, SIDEBAR_STYLE
 
@@ -23,6 +23,7 @@ class Sidebar(QWidget):
         self.setObjectName("Sidebar")
         self.setFixedWidth(200)
         self._buttons = {}
+        self._updating = False
         self._build(profiles)
         self.setStyleSheet(SIDEBAR_STYLE)
 
@@ -54,17 +55,21 @@ class Sidebar(QWidget):
         layout.addWidget(self.profile_combo)
         layout.addSpacing(16)
 
+        self._group = QButtonGroup(self)
+        self._group.setExclusive(True)
+
         for label, key in self.SECTIONS:
             btn = QPushButton(label)
             btn.setCheckable(True)
             btn.setProperty("section", key)
             btn.setStyleSheet(self._nav_style(False))
-            btn.clicked.connect(lambda checked, k=key, b=btn: self._select(k, b))
+            self._group.addButton(btn)
+            btn.clicked.connect(lambda checked, k=key: self._on_section_clicked(k))
             self._buttons[key] = btn
             layout.addWidget(btn)
 
         layout.addStretch()
-        self._select("lighting", self._buttons["lighting"])
+        self._select("lighting", emit=False)
 
     def _nav_style(self, active: bool) -> str:
         if active:
@@ -82,11 +87,30 @@ class Sidebar(QWidget):
             f"background:rgba(30,24,16,0.4); }}"
         )
 
-    def _select(self, key: str, btn: QPushButton):
-        for k, b in self._buttons.items():
-            b.setChecked(k == key)
-            b.setStyleSheet(self._nav_style(k == key))
-        self.section_changed.emit(key)
+    def _on_section_clicked(self, key: str):
+        if self._updating:
+            return
+        self._select(key, emit=True)
+
+    def _select(self, key: str, emit: bool = True):
+        if key not in self._buttons:
+            return
+
+        self._updating = True
+        try:
+            self._group.blockSignals(True)
+            for k, btn in self._buttons.items():
+                active = k == key
+                btn.blockSignals(True)
+                btn.setChecked(active)
+                btn.setStyleSheet(self._nav_style(active))
+                btn.blockSignals(False)
+            self._group.blockSignals(False)
+        finally:
+            self._updating = False
+
+        if emit:
+            self.section_changed.emit(key)
 
     def set_profiles(self, profiles: list):
         current = self.profile_combo.currentText()

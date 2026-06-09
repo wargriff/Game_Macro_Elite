@@ -1,6 +1,6 @@
 from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtGui import QFont
-from PyQt6.QtWidgets import QHBoxLayout, QLabel, QPushButton, QWidget
+from PyQt6.QtWidgets import QButtonGroup, QHBoxLayout, QLabel, QPushButton, QWidget
 
 from ui.styles.diablo_theme import COLORS, HEADER_STYLE
 
@@ -23,8 +23,7 @@ class HeaderBar(QWidget):
         self.setObjectName("HeaderBar")
         self.setFixedHeight(52)
         self._tab_buttons = {}
-        self._cps_lbl = None
-        self._engine_lbl = None
+        self._updating = False
         self._build()
         self.setStyleSheet(HEADER_STYLE)
 
@@ -33,11 +32,15 @@ class HeaderBar(QWidget):
         layout.setContentsMargins(12, 0, 12, 0)
         layout.setSpacing(4)
 
+        self._group = QButtonGroup(self)
+        self._group.setExclusive(True)
+
         for label, key in self.TABS:
             btn = QPushButton(label)
             btn.setObjectName("tab")
             btn.setCheckable(True)
-            btn.clicked.connect(lambda _, k=key: self._select_tab(k))
+            self._group.addButton(btn)
+            btn.clicked.connect(lambda checked, k=key: self._on_tab_clicked(k))
             self._tab_buttons[key] = btn
             layout.addWidget(btn)
 
@@ -68,12 +71,30 @@ class HeaderBar(QWidget):
         seal.clicked.connect(self.seal_clicked.emit)
         layout.addWidget(seal)
 
-        self._select_tab("home")
+        self._select_tab("home", emit=False)
 
-    def _select_tab(self, key: str):
-        for k, btn in self._tab_buttons.items():
-            btn.setChecked(k == key)
-        self.tab_changed.emit(key)
+    def _on_tab_clicked(self, key: str):
+        if self._updating:
+            return
+        self._select_tab(key, emit=True)
+
+    def _select_tab(self, key: str, emit: bool = True):
+        if key not in self._tab_buttons:
+            return
+
+        self._updating = True
+        try:
+            self._group.blockSignals(True)
+            for k, btn in self._tab_buttons.items():
+                btn.blockSignals(True)
+                btn.setChecked(k == key)
+                btn.blockSignals(False)
+            self._group.blockSignals(False)
+        finally:
+            self._updating = False
+
+        if emit:
+            self.tab_changed.emit(key)
 
     def update_engine(self, enabled: bool):
         if enabled:

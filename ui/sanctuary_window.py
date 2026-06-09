@@ -145,13 +145,13 @@ class SanctuaryWindow(QMainWindow):
     def _on_section(self, section: str):
         if section in ("performance", "graphing"):
             self.stack.setCurrentIndex(self.PAGE_MAP["dashboard"])
-            self.header._select_tab("dashboard")
+            self.header._select_tab("dashboard", emit=False)
         elif section in ("lighting", "channel1", "channel2"):
             self.stack.setCurrentIndex(self.PAGE_MAP["devices"])
-            self.header._select_tab("devices")
+            self.header._select_tab("devices", emit=False)
         elif section in ("macro1", "macro2"):
             self.stack.setCurrentIndex(self.PAGE_MAP["macros"])
-            self.header._select_tab("macros")
+            self.header._select_tab("macros", emit=False)
             self.macros.focus_section(section)
 
     def _on_profile_change(self, name: str):

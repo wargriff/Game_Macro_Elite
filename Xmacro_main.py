@@ -9,10 +9,20 @@ from services.bootstrap import bootstrap
 from ui.sanctuary_window import SanctuaryWindow
 from ui.splash_screen import SplashScreen
 
+_handling_fatal = False
+
 
 def handle_exception(exc_type, exc_value, exc_tb):
-    print("[FATAL ERROR]")
-    traceback.print_exception(exc_type, exc_value, exc_tb)
+    global _handling_fatal
+    if _handling_fatal:
+        sys.__excepthook__(exc_type, exc_value, exc_tb)
+        return
+    _handling_fatal = True
+    try:
+        print(f"[FATAL] {exc_type.__name__}: {exc_value}", file=sys.stderr)
+        traceback.print_exception(exc_type, exc_value, exc_tb, file=sys.stderr)
+    finally:
+        _handling_fatal = False
 
 
 sys.excepthook = handle_exception

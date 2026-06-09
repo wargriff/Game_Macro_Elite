@@ -7,27 +7,57 @@ from PyQt6.QtCore import QTimer
 from PyQt6.QtWidgets import QApplication
 
 from services.bootstrap import bootstrap
-from ui.sanctuary_window import SanctuaryWindow
+from ui.main_window import MainWindow
+from ui.pages.macros_page import MACRO_KEYS
 from ui.splash_screen import SplashScreen
 from utils.debug import log
 
+_original_excepthook = sys.excepthook
 _handling_fatal = False
 
 
 def handle_exception(exc_type, exc_value, exc_tb):
     global _handling_fatal
     if _handling_fatal:
-        sys.__excepthook__(exc_type, exc_value, exc_tb)
+        try:
+            os.write(2, b"[FATAL] recursion guard — arret\n")
+        except Exception:
+            pass
         return
     _handling_fatal = True
     try:
-        print(f"[FATAL] {exc_type.__name__}: {exc_value}", file=sys.stderr)
-        traceback.print_exception(exc_type, exc_value, exc_tb, file=sys.stderr)
+        msg = f"[FATAL] {exc_type.__name__}: {exc_value}\n"
+        os.write(2, msg.encode("utf-8", errors="replace"))
+        _original_excepthook(exc_type, exc_value, exc_tb)
+    except Exception:
+        pass
     finally:
         _handling_fatal = False
 
 
 sys.excepthook = handle_exception
+
+
+def _ensure_legacy_hooks(window):
+    """Injecte master_combo/name_edit si MainWindow custom local sans ces attrs."""
+    cls = type(window)
+    if isinstance(getattr(cls, "master_combo", None), property):
+        return
+    if isinstance(getattr(cls, "name_edit", None), property):
+        return
+    if hasattr(window, "master_combo") and hasattr(window, "name_edit"):
+        return
+
+    from PyQt6.QtWidgets import QComboBox, QLineEdit
+
+    combo = QComboBox()
+    for _, label in MACRO_KEYS:
+        combo.addItem(label)
+    edit = QLineEdit("default")
+    edit.setReadOnly(True)
+    window.master_combo = combo
+    window.name_edit = edit
+    log("XMACRO", "⚠ hooks legacy injectés (MainWindow custom détecté)")
 
 
 def safe_stop(ctx):
@@ -86,7 +116,11 @@ def main():
         splash.set_progress(95, "Ouverture interface iCUE Sanctuary…")
         app.processEvents()
 
-        window = SanctuaryWindow(ctx.proxy, boot=ctx)
+        window = MainWindow(ctx.proxy, boot=ctx)
+        _ensure_legacy_hooks(window)
+        log("XMACRO", f"MainWindow={type(window).__module__}.{type(window).__name__}")
+        log("XMACRO", f"master_combo={window.master_combo is not None}")
+        log("XMACRO", f"name_edit={window.name_edit is not None}")
         window.show()
         splash.close()
 

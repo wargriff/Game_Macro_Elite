@@ -3,7 +3,15 @@ import webbrowser
 
 from PyQt6.QtCore import QTimer
 from PyQt6.QtGui import QIcon
-from PyQt6.QtWidgets import QHBoxLayout, QLabel, QMainWindow, QStackedWidget, QVBoxLayout
+from PyQt6.QtWidgets import (
+    QComboBox,
+    QHBoxLayout,
+    QLabel,
+    QLineEdit,
+    QMainWindow,
+    QStackedWidget,
+    QVBoxLayout,
+)
 
 from rgb_engine import RGBEngine
 from services.bootstrap import BootContext
@@ -13,7 +21,7 @@ from services.sidecar_api import SidecarAPI
 from ui.pages.dashboard_page import DashboardPage
 from ui.pages.devices_page import DevicesPage
 from ui.pages.home_page import HomePage
-from ui.pages.macros_page import MacrosPage
+from ui.pages.macros_page import MACRO_KEYS, MacrosPage
 from ui.pages.settings_page import SettingsPage
 from ui.styles.diablo_theme import FOOTER_STYLE, GLOBAL_STYLE, WINDOW_SIZE, WINDOW_TITLE
 from ui.widgets.background_widget import BackgroundWidget
@@ -46,6 +54,14 @@ class SanctuaryWindow(QMainWindow):
     ):
         super().__init__()
         self.engine = engine
+
+        # Legacy hooks — créés IMMÉDIATEMENT (code externe y accède avant _build_ui)
+        self._legacy_name_edit = QLineEdit("default")
+        self._legacy_name_edit.setReadOnly(True)
+        self._legacy_master_combo = QComboBox()
+        for _, label in MACRO_KEYS:
+            self._legacy_master_combo.addItem(label)
+
         self.rgb = RGBEngine()
         self.profiles = boot.profiles if boot else ProfileManager()
         if not boot:
@@ -122,10 +138,23 @@ class SanctuaryWindow(QMainWindow):
         root.addWidget(self.footer)
 
         self._connect_mission_control()
+        log("WINDOW", "master_combo/name_edit legacy hooks OK")
 
-        # Attributs directs (compatibilité hooks macro legacy)
-        self.master_combo = self.macros.master_combo
-        self.name_edit = self.macros.name_edit
+    @property
+    def master_combo(self):
+        """Compatibilité code legacy / hooks macro."""
+        macros = getattr(self, "macros", None)
+        if macros is not None and hasattr(macros, "master_combo"):
+            return macros.master_combo
+        return self._legacy_master_combo
+
+    @property
+    def name_edit(self):
+        """Compatibilité code legacy / hooks macro."""
+        macros = getattr(self, "macros", None)
+        if macros is not None and hasattr(macros, "name_edit"):
+            return macros.name_edit
+        return self._legacy_name_edit
 
     def _connect_mission_control(self):
         mission = self.home._tiles.get("mission")

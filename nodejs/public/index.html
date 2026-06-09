@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Mission Control — Node.js</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:"Segoe UI",sans-serif;background:#0a0806;color:#e8dcc8;min-height:100vh;padding:20px}
+    h1{color:#ffd700;font-size:1.3rem;margin-bottom:4px}
+    .sub{color:#a89878;font-size:.85rem;margin-bottom:20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+    .card{background:rgba(18,16,14,.92);border:1px solid #3d2b1f;border-radius:6px;padding:14px}
+    .card h2{color:#c9a227;font-size:.7rem;letter-spacing:1px;margin-bottom:6px}
+    .val{font-size:1.4rem;color:#ffd700;font-weight:bold}
+    .ok{color:#4caf50}.off{color:#ffb300}
+    .badge{display:inline-block;background:#3d2b1f;color:#c9a227;padding:2px 8px;border-radius:4px;font-size:.75rem;margin-bottom:12px}
+  </style>
+</head>
+<body>
+  <span class="badge">Node.js · port 5173</span>
+  <h1>◎ MISSION CONTROL</h1>
+  <p class="sub">Game XClicker Elite · Bridge Node → Python API</p>
+  <div class="grid">
+    <div class="card"><h2>NODE</h2><div class="val ok" id="node">OK</div></div>
+    <div class="card"><h2>MOTEUR</h2><div class="val" id="engine">—</div></div>
+    <div class="card"><h2>MACROS</h2><div class="val" id="active">—</div></div>
+    <div class="card"><h2>CPS</h2><div class="val" id="cps">—</div></div>
+  </div>
+  <script>
+    async function refresh(){
+      try{
+        const h=await fetch("/api/v1/health").then(r=>r.json());
+        document.getElementById("engine").textContent=h.enabled?"ACTIF":"STASE";
+        document.getElementById("engine").className="val "+(h.enabled?"ok":"off");
+        document.getElementById("active").textContent=h.active_macros;
+        document.getElementById("cps").textContent=h.total_cps;
+      }catch(e){
+        document.getElementById("engine").textContent="HORS LIGNE";
+        document.getElementById("engine").className="val off";
+      }
+    }
+    refresh(); setInterval(refresh,2000);
+  </script>
+</body>
+</html>

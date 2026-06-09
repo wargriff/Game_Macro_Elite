@@ -10,6 +10,7 @@ a = Analysis(
         ('assets', 'assets'),
         ('profiles', 'profiles'),
         ('web', 'web'),
+        ('nodejs', 'nodejs'),
     ],
     hiddenimports=[
         'PyQt6.QtCore',

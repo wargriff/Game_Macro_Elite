@@ -9,13 +9,15 @@ from ui.widgets.sensor_panel import SensorPanel
 
 class HomePage(QWidget):
     SIDECAR_URL = "http://127.0.0.1:17840/mission"
+    NODE_URL = "http://127.0.0.1:5173"
     SIDECAR_VERSION = "v2.1.0 · intégré"
 
-    def __init__(self, engine, rgb, sensor_panel: SensorPanel, parent=None):
+    def __init__(self, engine, rgb, sensor_panel: SensorPanel, node=None, parent=None):
         super().__init__(parent)
         self.engine = engine
         self.rgb = rgb
         self.sensor_panel = sensor_panel
+        self.node = node
         self._tiles = {}
         self._build()
 
@@ -51,9 +53,10 @@ class HomePage(QWidget):
             ("keyboard", "CLAVIER", "Bindings clavier", "⌨", 0, 1),
             ("commander", "COMMANDER CORE", "Canaux macro", "⚙", 0, 2),
             ("sidecar", "SIDECAR API", f"{self.SIDECAR_URL}\n{self.SIDECAR_VERSION}", "⬡", 1, 0),
-            ("macro1", "MACRO 1", "Auto clic gauche", "⚡", 1, 1),
-            ("macro2", "MACRO 2", "Auto clic droit", "⚡", 1, 2),
-            ("mission", "MISSION CONTROL", "Vue globale", "◎", 2, 0, 1, 3),
+            ("node", "NODE.JS", f"{self.NODE_URL}\nBridge Mission Control", "⬡", 1, 1),
+            ("macro1", "MACRO 1", "Auto clic gauche", "⚡", 1, 2),
+            ("macro2", "MACRO 2", "Auto clic droit", "⚡", 2, 0),
+            ("mission", "MISSION CONTROL", "Vue globale Node + Python", "◎", 2, 1, 1, 2),
         ]
 
         for item in tiles_def:
@@ -80,11 +83,14 @@ class HomePage(QWidget):
         footer.addWidget(dash_btn)
         root.addLayout(footer)
 
-    def refresh(self, api_online: bool = False):
+    def refresh(self, api_online: bool = False, node_online: bool = False):
         self._tiles["mouse"].set_online(True, "Connecté")
         self._tiles["keyboard"].set_online(True, "Bindings OK")
         self._tiles["commander"].set_online(self.engine.enabled, "Canaux actifs")
         self._tiles["sidecar"].set_online(api_online, f"{self.SIDECAR_URL}\n{self.SIDECAR_VERSION}")
+        if "node" in self._tiles:
+            url = self.NODE_URL if node_online else "Node.js hors ligne"
+            self._tiles["node"].set_online(node_online, f"{url}\nBridge Mission Control")
 
         left_active = self.engine.is_active("left")
         right_active = self.engine.is_active("right")

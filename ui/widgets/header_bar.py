@@ -3,6 +3,7 @@ from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QButtonGroup, QHBoxLayout, QLabel, QPushButton, QWidget
 
 from ui.styles.diablo_theme import COLORS, HEADER_STYLE
+from utils.debug import log
 
 
 class HeaderBar(QWidget):
@@ -23,6 +24,7 @@ class HeaderBar(QWidget):
         self.setObjectName("HeaderBar")
         self.setFixedHeight(52)
         self._tab_buttons = {}
+        self._tab_ids = {}
         self._updating = False
         self._build()
         self.setStyleSheet(HEADER_STYLE)
@@ -35,14 +37,16 @@ class HeaderBar(QWidget):
         self._group = QButtonGroup(self)
         self._group.setExclusive(True)
 
-        for label, key in self.TABS:
+        for idx, (label, key) in enumerate(self.TABS):
             btn = QPushButton(label)
             btn.setObjectName("tab")
             btn.setCheckable(True)
-            self._group.addButton(btn)
-            btn.clicked.connect(lambda checked, k=key: self._on_tab_clicked(k))
+            self._group.addButton(btn, idx)
             self._tab_buttons[key] = btn
+            self._tab_ids[idx] = key
             layout.addWidget(btn)
+
+        self._group.idClicked.connect(self._on_tab_id_clicked)
 
         layout.addStretch()
 
@@ -73,22 +77,24 @@ class HeaderBar(QWidget):
 
         self._select_tab("home", emit=False)
 
-    def _on_tab_clicked(self, key: str):
-        if self._updating:
+    def _on_tab_id_clicked(self, btn_id: int):
+        key = self._tab_ids.get(btn_id)
+        log("HEADER", f"idClicked id={btn_id} key={key}")
+        if self._updating or not key:
+            log("HEADER", "idClicked ignoré (_updating ou key absente)")
             return
-        self._select_tab(key, emit=True)
+        self.tab_changed.emit(key)
 
     def _select_tab(self, key: str, emit: bool = True):
         if key not in self._tab_buttons:
+            log("HEADER", f"_select_tab key={key} INCONNUE")
             return
 
+        log("HEADER", f"_select_tab key={key} emit={emit}")
         self._updating = True
         try:
             self._group.blockSignals(True)
-            for k, btn in self._tab_buttons.items():
-                btn.blockSignals(True)
-                btn.setChecked(k == key)
-                btn.blockSignals(False)
+            self._tab_buttons[key].setChecked(True)
             self._group.blockSignals(False)
         finally:
             self._updating = False

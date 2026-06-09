@@ -27,11 +27,13 @@ class SensorPanel(QWidget):
         self.ram_lbl = self._metric("RAM", "—")
         self.load_lbl = self._metric("Load moteur", "0 macro(s) · CPS 0")
         self.api_lbl = self._metric("API REST", "Hors ligne")
+        self.node_lbl = self._metric("Node.js", "Hors ligne")
 
         grid.addWidget(self.cpu_lbl, 0, 0)
         grid.addWidget(self.ram_lbl, 1, 0)
         grid.addWidget(self.load_lbl, 2, 0)
         grid.addWidget(self.api_lbl, 3, 0)
+        grid.addWidget(self.node_lbl, 4, 0)
         layout.addLayout(grid)
 
         self.rescan_btn = QPushButton("Rescan devices")
@@ -64,6 +66,7 @@ class SensorPanel(QWidget):
         active_macros: int,
         total_cps: int,
         api_online: bool,
+        node_online: bool = False,
     ):
         self._set(self.cpu_lbl, "CPU", f"{cpu:.0f}%")
         self._set(self.ram_lbl, "RAM", f"{ram_used} / {ram_total} Mo")
@@ -76,3 +79,7 @@ class SensorPanel(QWidget):
             self._set(self.api_lbl, "API REST", "En ligne", COLORS["success"])
         else:
             self._set(self.api_lbl, "API REST", "Hors ligne", COLORS["warning"])
+        if node_online:
+            self._set(self.node_lbl, "Node.js", "En ligne :5173", COLORS["success"])
+        else:
+            self._set(self.node_lbl, "Node.js", "Hors ligne", COLORS["warning"])

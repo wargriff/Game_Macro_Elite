@@ -1,3 +1,4 @@
+import os
 import signal
 import sys
 import traceback
@@ -8,6 +9,7 @@ from PyQt6.QtWidgets import QApplication
 from services.bootstrap import bootstrap
 from ui.sanctuary_window import SanctuaryWindow
 from ui.splash_screen import SplashScreen
+from utils.debug import log
 
 _handling_fatal = False
 
@@ -34,12 +36,15 @@ def safe_stop(ctx):
     try:
         ctx.proxy.stop()
         ctx.sidecar.stop()
+        if ctx.node:
+            ctx.node.stop()
     except Exception:
         pass
 
 
 def main():
-    print("[XMACRO] Booting unified launcher…")
+    log("XMACRO", "Booting unified launcher…")
+    print("[XMACRO] Debug logs actifs — XMACRO_DEBUG=0 pour désactiver")
 
     signal.signal(signal.SIGINT, signal.SIG_DFL)
 

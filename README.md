@@ -211,34 +211,47 @@ python Xmacro_main.py
 Le splash Control Center charge automatiquement :
 1. Moteur Win32
 2. Profils
-3. API Sidecar + Mission Control (port 17840)
-4. Interface iCUE Sanctuary
+3. API Sidecar (port 17840)
+4. **Node.js Mission Control** (port 5173) — proxy vers l'API Python
+5. Interface iCUE Sanctuary
 
-Plus besoin de lancer séparément Sidecar, React (5173) ou iCUE.
+`START.bat` lance aussi `npm install` dans `nodejs/` si Node.js est installé.
+
+---
+
+## Debug (PyCharm / terminal)
+
+Les logs `[TAG]` sont **activés par défaut**. Dans la console PyCharm vous verrez :
+
+```
+[WINDOW] _on_tab tab=macros
+[HEADER] idClicked id=3 key=macros
+[MACROS_PAGE] showEvent — page visible
+```
+
+Pour désactiver : `set XMACRO_DEBUG=0` avant le lancement.
 
 ---
 
 # Lancement (développement)
 
 ```bash
+pip install -r requirements.txt
+cd nodejs && npm install && cd ..
 python Xmacro_main.py
 ```
+
+Node.js est recherché dans : `C:\src\node.exe`, `C:\Program Files\nodejs\node.exe`, ou `PATH`.
+Variable optionnelle : `XCLICKER_NODE_PATH=C:\src\node.exe`
 
 ---
 
 ## Mission Control Web
 
-Intégré dans l'API Sidecar — **pas de Node.js requis** au runtime.
+- **Node.js (prioritaire)** : `http://127.0.0.1:5173` — dashboard + proxy `/api` → Python
+- **Sidecar Python (fallback)** : `http://127.0.0.1:17840/mission`
 
-- URL : `http://127.0.0.1:17840/mission`
-- Clic sur tuile **Mission Control** ou **Sidecar API** dans l'UI
-
-Dev optionnel (Node.js dans `C:\src`) :
-
-```bash
-cd web/mission-control
-npm run dev
-```
+Clic sur tuile **Mission Control**, **Node.js** ou **Sidecar API** dans l'UI.
 
 ---
 

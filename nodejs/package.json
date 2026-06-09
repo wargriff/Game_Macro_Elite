@@ -1,0 +1,15 @@
+{
+  "name": "xclicker-node-bridge",
+  "version": "2.1.0",
+  "private": true,
+  "description": "Mission Control + API bridge for Game XClicker Elite",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "http-proxy-middleware": "^3.0.0"
+  }
+}

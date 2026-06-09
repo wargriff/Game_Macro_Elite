@@ -7,6 +7,7 @@ from PyQt6.QtWidgets import QHBoxLayout, QLabel, QMainWindow, QStackedWidget, QV
 
 from rgb_engine import RGBEngine
 from services.bootstrap import BootContext
+from services.node_bridge import NodeBridge
 from services.profile_manager import ProfileManager
 from services.sidecar_api import SidecarAPI
 from ui.pages.dashboard_page import DashboardPage
@@ -19,6 +20,7 @@ from ui.widgets.background_widget import BackgroundWidget
 from ui.widgets.header_bar import HeaderBar
 from ui.widgets.sensor_panel import SensorPanel
 from ui.widgets.sidebar import Sidebar
+from utils.debug import log, log_exc
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BG_PATH = os.path.join(BASE_DIR, "assets", "bg", "diablo_bg.svg")
@@ -55,10 +57,20 @@ class SanctuaryWindow(QMainWindow):
         if not boot:
             self.sidecar.start()
 
+        self.node = boot.node if boot else None
+        if not boot:
+            self.node = NodeBridge()
+            self.node.start()
+
         self._navigating = False
         self._build_ui()
         self._wire_events()
         self._sync_profile_name()
+        log(
+            "WINDOW",
+            f"init OK sidecar={self.sidecar.online} node="
+            f"{self.node.online if self.node else False}",
+        )
 
     def _build_ui(self):
         self.setWindowTitle(WINDOW_TITLE)
@@ -85,7 +97,7 @@ class SanctuaryWindow(QMainWindow):
 
         self.stack = QStackedWidget()
         self.sensor_panel = SensorPanel()
-        self.home = HomePage(self.engine, self.rgb, self.sensor_panel)
+        self.home = HomePage(self.engine, self.rgb, self.sensor_panel, node=self.node)
         self.dashboard = DashboardPage(self.engine)
         self.devices = DevicesPage(self.engine, self.rgb)
         self.macros = MacrosPage(self.engine)
@@ -118,13 +130,23 @@ class SanctuaryWindow(QMainWindow):
     def _connect_mission_control(self):
         mission = self.home._tiles.get("mission")
         sidecar = self.home._tiles.get("sidecar")
+        node = self.home._tiles.get("node")
         if mission:
             mission.clicked.connect(self._open_mission_control)
         if sidecar:
             sidecar.clicked.connect(self._open_mission_control)
+        if node:
+            node.clicked.connect(self._open_mission_control)
+
+    def _mission_url(self) -> str:
+        if self.node and self.node.online:
+            return self.node.URL
+        return self.sidecar.MISSION_URL
 
     def _open_mission_control(self):
-        webbrowser.open(self.sidecar.MISSION_URL)
+        url = self._mission_url()
+        log("WINDOW", f"Mission Control → {url}")
+        webbrowser.open(url)
 
     def _wire_events(self):
         self.header.tab_changed.connect(self._on_tab)
@@ -148,6 +170,7 @@ class SanctuaryWindow(QMainWindow):
         self.macros.set_profile_name(self.profiles.current_name)
 
     def _on_tab(self, tab: str):
+        log("WINDOW", f"_on_tab tab={tab} navigating={self._navigating}")
         if self._navigating:
             return
         idx = self.PAGE_MAP.get(tab, 0)
@@ -156,10 +179,20 @@ class SanctuaryWindow(QMainWindow):
             self.stack.blockSignals(True)
             self.stack.setCurrentIndex(idx)
             self.stack.blockSignals(False)
+            if tab == "macros":
+                self.sidebar._select("macro1", emit=False)
+            elif tab == "devices":
+                self.sidebar._select("lighting", emit=False)
+            elif tab == "dashboard":
+                self.sidebar._select("performance", emit=False)
+            log("WINDOW", f"_on_tab OK index={idx}")
+        except Exception as exc:
+            log_exc("WINDOW", exc)
         finally:
             self._navigating = False
 
     def _on_section(self, section: str):
+        log("WINDOW", f"_on_section section={section} navigating={self._navigating}")
         if self._navigating:
             return
         self._navigating = True
@@ -173,9 +206,19 @@ class SanctuaryWindow(QMainWindow):
             elif section in ("macro1", "macro2"):
                 self.stack.setCurrentIndex(self.PAGE_MAP["macros"])
                 self.header._select_tab("macros", emit=False)
-                self.macros.focus_section(section)
+                QTimer.singleShot(0, lambda s=section: self._focus_macro_section(s))
+            log("WINDOW", f"_on_section OK section={section}")
+        except Exception as exc:
+            log_exc("WINDOW", exc)
         finally:
             self._navigating = False
+
+    def _focus_macro_section(self, section: str):
+        log("WINDOW", f"_focus_macro_section section={section}")
+        try:
+            self.macros.focus_section(section)
+        except Exception as exc:
+            log_exc("WINDOW", exc)
 
     def _on_profile_change(self, name: str):
         self.profiles.load(name)
@@ -216,19 +259,31 @@ class SanctuaryWindow(QMainWindow):
             return 0.0, 0, 0
 
     def refresh_all(self):
+        if self._navigating:
+            return
         try:
             cpu, ram_used, ram_total = self._get_system_stats()
             total_cps = self.engine.get_total_cps()
             active = self.engine.count_active_macros()
+            node_online = self.node.online if self.node else False
 
             self.header.update_engine(self.engine.enabled)
             self.header.update_cps(total_cps)
             self.sensor_panel.update_stats(
-                cpu, ram_used, ram_total, active, total_cps, self.sidecar.online
+                cpu,
+                ram_used,
+                ram_total,
+                active,
+                total_cps,
+                self.sidecar.online,
+                node_online=node_online,
             )
 
             current = self.stack.currentWidget()
-            self.home.refresh(api_online=self.sidecar.online)
+            self.home.refresh(
+                api_online=self.sidecar.online,
+                node_online=node_online,
+            )
             if current == self.dashboard:
                 self.dashboard.refresh()
             elif current == self.devices:
@@ -236,11 +291,14 @@ class SanctuaryWindow(QMainWindow):
             elif current == self.macros:
                 self.macros.refresh()
         except Exception as exc:
-            print(f"[UI] refresh error: {exc}")
+            log_exc("WINDOW", exc)
 
     def closeEvent(self, event):
+        log("WINDOW", "closeEvent — arrêt moteur + services")
         self.engine.running = False
         self.sidecar.stop()
+        if self.node:
+            self.node.stop()
         event.accept()
 
 

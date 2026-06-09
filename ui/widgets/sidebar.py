@@ -3,6 +3,7 @@ from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QButtonGroup, QComboBox, QLabel, QPushButton, QVBoxLayout, QWidget
 
 from ui.styles.diablo_theme import COLORS, SIDEBAR_STYLE
+from utils.debug import log
 
 
 class Sidebar(QWidget):
@@ -23,6 +24,7 @@ class Sidebar(QWidget):
         self.setObjectName("Sidebar")
         self.setFixedWidth(200)
         self._buttons = {}
+        self._section_ids = {}
         self._updating = False
         self._build(profiles)
         self.setStyleSheet(SIDEBAR_STYLE)
@@ -58,15 +60,17 @@ class Sidebar(QWidget):
         self._group = QButtonGroup(self)
         self._group.setExclusive(True)
 
-        for label, key in self.SECTIONS:
+        for idx, (label, key) in enumerate(self.SECTIONS):
             btn = QPushButton(label)
             btn.setCheckable(True)
             btn.setProperty("section", key)
             btn.setStyleSheet(self._nav_style(False))
-            self._group.addButton(btn)
-            btn.clicked.connect(lambda checked, k=key: self._on_section_clicked(k))
+            self._group.addButton(btn, idx)
             self._buttons[key] = btn
+            self._section_ids[idx] = key
             layout.addWidget(btn)
+
+        self._group.idClicked.connect(self._on_section_id_clicked)
 
         layout.addStretch()
         self._select("lighting", emit=False)
@@ -87,24 +91,30 @@ class Sidebar(QWidget):
             f"background:rgba(30,24,16,0.4); }}"
         )
 
-    def _on_section_clicked(self, key: str):
-        if self._updating:
+    def _on_section_id_clicked(self, btn_id: int):
+        key = self._section_ids.get(btn_id)
+        log("SIDEBAR", f"idClicked id={btn_id} key={key}")
+        if self._updating or not key:
+            log("SIDEBAR", "idClicked ignoré (_updating ou key absente)")
             return
-        self._select(key, emit=True)
+        self._apply_section_style(key)
+        self.section_changed.emit(key)
+
+    def _apply_section_style(self, key: str):
+        for k, btn in self._buttons.items():
+            btn.setStyleSheet(self._nav_style(k == key))
 
     def _select(self, key: str, emit: bool = True):
         if key not in self._buttons:
+            log("SIDEBAR", f"_select key={key} INCONNUE")
             return
 
+        log("SIDEBAR", f"_select key={key} emit={emit}")
         self._updating = True
         try:
             self._group.blockSignals(True)
-            for k, btn in self._buttons.items():
-                active = k == key
-                btn.blockSignals(True)
-                btn.setChecked(active)
-                btn.setStyleSheet(self._nav_style(active))
-                btn.blockSignals(False)
+            self._buttons[key].setChecked(True)
+            self._apply_section_style(key)
             self._group.blockSignals(False)
         finally:
             self._updating = False

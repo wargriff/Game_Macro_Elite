@@ -2,49 +2,59 @@
 
 ```
 Game_XClicker_Elite/
-├── launcher/              # Launcher bureau (.exe)
-│   ├── desktop_main.py    # Fenêtre native + interface JS
-│   └── LAUNCH_DESKTOP.bat
+├── START.bat              # Lanceur Windows (double-clic)
+├── REPARER.bat            # Sync GitHub + deps + lancement
+├── CLONE_FRESH.bat        # Installation propre depuis zero
+├── main.py                # Point d'entree PyCharm
+├── gxclicker.py           # Application (moteur + fenetre web)
+├── build.spec             # PyInstaller → .exe
 ├── ui-web/                # Interface iCUE (HTML/CSS/JS)
 │   ├── index.html
 │   ├── css/
 │   └── js/
 ├── assets/
-│   ├── brand/             # Icône .exe, favicon SOURIS WARGRIFF
-│   ├── ui/icons/          # Icônes navigation
-│   ├── ui/backgrounds/
-│   └── devices/
-├── core/                  # Moteur Win32 (Python)
-├── services/              # API Sidecar, Node bridge, profils
-├── nodejs/                # Serveur UI (port 5173)
+│   └── brand/             # Icone SOURIS WARGRIFF, favicon
+├── core/                  # Moteur Win32 macros
+├── services/              # API Sidecar :17840, Node bridge :5173
+├── nodejs/                # Proxy UI (optionnel)
 ├── profiles/              # Profils JSON
-└── scripts/
-    ├── BUILD_EXE.bat      # Compile Game_XClicker_Elite.exe
-    └── CREATE_DESKTOP_SHORTCUT.ps1
+├── config/                # Chemins assets, runtime
+├── scripts/               # generate_icon.py, etc.
+└── pycharm/               # Config Run PyCharm a importer
 ```
 
-## Lancement rapide (Windows)
+## Lancement
 
-```powershell
-START.bat                    # Interface JS iCUE (recommandé)
-launcher\LAUNCH_DESKTOP.bat  # Idem
-START.bat → choix 2          # PyQt legacy
+| Action | Commande |
+|--------|----------|
+| Usage quotidien | Double-clic `START.bat` |
+| Premiere install / reparation | `REPARER.bat` |
+| Clone propre | `CLONE_FRESH.bat` |
+| PyCharm | Script `main.py` |
+| Navigateur seul | `START.bat browser` |
+| Build .exe | `START.bat build` |
+
+## Architecture
+
+```
+START.bat → main.py → gxclicker.py
+                          ├─ core/ MacroManager (Win32)
+                          ├─ services/sidecar_api.py  → http://127.0.0.1:17840
+                          ├─ services/node_bridge.py  → http://127.0.0.1:5173 (optionnel)
+                          └─ pywebview ou navigateur
 ```
 
-## .exe bureau avec icône SOURIS WARGRIFF
-
-1. Copiez vos PNG dans `assets/brand/` (favicon-96x96.png, etc.)
-2. `python scripts/generate_icon.py`
-3. `scripts\BUILD_EXE.bat`
-4. `scripts\CREATE_DESKTOP_SHORTCUT.ps1`
-
-## 6 macros (sidebar sous LIGHTING CHANNEL 2)
+## 6 macros (sidebar)
 
 | Sidebar | Touche |
 |---------|--------|
-| MACRO 1 — Clic gauche | left |
-| MACRO 2 — Clic droit | right |
-| MACRO 3 — Touche 1 | 1 |
-| MACRO 4 — Touche 2 | 2 |
-| MACRO 5 — Touche 3 | 3 |
-| MACRO 6 — Touche 4 | 4 |
+| MACRO 1 | left |
+| MACRO 2 | right |
+| MACRO 3 | 1 |
+| MACRO 4 | 2 |
+| MACRO 5 | 3 |
+| MACRO 6 | 4 |
+
+## PyQt legacy (optionnel)
+
+`Xmacro_main.py` + dossier `ui/` = ancienne interface PyQt6. Non utilise par `START.bat`.

@@ -4,35 +4,69 @@
   <img src="assets/favicon/favicon.svg" width="80" alt="Game_XClicker_Elite Logo">
 </p>
 
-<h1 align="center">Game XClicker Elite — Sanctuary Edition</h1>
+<h1 align="center">Game XClicker Elite — iCUE Edition</h1>
 
 <p align="center">
-  Macro avancée pour souris et clavier orientée gaming.<br>
-  Interface pro style iCUE avec thème Diablo 4.<br>
-  Optimisée pour des jeux comme <strong>Diablo IV</strong>.
+  Macro souris / clavier Win32 · Interface web style Corsair iCUE · 6 macros sidebar<br>
+  Windows · Python 3.12 · Node.js optionnel (<code>C:\src\node.exe</code>)
 </p>
+
+---
+
+# Réinstallation PyCharm (propre)
+
+## 1. Supprimer l'ancien projet
+
+Dans PyCharm : **File → Close Project**
+
+Supprimez le dossier local (exemple) :
+
+```text
+C:\Users\wargriff\Pycharm_Project_v 3.12\Game_XClicker_Elite
+```
+
+## 2. Réinstaller depuis GitHub
+
+**Option A — script automatique (recommandé)**
+
+Double-cliquez `CLONE_FRESH.bat` (télécharge depuis GitHub puis lance `REPARER.bat`).
+
+**Option B — manuel**
+
+```cmd
+cd /d "C:\Users\wargriff\Pycharm_Project_v 3.12"
+git clone https://github.com/wargriff/Game_XClicker_Elite.git
+cd Game_XClicker_Elite
+REPARER.bat
+```
+
+## 3. Ouvrir dans PyCharm
+
+1. **File → Open** → dossier `Game_XClicker_Elite`
+2. Interpréteur : Python 3.12 (venv parent `..\.venv` ou créez `.venv`)
+3. **Run → Edit Configurations → Import** → `pycharm/Game_XClicker_Elite.run.xml`
+4. Script : **`main.py`** — cliquez Run ▶
+
+## 4. Lancement quotidien
+
+Double-clic **`START.bat`** (sans PyCharm).
 
 ---
 
 # Aperçu
 
-Game_XClicker_Elite est une application desktop Python avec interface PyQt6 permettant de :
+Application desktop Windows :
 
-* automatiser les clics souris
-* automatiser certaines touches clavier
-* gérer plusieurs profils
-* contrôler les CPS (Clicks Per Second)
-* appliquer des délais personnalisés
-* activer/désactiver des macros en temps réel
-* utiliser un mode "Game Safe"
-* surveiller les performances en direct
+* moteur macro Win32 (clics souris, touches clavier)
+* interface web iCUE (`ui-web/`) dans une fenêtre native ou le navigateur
+* API Sidecar Python port **17840**
+* serveur Node.js port **5173** (optionnel, proxy UI)
+* 6 macros configurables dans la sidebar
+* profils JSON
 
-L'application utilise une architecture séparée :
-
-* moteur Win32 bas niveau
-* interface PyQt6 moderne
-* système de profils JSON
-* moteur RGB personnalisable
+```
+START.bat → main.py → gxclicker.py → moteur + API + fenêtre web
+```
 
 ---
 
@@ -157,7 +191,9 @@ Game_XClicker_Elite/
 ├── tests/
 │   └── test_ui.py
 │
-├── Xmacro_main.py
+├── main.py
+├── gxclicker.py
+├── START.bat
 ├── build.spec
 ├── requirements.txt
 └── README.md
@@ -167,92 +203,69 @@ Game_XClicker_Elite/
 
 # Installation
 
-## 1. Cloner le projet
+## Windows — installation automatique
 
-```bash
+```cmd
 git clone https://github.com/wargriff/Game_XClicker_Elite.git
 cd Game_XClicker_Elite
+REPARER.bat
 ```
 
----
+`REPARER.bat` installe les dépendances Python, Node.js (`C:\src`), vérifie les fichiers et lance l'app.
 
-## 2. Créer un environnement virtuel
+## Manuel
 
-### Windows
-
-```bash
+```cmd
 python -m venv .venv
-```
-
-Activation :
-
-```bash
 .venv\Scripts\activate
-```
-
----
-
-## 3. Installer les dépendances
-
-```bash
 pip install -r requirements.txt
+cd nodejs && npm install && cd ..
+python main.py
 ```
+
+Vérification : `python CHECK_VERSION.py` → doit afficher **PRET**.
 
 ---
 
 # Lancement
 
-**Un seul lanceur** — double-cliquez `START.bat` ou :
+| Méthode | Commande |
+|---------|----------|
+| Windows (recommandé) | Double-clic **`START.bat`** |
+| PyCharm | Run **`main.py`** |
+| Navigateur seul | `START.bat browser` |
+| Build .exe | `START.bat build` |
 
-```bash
-python Xmacro_main.py
-```
+Au démarrage :
 
-Le splash Control Center charge automatiquement :
-1. Moteur Win32
-2. Profils
-3. API Sidecar (port 17840)
-4. **Node.js Mission Control** (port 5173) — proxy vers l'API Python
-5. Interface iCUE Sanctuary
+1. Moteur Win32 + profils
+2. API Sidecar → `http://127.0.0.1:17840`
+3. Node.js (si installé) → `http://127.0.0.1:5173`
+4. Fenêtre iCUE (pywebview) ou fallback navigateur
 
-`START.bat` lance aussi `npm install` dans `nodejs/` si Node.js est installé.
+Node.js : `C:\src\node.exe`, `Program Files\nodejs`, ou `PATH`.  
+Variable : `XCLICKER_NODE_PATH=C:\src\node.exe`
 
 ---
 
-## Debug (PyCharm / terminal)
+## PyCharm
 
-Les logs `[TAG]` sont **activés par défaut**. Le **Sanctuary Bot** commente les erreurs avec fichier, ligne et conseil IA :
+1. Script : **`main.py`**
+2. Working directory : racine du projet
+3. Import config : `pycharm/Game_XClicker_Elite.run.xml`
+4. Ou double-clic **`PYCHARM_SETUP.bat`**
 
-```
-🤖 [Sanctuary Bot] DIAGNOSTIC ERREUR
-   Erreur : AttributeError
-   Fichier : ui/sanctuary_window.py:142
-   Conseil IA : git pull origin cursor/sanctuary-diablo-ui-9626
-```
-
-### PyCharm — configuration obligatoire
-
-1. Script : `Xmacro_main.py`
-2. Variable d'environnement :
-   ```
-   PYTHONSTARTUP=C:\...\Game_XClicker_Elite\utils\autopatch.py
-   ```
-3. Ou double-clique `PYCHARM_SETUP.bat` pour voir les instructions.
-
-Désactiver le bot : `set XMACRO_BOT=0`
+Ne pas utiliser : `run.py`, `Xmacro_main.py` (legacy).
 
 ---
 
 # Lancement (développement)
 
-```bash
+```cmd
 pip install -r requirements.txt
 cd nodejs && npm install && cd ..
-python Xmacro_main.py
+python main.py
 ```
-
-Node.js est recherché dans : `C:\src\node.exe`, `C:\Program Files\nodejs\node.exe`, ou `PATH`.
-Variable optionnelle : `XCLICKER_NODE_PATH=C:\src\node.exe`
 
 ---
 
@@ -293,21 +306,14 @@ pip install pyinstaller
 
 ## Build (recommandé)
 
-```bash
-pyinstaller build.spec
+```cmd
+START.bat build
 ```
 
 Le build sera généré dans :
 
 ```text
-dist/Game_XClicker_Elite.exe
-```
-
-## Build rapide
-
-```bash
-pyinstaller --onefile --windowed --name Game_XClicker_Elite ^
-  --add-data "assets;assets" --add-data "profiles;profiles" Xmacro_main.py
+dist/Game XClicker Elite/Game XClicker Elite.exe
 ```
 
 ---

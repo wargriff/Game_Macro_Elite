@@ -46,7 +46,7 @@ def main() -> int:
     print()
     if not ok:
         print("INCOMPLET — double-cliquez REPARER.bat")
-        print("  ou: git pull origin cursor/icue-web-launcher-9626")
+        print("  ou: git pull origin main")
     else:
         print("PRET — double-clic START.bat")
         print("PyCharm script: main.py")

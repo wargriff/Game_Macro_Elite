@@ -37,22 +37,22 @@ copy /Y "profiles\default.json" "_backup_local\default.json.bak" 2>nul
 copy /Y "profiles\default_game.json" "_backup_local\default_game.json.bak" 2>nul
 
 echo.
-echo [1/6] git fetch origin cursor/icue-web-launcher-9626 ...
-git fetch origin cursor/icue-web-launcher-9626
+echo [1/6] git fetch origin main ...
+git fetch origin main
 if errorlevel 1 (
     echo ERREUR git fetch — verifiez internet et git
     pause
     exit /b 1
 )
 
-echo [2/6] Bascule sur la branche corrigee (ecrase fichiers locaux) ...
-git checkout -B cursor/icue-web-launcher-9626 origin/cursor/icue-web-launcher-9626
+echo [2/6] Bascule sur main (ecrase fichiers locaux) ...
+git checkout -B main origin/main
 if errorlevel 1 (
     echo checkout echoue — nettoyage ...
     git clean -fd
-    git checkout -B cursor/icue-web-launcher-9626 origin/cursor/icue-web-launcher-9626
+    git checkout -B main origin/main
 )
-git reset --hard origin/cursor/icue-web-launcher-9626
+git reset --hard origin/main
 
 echo [3/6] Verification fichiers essentiels ...
 set "MISSING=0"

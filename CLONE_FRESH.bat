@@ -23,8 +23,8 @@ if exist "%TARGET%" (
     exit /b 1
 )
 
-echo Clone branche cursor/icue-web-launcher-9626 ...
-git clone -b cursor/icue-web-launcher-9626 https://github.com/wargriff/Game_XClicker_Elite.git "%TARGET%"
+echo Clone branche main ...
+git clone https://github.com/wargriff/Game_XClicker_Elite.git "%TARGET%"
 if errorlevel 1 (
     echo Clone echoue.
     pause

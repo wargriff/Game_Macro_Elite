@@ -6,7 +6,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { execSync } = require("child_process");
+const { spawnSync } = require("child_process");
 const { applyFixes } = require("./fixer");
 
 const COLORS = {
@@ -28,14 +28,40 @@ function log(level, msg, extra = "") {
   console.log(`${color}[AI-${level}]${COLORS.reset} ${msg}${suffix}`);
 }
 
+function resolveOnPath(cmd) {
+  if (path.isAbsolute(cmd)) {
+    return fs.existsSync(cmd) ? path.resolve(cmd) : null;
+  }
+  const pathEnv = process.env.PATH || process.env.Path || "";
+  const sep = process.platform === "win32" ? ";" : ":";
+  const ext = process.platform === "win32" ? ".exe" : "";
+  for (const dir of pathEnv.split(sep)) {
+    if (!dir) continue;
+    for (const candidate of [path.join(dir, cmd + ext), path.join(dir, cmd)]) {
+      if (fs.existsSync(candidate)) return path.resolve(candidate);
+    }
+  }
+  return null;
+}
+
+function validateProjectRoot(projectRoot) {
+  const resolved = path.resolve(projectRoot);
+  if (!fs.existsSync(resolved) || !fs.statSync(resolved).isDirectory()) {
+    throw new Error(`project_root invalide: ${projectRoot}`);
+  }
+  return resolved;
+}
+
 function parseArgs() {
   const args = process.argv.slice(2);
   const opts = { project: process.cwd(), fix: false, watch: false };
   for (let i = 0; i < args.length; i++) {
-    if (args[i] === "--project" && args[i + 1]) opts.project = path.resolve(args[++i]);
-    else if (args[i] === "--fix") opts.fix = true;
+    if (args[i] === "--project" && args[i + 1]) {
+      opts.project = validateProjectRoot(args[++i]);
+    } else if (args[i] === "--fix") opts.fix = true;
     else if (args[i] === "--watch") opts.watch = true;
   }
+  opts.project = validateProjectRoot(opts.project);
   return opts;
 }
 
@@ -61,13 +87,17 @@ function checkMergeConflicts(content, file) {
 }
 
 function checkPythonSyntax(file, pythonBin) {
-  try {
-    execSync(`"${pythonBin}" -m py_compile "${file}"`, { stdio: "pipe", timeout: 10000 });
-    return null;
-  } catch (err) {
-    const stderr = err.stderr ? err.stderr.toString() : err.message;
-    return { file, type: "syntax_error", severity: "error", detail: stderr.trim() };
+  const safeFile = path.resolve(file);
+  if (!safeFile.endsWith(".py") || !fs.existsSync(safeFile)) {
+    return { file, type: "syntax_error", severity: "error", detail: "fichier Python invalide" };
   }
+  const result = spawnSync(pythonBin, ["-m", "py_compile", safeFile], {
+    stdio: "pipe",
+    timeout: 10000,
+  });
+  if (result.status === 0) return null;
+  const stderr = result.stderr ? result.stderr.toString() : result.error?.message || "py_compile failed";
+  return { file, type: "syntax_error", severity: "error", detail: stderr.trim() };
 }
 
 function checkPatterns(content, file) {
@@ -91,15 +121,21 @@ function findPython() {
     ? ["python", "python3", "py"]
     : ["python3", "python"];
   for (const bin of candidates) {
-    try {
-      execSync(`${bin} --version`, { stdio: "pipe" });
-      return bin;
-    } catch (_) {}
+    const resolved = resolveOnPath(bin);
+    if (!resolved) continue;
+    const result = spawnSync(resolved, ["--version"], { stdio: "pipe", timeout: 5000 });
+    if (result.status === 0) return resolved;
   }
-  return "python";
+  return null;
 }
 
 function analyze(projectRoot, doFix) {
+  projectRoot = validateProjectRoot(projectRoot);
+  const pythonBin = findPython();
+  if (!pythonBin) {
+    log("ERR", "Python introuvable sur le PATH");
+    return { issues: [], fixResults: [], ok: false };
+  }
   log("AI", `Analyse du projet: ${projectRoot}`);
   const skip = [".git", "__pycache__", "node_modules", ".venv"];
   const pyFiles = walkDir(projectRoot, [".py"], skip);
@@ -126,7 +162,7 @@ function analyze(projectRoot, doFix) {
 
     if (content.includes("<<<<<<<")) fixable.push(rel);
     if (file.endsWith(".py")) {
-      const syntaxErr = checkPythonSyntax(file, findPython());
+      const syntaxErr = checkPythonSyntax(file, pythonBin);
       if (syntaxErr) issues.push({ ...syntaxErr, file: rel });
     }
   }
@@ -140,7 +176,7 @@ function analyze(projectRoot, doFix) {
     }
     for (const file of fixable) {
       const full = path.join(projectRoot, file);
-      const err = checkPythonSyntax(full, findPython());
+      const err = checkPythonSyntax(full, pythonBin);
       if (err) {
         issues.push({ ...err, file, type: "syntax_error_after_fix" });
       }

@@ -2,6 +2,7 @@
 
 import json
 import os
+import shutil
 import subprocess
 import threading
 import urllib.error
@@ -12,6 +13,21 @@ from core.debug_log import log
 
 NODE_PORT = 17841
 NODE_URL = f"http://127.0.0.1:{NODE_PORT}"
+
+_PROJECT_BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def validate_project_root(project_root: str) -> str:
+    resolved = os.path.realpath(os.path.abspath(project_root))
+    base = os.path.realpath(_PROJECT_BASE)
+    if not (
+        resolved == base
+        or resolved.startswith(base + os.sep)
+    ):
+        raise ValueError(f"project_root hors du projet: {project_root}")
+    if not os.path.isdir(resolved):
+        raise ValueError(f"project_root introuvable: {project_root}")
+    return resolved
 
 
 class NodeSidecar:
@@ -94,8 +110,13 @@ class NodeSidecar:
             return {"ok": False, "error": "Node.js introuvable"}
 
         try:
+            safe_root = validate_project_root(project_root)
+        except ValueError as exc:
+            return {"ok": False, "error": str(exc)}
+
+        try:
             result = subprocess.run(
-                [node_bin, "analyzer.js", "--project", project_root, "--fix"],
+                [node_bin, "analyzer.js", "--project", safe_root, "--fix"],
                 cwd=self.node_dir,
                 capture_output=True,
                 text=True,
@@ -143,37 +164,34 @@ class NodeSidecar:
 _sidecar: Optional[NodeSidecar] = None
 
 
+def _resolve_absolute_executable(path: str) -> Optional[str]:
+    if os.path.isabs(path) and os.path.isfile(path):
+        return os.path.realpath(path)
+    return None
+
+
 def find_node_binary() -> Optional[str]:
     import platform
 
-    candidates = []
-
     if platform.system() == "Windows":
-        candidates.extend([
+        for candidate in (
             r"C:\src\node.exe",
             r"C:\src\node\node.exe",
             r"C:\Program Files\nodejs\node.exe",
-        ])
-    candidates.extend(["node", "nodejs"])
+        ):
+            resolved = _resolve_absolute_executable(candidate)
+            if resolved:
+                return resolved
 
-    for candidate in candidates:
-        try:
-            result = subprocess.run(
-                [candidate, "--version"],
-                capture_output=True,
-                text=True,
-                timeout=5,
-            )
-            if result.returncode == 0:
-                return candidate
-        except (FileNotFoundError, subprocess.TimeoutExpired, OSError):
-            continue
+    which_node = shutil.which("node") or shutil.which("nodejs")
+    if which_node and os.path.isfile(which_node):
+        return os.path.realpath(which_node)
+
     return None
 
 
 def resolve_node_dir() -> str:
     import platform
-    import shutil
 
     base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     local_dir = os.path.join(base, "nodejs", "ai-guardian")

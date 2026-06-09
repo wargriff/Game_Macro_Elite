@@ -1,5 +1,3 @@
-"""Sanctuary Edition main window — iCUE-style layout with Diablo 4 theme."""
-
 import os
 import webbrowser
 
@@ -28,6 +26,8 @@ ICON_PATH = os.path.join(BASE_DIR, "assets", "favicon", "favicon.svg")
 
 
 class SanctuaryWindow(QMainWindow):
+    """Main Sanctuary UI — also exposed as MainWindow for compatibility."""
+
     PAGE_MAP = {
         "home": 0,
         "dashboard": 1,
@@ -55,8 +55,10 @@ class SanctuaryWindow(QMainWindow):
         if not boot:
             self.sidecar.start()
 
+        self._navigating = False
         self._build_ui()
         self._wire_events()
+        self._sync_profile_name()
 
     def _build_ui(self):
         self.setWindowTitle(WINDOW_TITLE)
@@ -109,6 +111,16 @@ class SanctuaryWindow(QMainWindow):
 
         self._connect_mission_control()
 
+    @property
+    def master_combo(self):
+        """Legacy hook used by macro refresh handlers."""
+        return self.macros.master_combo
+
+    @property
+    def name_edit(self):
+        """Legacy hook used by macro refresh handlers."""
+        return self.macros.name_edit
+
     def _connect_mission_control(self):
         mission = self.home._tiles.get("mission")
         sidecar = self.home._tiles.get("sidecar")
@@ -138,30 +150,49 @@ class SanctuaryWindow(QMainWindow):
         self.rgb_timer.timeout.connect(self._update_rgb)
         self.rgb_timer.start(50)
 
+    def _sync_profile_name(self):
+        self.macros.set_profile_name(self.profiles.current_name)
+
     def _on_tab(self, tab: str):
+        if self._navigating:
+            return
         idx = self.PAGE_MAP.get(tab, 0)
-        self.stack.setCurrentIndex(idx)
+        self._navigating = True
+        try:
+            self.stack.blockSignals(True)
+            self.stack.setCurrentIndex(idx)
+            self.stack.blockSignals(False)
+        finally:
+            self._navigating = False
 
     def _on_section(self, section: str):
-        if section in ("performance", "graphing"):
-            self.stack.setCurrentIndex(self.PAGE_MAP["dashboard"])
-            self.header._select_tab("dashboard", emit=False)
-        elif section in ("lighting", "channel1", "channel2"):
-            self.stack.setCurrentIndex(self.PAGE_MAP["devices"])
-            self.header._select_tab("devices", emit=False)
-        elif section in ("macro1", "macro2"):
-            self.stack.setCurrentIndex(self.PAGE_MAP["macros"])
-            self.header._select_tab("macros", emit=False)
-            self.macros.focus_section(section)
+        if self._navigating:
+            return
+        self._navigating = True
+        try:
+            if section in ("performance", "graphing"):
+                self.stack.setCurrentIndex(self.PAGE_MAP["dashboard"])
+                self.header._select_tab("dashboard", emit=False)
+            elif section in ("lighting", "channel1", "channel2"):
+                self.stack.setCurrentIndex(self.PAGE_MAP["devices"])
+                self.header._select_tab("devices", emit=False)
+            elif section in ("macro1", "macro2"):
+                self.stack.setCurrentIndex(self.PAGE_MAP["macros"])
+                self.header._select_tab("macros", emit=False)
+                self.macros.focus_section(section)
+        finally:
+            self._navigating = False
 
     def _on_profile_change(self, name: str):
         self.profiles.load(name)
         self.profiles.apply_to_engine(self.engine.manager)
         self.profiles.apply_to_rgb(self.rgb)
+        self.macros.set_profile_name(name)
         self._on_profile_loaded()
 
     def _on_profile_loaded(self):
         self.profiles.apply_to_rgb(self.rgb)
+        self._sync_profile_name()
         self.refresh_all()
 
     def _on_macro_toggle(self, key: str, active: bool):
@@ -191,21 +222,33 @@ class SanctuaryWindow(QMainWindow):
             return 0.0, 0, 0
 
     def refresh_all(self):
-        cpu, ram_used, ram_total = self._get_system_stats()
-        total_cps = self.engine.get_total_cps()
-        active = self.engine.count_active_macros()
+        try:
+            cpu, ram_used, ram_total = self._get_system_stats()
+            total_cps = self.engine.get_total_cps()
+            active = self.engine.count_active_macros()
 
-        self.header.update_engine(self.engine.enabled)
-        self.header.update_cps(total_cps)
-        self.sensor_panel.update_stats(
-            cpu, ram_used, ram_total, active, total_cps, self.sidecar.online
-        )
-        self.home.refresh(api_online=self.sidecar.online)
-        self.dashboard.refresh()
-        self.devices.refresh()
-        self.macros.refresh()
+            self.header.update_engine(self.engine.enabled)
+            self.header.update_cps(total_cps)
+            self.sensor_panel.update_stats(
+                cpu, ram_used, ram_total, active, total_cps, self.sidecar.online
+            )
+
+            current = self.stack.currentWidget()
+            self.home.refresh(api_online=self.sidecar.online)
+            if current == self.dashboard:
+                self.dashboard.refresh()
+            elif current == self.devices:
+                self.devices.refresh()
+            elif current == self.macros:
+                self.macros.refresh()
+        except Exception as exc:
+            print(f"[UI] refresh error: {exc}")
 
     def closeEvent(self, event):
         self.engine.running = False
         self.sidecar.stop()
         event.accept()
+
+
+# Compatibility alias — legacy code imports MainWindow
+MainWindow = SanctuaryWindow

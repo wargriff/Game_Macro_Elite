@@ -62,7 +62,7 @@ class SidecarAPI:
                     self._html(200, sidecar._load_mission_html())
                     return
 
-                if path in ("/health", "/api/health"):
+                if path in ("/health", "/api/health", "/api/v1/health"):
                     self._json(200, {
                         "status": "ok",
                         "version": version,

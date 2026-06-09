@@ -1,5 +1,7 @@
-from ui.main_window import MainWindow
+"""UI entry points — Sanctuary Edition."""
 
-UI = MainWindow
+from ui.sanctuary_window import MainWindow, SanctuaryWindow
 
-__all__ = ["MainWindow", "UI"]
+UI = SanctuaryWindow
+
+__all__ = ["MainWindow", "SanctuaryWindow", "UI"]

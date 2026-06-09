@@ -24,6 +24,7 @@ class MacroPanel(QWidget):
         self.engine = engine
         self.key = key
         self.presets = presets or {}
+        self._syncing = False
         self._build(show_burst)
 
     def _build(self, show_burst: bool):
@@ -63,6 +64,8 @@ class MacroPanel(QWidget):
             layout.addLayout(burst_row)
 
         def update_all():
+            if self._syncing:
+                return
             cps = self.cps_slider.value()
             delay = self.delay_slider.value() / 1000
             micro = self.micro_slider.value() / 1_000_000
@@ -103,26 +106,47 @@ class MacroPanel(QWidget):
 
     def _make_burst_handler(self, val: int) -> Callable:
         def handler():
-            for v, btn in self.burst_buttons:
-                btn.setChecked(v == val)
-            self.engine.set_burst_count(self.key, val)
+            if self._syncing:
+                return
+            self._syncing = True
+            try:
+                for v, btn in self.burst_buttons:
+                    btn.blockSignals(True)
+                    btn.setChecked(v == val)
+                    btn.blockSignals(False)
+                self.engine.set_burst_count(self.key, val)
+            finally:
+                self._syncing = False
         return handler
 
     def sync_from_engine(self):
         btn = self.engine.buttons.get(self.key)
         if not btn:
             return
-        self.cps_slider.blockSignals(True)
-        self.delay_slider.blockSignals(True)
-        self.cps_slider.setValue(btn.cps)
-        self.delay_slider.setValue(int(btn.delay * 1000))
-        self.cps_label.setText(f"CPS {btn.cps}")
-        self.delay_label.setText(f"{int(btn.delay * 1000)} ms")
-        self.cps_slider.blockSignals(False)
-        self.delay_slider.blockSignals(False)
-        burst = self.engine.get_burst_count(self.key)
-        for v, b in self.burst_buttons:
-            b.setChecked(v == burst)
+
+        self._syncing = True
+        try:
+            self.cps_slider.blockSignals(True)
+            self.delay_slider.blockSignals(True)
+            self.micro_slider.blockSignals(True)
+            self.slow_btn.blockSignals(True)
+
+            self.cps_slider.setValue(btn.cps)
+            self.delay_slider.setValue(int(btn.delay * 1000))
+            self.cps_label.setText(f"CPS {btn.cps}")
+            self.delay_label.setText(f"{int(btn.delay * 1000)} ms")
+
+            burst = self.engine.get_burst_count(self.key)
+            for v, b in self.burst_buttons:
+                b.blockSignals(True)
+                b.setChecked(v == burst)
+                b.blockSignals(False)
+        finally:
+            self.cps_slider.blockSignals(False)
+            self.delay_slider.blockSignals(False)
+            self.micro_slider.blockSignals(False)
+            self.slow_btn.blockSignals(False)
+            self._syncing = False
 
     def _apply_preset(self, cps: int, delay_ms: int):
         self.cps_slider.setValue(cps)

@@ -187,11 +187,29 @@ pip install -r requirements.txt
 
 # Lancement
 
+## Windows (recommandé — avec IA Guardian Node.js)
+
+Double-cliquez sur `starter.bat` ou dans le terminal PyCharm :
+
+```bat
+cd Game_XClicker_Elite
+starter.bat
+```
+
+Le starter lance automatiquement :
+1. **IA Guardian** (Node.js depuis `C:\src`) — analyse et corrige le projet
+2. **Xmacro_main.py** — l'application principale
+
+## Lancement manuel
+
 ```bash
 cd Game_XClicker_Elite
 pip install -r requirements.txt
 python Xmacro_main.py
 ```
+
+> L'IA Guardian cherche Node.js dans `C:\src\node.exe` puis `C:\src\ai-guardian\`.
+> Les modules sont copiés automatiquement vers `C:\src\ai-guardian\` au premier lancement.
 
 ---
 

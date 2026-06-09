@@ -1,0 +1,13 @@
+{
+  "name": "xmacro-ai-guardian",
+  "version": "1.0.0",
+  "description": "IA Guardian — analyse et corrige le projet XMacro",
+  "main": "analyzer.js",
+  "scripts": {
+    "analyze": "node analyzer.js --fix",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

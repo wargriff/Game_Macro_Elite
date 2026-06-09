@@ -3,6 +3,7 @@ import threading
 import time
 from typing import Callable, Dict, Optional
 
+from core.debug_log import log
 from core.models import Btn, Stats
 from core.win32_input import (
     MOUSEEVENTF_LEFTDOWN,
@@ -65,6 +66,7 @@ class BaseEngine:
 
     def toggle_global(self):
         self.enabled = not self.enabled
+        log("ENGINE", "toggle_global", enabled=self.enabled)
 
     def _register(self, key):
         s = self.stats[key]
@@ -160,6 +162,7 @@ class MouseEngine(BaseEngine):
 
         if btn.active:
             self._fire_burst(key)
+        log("TOGGLE", f"{key} macro", active=btn.active)
         self._notify_toggle(key, btn.active)
 
     def _start(self):

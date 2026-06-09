@@ -1,5 +1,3 @@
-# file: ui.py
-
 import os
 
 from PyQt6.QtCore import Qt, QTimer
@@ -8,6 +6,8 @@ from PyQt6.QtWidgets import (
     QWidget, QLabel, QVBoxLayout, QHBoxLayout,
     QSlider, QPushButton, QComboBox
 )
+
+from core.debug_log import log
 
 
 class UI(QWidget):
@@ -33,19 +33,19 @@ class UI(QWidget):
 
         main = QHBoxLayout()
 
-        # LEFT
         left = QVBoxLayout()
         left.addWidget(self._title("RGB"))
 
         self.rgb_labels = []
-        for _ in range(6):
+        self.rgb_zone_names = ["left", "right", "wheel", "dpi", "side1", "side2"]
+        for name in self.rgb_zone_names:
             lbl = QLabel("■")
             lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
             lbl.setFont(QFont("Consolas", 14))
+            lbl.setObjectName(name)
             self.rgb_labels.append(lbl)
             left.addWidget(lbl)
 
-        # CENTER
         center = QVBoxLayout()
 
         self.status = QLabel("OFF")
@@ -59,16 +59,15 @@ class UI(QWidget):
         center.addWidget(self.img)
 
         toggle_btn = QPushButton("TOGGLE")
-        toggle_btn.clicked.connect(self.engine.toggle)
+        toggle_btn.clicked.connect(self._on_toggle)
         toggle_btn.setFixedHeight(40)
         center.addWidget(toggle_btn)
 
-        # RIGHT
         right = QVBoxLayout()
         right.addWidget(self._title("CONTROLS"))
 
         self.selector = QComboBox()
-        self.selector.addItems(["left", "right", "1", "2", "3", "4"])  # FIX
+        self.selector.addItems(["left", "right", "1", "2", "3", "4"])
         right.addWidget(self.selector)
 
         right.addWidget(self._control())
@@ -80,7 +79,6 @@ class UI(QWidget):
 
         self.setLayout(main)
 
-        # sync on change
         self.selector.currentTextChanged.connect(self._sync_sliders)
 
         self.timer = QTimer()
@@ -88,6 +86,11 @@ class UI(QWidget):
         self.timer.start(200)
 
         self._sync_sliders()
+        log("UI", "interface ready")
+
+    def _on_toggle(self):
+        log("UI", "TOGGLE button clicked")
+        self.engine.toggle()
 
     def _title(self, text):
         w = QWidget()
@@ -112,35 +115,31 @@ class UI(QWidget):
         title = QLabel("GLOBAL")
         title.setStyleSheet("color:#00ffaa;font-weight:bold;")
 
-        # CPS
         self.cps_label = QLabel()
         self.cps_slider = QSlider(Qt.Orientation.Horizontal)
-        self.cps_slider.setRange(1, 200)  # 🔥 plus large
+        self.cps_slider.setRange(1, 200)
 
-        # DELAY (ms)
         self.delay_label = QLabel()
         self.delay_slider = QSlider(Qt.Orientation.Horizontal)
-        self.delay_slider.setRange(1, 1000)  # 🔥 jusqu'à 1 seconde
+        self.delay_slider.setRange(1, 1000)
 
-        # MICRO DELAY (µs)
         self.micro_label = QLabel("fine 0 µs")
         self.micro_slider = QSlider(Qt.Orientation.Horizontal)
         self.micro_slider.setRange(0, 1000)
 
-        # MODE SLOW
         self.slow_btn = QPushButton("ULTRA SLOW")
         self.slow_btn.setCheckable(True)
 
         def update_all():
             key = self.selector.currentText()
-
             cps = self.cps_slider.value()
             delay = self.delay_slider.value() / 1000
             micro = self.micro_slider.value() / 1_000_000
 
             if self.slow_btn.isChecked():
-                cps = max(1, cps // 10)  # 🔥 divise vitesse
+                cps = max(1, cps // 10)
 
+            log("UI", f"slider change {key}", cps=cps, delay_ms=int(delay * 1000))
             self.engine.set_cps(key, cps)
             self.engine.set_delay(key, delay + micro)
 
@@ -153,7 +152,6 @@ class UI(QWidget):
         self.micro_slider.valueChanged.connect(update_all)
         self.slow_btn.toggled.connect(update_all)
 
-        # PRESETS
         presets = QHBoxLayout()
         PRESETS = {
             "SAFE": (4, 150),
@@ -164,12 +162,11 @@ class UI(QWidget):
 
         for name, (c, d) in PRESETS.items():
             btn = QPushButton(name)
-            btn.clicked.connect(lambda _, c=c, d=d: self._apply_preset(c, d))
+            btn.clicked.connect(lambda _, c=c, d=d, n=name: self._apply_preset(c, d, n))
             presets.addWidget(btn)
 
         self.live = QLabel("REAL CPS: 0")
 
-        # layout
         box.addWidget(title)
 
         row1 = QHBoxLayout()
@@ -198,8 +195,10 @@ class UI(QWidget):
         btn = self.engine.buttons.get(key)
 
         if not btn:
+            log("UI", f"sync skipped — unknown key {key}")
             return
 
+        log("UI", f"sync sliders for {key}", cps=btn.cps, delay=btn.delay)
         self.cps_slider.blockSignals(True)
         self.delay_slider.blockSignals(True)
 
@@ -212,7 +211,8 @@ class UI(QWidget):
         self.cps_slider.blockSignals(False)
         self.delay_slider.blockSignals(False)
 
-    def _apply_preset(self, c, d):
+    def _apply_preset(self, c, d, name):
+        log("UI", f"preset {name}", cps=c, delay_ms=d)
         self.cps_slider.setValue(c)
         self.delay_slider.setValue(d)
 
@@ -226,7 +226,8 @@ class UI(QWidget):
             self.img.setText("NO IMAGE")
 
     def closeEvent(self, event):
-        self.engine.running = False
+        log("UI", "window closing — stopping engine")
+        self.engine.stop()
         event.accept()
 
     def update_ui(self):
@@ -239,5 +240,10 @@ class UI(QWidget):
 
         key = self.selector.currentText()
         cps = self.engine.get_real_cps(key)
-
         self.live.setText(f"REAL CPS: {cps}")
+
+        if self.rgb:
+            self.rgb.update()
+            for lbl, zone in zip(self.rgb_labels, self.rgb_zone_names):
+                color = self.rgb.get_color(zone)
+                lbl.setStyleSheet(f"color: rgb({color.red()},{color.green()},{color.blue()});")

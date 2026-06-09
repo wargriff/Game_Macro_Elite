@@ -4,6 +4,7 @@ cd /d "%~dp0"
 
 echo ========================================
 echo   Game XClicker Elite — SOURIS WARGRIFF
+echo   Entree: gxclicker.py (pas run.py)
 echo ========================================
 
 REM --- Node.js C:\src (votre installation) ---
@@ -36,18 +37,8 @@ if not exist "gxclicker.py" (
     exit /b 1
 )
 
-REM --- Cree/repare run.py + main.py (PyCharm compat) ---
-if not exist "scripts\repair_launchers.py" (
-    echo ERREUR: scripts\repair_launchers.py absent — git pull
-    pause
-    exit /b 1
-)
-"%PY%" scripts\repair_launchers.py
-if not exist "run.py" (
-    echo ERREUR: impossible de creer run.py
-    pause
-    exit /b 1
-)
+REM --- Fix conflit ui.py / dossier ui/ ---
+"%PY%" -c "import sys; sys.path.insert(0,r'%~dp0.'); from utils.bootstrap import ensure_project_ready; ensure_project_ready()" 2>nul
 
 if /I "%~1"=="build" goto build
 if /I "%~1"=="browser" goto runbrowser

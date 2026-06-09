@@ -9,9 +9,6 @@ sys.path.insert(0, ROOT)
 FILES = [
     "START.bat",
     "gxclicker.py",
-    "run.py",
-    "main.py",
-    "scripts/repair_launchers.py",
     "build.spec",
     "config/asset_system.py",
     "ui-web/index.html",
@@ -20,8 +17,15 @@ FILES = [
 ]
 
 DEAD = [
-    "launch.py", "BUILD.bat", "FIX_START.bat",
-    "launchers/START.bat", "Xmacro_main.bat", "xmacro_game.bat",
+    "run.py",
+    "main.py",
+    "launch.py",
+    "BUILD.bat",
+    "FIX_START.bat",
+    "scripts/repair_launchers.py",
+    "launchers/START.bat",
+    "Xmacro_main.bat",
+    "xmacro_game.bat",
 ]
 
 
@@ -41,9 +45,8 @@ def main() -> int:
             ok = False
     if os.path.isfile(os.path.join(ROOT, "ui.py")):
         print("[WARN] ui.py present — START.bat le renomme")
-    run_py = os.path.join(ROOT, "run.py")
-    if not os.path.isfile(run_py):
-        print("[WARN] run.py absent — lancez START.bat ou: python scripts/repair_launchers.py")
+    print("\nLancement: START.bat  ou  python gxclicker.py")
+    print("PyCharm script: gxclicker.py  (PAS run.py)")
     print("\nPRET" if ok else "\nINCOMPLET")
     return 0 if ok else 1
 

@@ -179,7 +179,8 @@ Activation :
 ## 3. Installer les dépendances
 
 ```bash
-pip install PyQt6
+cd Game_XClicker_Elite
+pip install -r requirements.txt
 ```
 
 ---
@@ -187,6 +188,8 @@ pip install PyQt6
 # Lancement
 
 ```bash
+cd Game_XClicker_Elite
+pip install -r requirements.txt
 python Xmacro_main.py
 ```
 

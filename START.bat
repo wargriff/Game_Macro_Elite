@@ -36,8 +36,18 @@ if not exist "gxclicker.py" (
     exit /b 1
 )
 
-REM --- Repare run.py / main.py anciens (ui.asset_system) ---
-"%PY%" scripts\repair_launchers.py 2>nul
+REM --- Cree/repare run.py + main.py (PyCharm compat) ---
+if not exist "scripts\repair_launchers.py" (
+    echo ERREUR: scripts\repair_launchers.py absent — git pull
+    pause
+    exit /b 1
+)
+"%PY%" scripts\repair_launchers.py
+if not exist "run.py" (
+    echo ERREUR: impossible de creer run.py
+    pause
+    exit /b 1
+)
 
 if /I "%~1"=="build" goto build
 if /I "%~1"=="browser" goto runbrowser

@@ -3,6 +3,7 @@ title Game XClicker Elite — Sanctuary Edition
 cd /d "%~dp0"
 
 set XMACRO_DEBUG=1
+set PYTHONSTARTUP=%~dp0utils\autopatch.py
 
 if exist "nodejs\package.json" (
     echo [START] Verification dependances Node.js...

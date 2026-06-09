@@ -3,16 +3,20 @@ import signal
 import sys
 import traceback
 
-# Correctif global AVANT PyQt / UI (master_combo + name_edit)
+# Correctif global AVANT PyQt / UI (master_combo + name_edit + Sanctuary Bot)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import utils.legacy_patch  # noqa: F401, E402
 
-print("[XMACRO] launcher sanctuary v2.1 — si absent, mauvais script PyCharm!", flush=True)
+# autopatch = legacy_patch + diagnostic bot (aussi via PYTHONSTARTUP)
+import utils.autopatch  # noqa: F401, E402
+import utils.legacy_patch
+
+print("[XMACRO] launcher sanctuary v2.2 + Sanctuary Bot — OK si vous voyez ce message", flush=True)
 
 from PyQt6.QtCore import QTimer
 from PyQt6.QtWidgets import QApplication
 
 from services.bootstrap import bootstrap
+from services.api_monitor import ApiMonitor
 from ui.main_window import MainWindow
 from ui.pages.macros_page import MACRO_KEYS
 from ui.splash_screen import SplashScreen
@@ -23,17 +27,14 @@ _handling_fatal = False
 
 
 def handle_exception(exc_type, exc_value, exc_tb):
+    """Fallback si autopatch n'a pas pris la main."""
     global _handling_fatal
     if _handling_fatal:
-        try:
-            os.write(2, b"[FATAL] recursion guard — arret\n")
-        except Exception:
-            pass
         return
     _handling_fatal = True
     try:
-        msg = f"[FATAL] {exc_type.__name__}: {exc_value}\n"
-        os.write(2, msg.encode("utf-8", errors="replace"))
+        from utils.diagnostic_bot import explain_exception
+        explain_exception(exc_type, exc_value, exc_tb)
         _original_excepthook(exc_type, exc_value, exc_tb)
     except Exception:
         pass
@@ -42,6 +43,14 @@ def handle_exception(exc_type, exc_value, exc_tb):
 
 
 sys.excepthook = handle_exception
+
+
+def _make_api_timer(app, callback):
+    from PyQt6.QtCore import QTimer
+
+    t = QTimer()
+    t.timeout.connect(callback)
+    return t
 
 
 def _ensure_legacy_hooks(window):
@@ -112,6 +121,7 @@ def main():
 
     ctx = None
     exit_code = 0
+    api_monitor = None
 
     try:
         def on_progress(percent: int, message: str):
@@ -123,15 +133,25 @@ def main():
         app.processEvents()
 
         window = MainWindow(ctx.proxy, boot=ctx)
+        utils.legacy_patch.hook_mainwindow_import()
+        utils.legacy_patch.ensure_instance_legacy(window)
         _ensure_legacy_hooks(window)
         log("XMACRO", f"MainWindow={type(window).__module__}.{type(window).__name__}")
         log("XMACRO", f"master_combo={window.master_combo is not None}")
         log("XMACRO", f"name_edit={window.name_edit is not None}")
+
+        from utils import diagnostic_bot
+        diagnostic_bot.say("Fenêtre principale OK — master_combo et name_edit présents", "OK")
+
+        api_monitor = ApiMonitor(window)
+        api_monitor.start(lambda cb: _make_api_timer(app, cb))
         window.show()
         splash.close()
 
         def shutdown():
             print("[XMACRO] Shutting down…")
+            if api_monitor:
+                api_monitor.stop()
             safe_stop(ctx)
 
         app.aboutToQuit.connect(shutdown)
@@ -143,6 +163,11 @@ def main():
         exit_code = 1
 
     finally:
+        try:
+            if api_monitor:
+                api_monitor.stop()
+        except Exception:
+            pass
         safe_stop(ctx)
         print("[XMACRO] Exit complete")
 

@@ -221,15 +221,25 @@ Le splash Control Center charge automatiquement :
 
 ## Debug (PyCharm / terminal)
 
-Les logs `[TAG]` sont **activés par défaut**. Dans la console PyCharm vous verrez :
+Les logs `[TAG]` sont **activés par défaut**. Le **Sanctuary Bot** commente les erreurs avec fichier, ligne et conseil IA :
 
 ```
-[WINDOW] _on_tab tab=macros
-[HEADER] idClicked id=3 key=macros
-[MACROS_PAGE] showEvent — page visible
+🤖 [Sanctuary Bot] DIAGNOSTIC ERREUR
+   Erreur : AttributeError
+   Fichier : ui/sanctuary_window.py:142
+   Conseil IA : git pull origin cursor/sanctuary-diablo-ui-9626
 ```
 
-Pour désactiver : `set XMACRO_DEBUG=0` avant le lancement.
+### PyCharm — configuration obligatoire
+
+1. Script : `Xmacro_main.py`
+2. Variable d'environnement :
+   ```
+   PYTHONSTARTUP=C:\...\Game_XClicker_Elite\utils\autopatch.py
+   ```
+3. Ou double-clique `PYCHARM_SETUP.bat` pour voir les instructions.
+
+Désactiver le bot : `set XMACRO_BOT=0`
 
 ---
 

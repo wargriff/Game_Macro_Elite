@@ -8,6 +8,8 @@ sys.path.insert(0, ROOT)
 
 REQUIRED = [
     ("utils/legacy_patch.py", "apply_legacy_patch"),
+    ("utils/diagnostic_bot.py", "Sanctuary Bot"),
+    ("utils/autopatch.py", "autopatch"),
     ("utils/debug.py", "def log"),
     ("ui/sanctuary_window.py", "def master_combo"),
     ("ui/main_window.py", "SanctuaryWindow"),

@@ -1,13 +1,14 @@
 # Game_XClicker_Elite
 
 <p align="center">
-  <img src="assets/icon.png" width="140" alt="Game_XClicker_Elite Logo">
+  <img src="assets/favicon/favicon.svg" width="80" alt="Game_XClicker_Elite Logo">
 </p>
 
-<h1 align="center">Game_XClicker_Elite</h1>
+<h1 align="center">Game XClicker Elite — Sanctuary Edition</h1>
 
 <p align="center">
   Macro avancée pour souris et clavier orientée gaming.<br>
+  Interface pro style iCUE avec thème Diablo 4.<br>
   Optimisée pour des jeux comme <strong>Diablo IV</strong>.
 </p>
 
@@ -81,12 +82,15 @@ L'application utilise une architecture séparée :
 
 ---
 
-## UI PyQt6
+## UI Sanctuary Edition (PyQt6)
 
-* interface moderne
-* affichage CPS réel
-* boutons interactifs
-* état live des macros
+* interface pro style Corsair iCUE
+* thème Diablo 4 (or, sang, fond gothique)
+* grille de tuiles devices / macros
+* sidebar profils + navigation
+* capteurs CPU / RAM / CPS en temps réel
+* API Sidecar REST locale (port 17840)
+* onglets HOME, DASHBOARD, DEVICES, MACROS, SETTINGS
 
 ---
 
@@ -126,11 +130,26 @@ Système RGB intégré pour effets visuels et feedback utilisateur.
 Game_XClicker_Elite/
 │
 ├── assets/
+│   ├── bg/diablo_bg.svg
 │   ├── favicon/
-│   ├── icon.png
-│   ├── mouse.png
-│   ├── razer_image.jpg
-│   └── 6views.png
+│   ├── icons/
+│   └── mouse.svg
+│
+├── core/
+│   ├── engine.py
+│   ├── models.py
+│   └── win32_input.py
+│
+├── services/
+│   ├── engine_proxy.py
+│   ├── profile_manager.py
+│   └── sidecar_api.py
+│
+├── ui/
+│   ├── sanctuary_window.py
+│   ├── pages/
+│   ├── widgets/
+│   └── styles/diablo_theme.py
 │
 ├── profiles/
 │   └── default.json
@@ -139,11 +158,8 @@ Game_XClicker_Elite/
 │   └── test_ui.py
 │
 ├── Xmacro_main.py
-├── ui.py
-├── config_ui.py
-├── engine_win32.py
-├── rgb_engine.py
-├── .gitignore
+├── build.spec
+├── requirements.txt
 └── README.md
 ```
 
@@ -179,7 +195,7 @@ Activation :
 ## 3. Installer les dépendances
 
 ```bash
-pip install PyQt6
+pip install -r requirements.txt
 ```
 
 ---
@@ -210,22 +226,31 @@ Vous pouvez :
 
 # Compilation EXE
 
+Sur **Windows** uniquement (API Win32).
+
 ## Installer PyInstaller
 
 ```bash
 pip install pyinstaller
 ```
 
-## Build
+## Build (recommandé)
 
 ```bash
-pyinstaller --onefile --windowed Xmacro_main.py
+pyinstaller build.spec
 ```
 
 Le build sera généré dans :
 
 ```text
-dist/
+dist/Game_XClicker_Elite.exe
+```
+
+## Build rapide
+
+```bash
+pyinstaller --onefile --windowed --name Game_XClicker_Elite ^
+  --add-data "assets;assets" --add-data "profiles;profiles" Xmacro_main.py
 ```
 
 ---

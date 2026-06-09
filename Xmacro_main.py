@@ -7,7 +7,7 @@ from PyQt6.QtWidgets import QApplication
 
 from core.engine import MacroManager
 from services.engine_proxy import EngineProxy
-from ui.main_window import MainWindow
+from ui.sanctuary_window import SanctuaryWindow
 
 
 def handle_exception(exc_type, exc_value, exc_tb):
@@ -44,7 +44,7 @@ def main():
     try:
         manager = MacroManager()
         proxy = EngineProxy(manager)
-        window = MainWindow(proxy, "assets/mouse.svg")
+        window = SanctuaryWindow(proxy, "assets/mouse.svg")
         window.show()
 
         def shutdown():

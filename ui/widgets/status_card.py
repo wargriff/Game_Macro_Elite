@@ -2,7 +2,7 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QLabel, QVBoxLayout, QWidget
 
-from ui.styles import CARD_STYLE
+from ui.styles.diablo_theme import CARD_STYLE, COLORS
 
 
 class StatusCard(QWidget):
@@ -13,7 +13,7 @@ class StatusCard(QWidget):
 
         self.title = QLabel(title)
         self.title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.title.setStyleSheet("color:#00ff88;font-weight:bold;font-size:12px;")
+        self.title.setStyleSheet(f"color:{COLORS['gold']};font-weight:bold;font-size:12px;")
 
         self.status = QLabel("OFF")
         self.status.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -21,7 +21,7 @@ class StatusCard(QWidget):
 
         self.detail = QLabel("")
         self.detail.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.detail.setStyleSheet("color:#888888;font-size:12px;")
+        self.detail.setStyleSheet(f"color:{COLORS['parchment_dim']};font-size:12px;")
 
         layout.addWidget(self.title)
         layout.addWidget(self.status)
@@ -31,18 +31,18 @@ class StatusCard(QWidget):
     def set_global(self, enabled: bool):
         if enabled:
             self.status.setText("ON")
-            self.status.setStyleSheet("color:#00ff88;")
+            self.status.setStyleSheet(f"color:{COLORS['success']};")
         else:
             self.status.setText("OFF")
-            self.status.setStyleSheet("color:#ff3366;")
+            self.status.setStyleSheet(f"color:{COLORS['danger']};")
 
     def set_active(self, active: bool, label: str = ""):
         if active:
             self.status.setText("ACTIF")
-            self.status.setStyleSheet("color:#00ff88;")
+            self.status.setStyleSheet(f"color:{COLORS['gold_bright']};")
         else:
             self.status.setText("INACTIF")
-            self.status.setStyleSheet("color:#ff3366;")
+            self.status.setStyleSheet(f"color:{COLORS['parchment_dim']};")
         if label:
             self.detail.setText(label)
 

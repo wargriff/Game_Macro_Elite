@@ -51,8 +51,8 @@ class OptionsConfig:
 
 @dataclass
 class UIConfig:
-    window_title: str = "XMacro Elite PRO"
-    size: Tuple[int, int] = (1200, 720)
+    window_title: str = "Game XClicker Elite — iCUE Control"
+    size: Tuple[int, int] = (1280, 780)
     keys: List[str] = field(default_factory=lambda: [
         "left", "right", "1", "2", "3", "4"
     ])

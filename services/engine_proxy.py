@@ -66,3 +66,13 @@ class EngineProxy:
     def is_active(self, key) -> bool:
         btn = self.buttons.get(key)
         return btn.active if btn else False
+
+    def count_active_macros(self) -> int:
+        return sum(1 for b in self.buttons.values() if b.active)
+
+    def get_total_cps(self) -> int:
+        total = 0
+        for key in self.buttons:
+            if self.is_active(key):
+                total += self.get_real_cps(key)
+        return total

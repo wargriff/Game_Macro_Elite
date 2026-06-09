@@ -39,27 +39,16 @@ class NodeBridge:
         log("NODE", "Node.js introuvable — installez-le ou définissez XCLICKER_NODE_PATH")
         return None
 
-    def _ensure_deps(self):
+    def _ensure_deps(self) -> bool:
         node_modules = os.path.join(NODE_DIR, "node_modules")
         if os.path.isdir(node_modules):
             return True
-        npm = shutil.which("npm") or r"C:\src\npm.cmd"
-        if not os.path.isfile(npm) and not shutil.which("npm"):
-            log("NODE", "npm introuvable — lancez: cd nodejs && npm install")
-            return False
-        log("NODE", "Installation des dépendances npm…")
-        try:
-            subprocess.run(
-                [npm, "install", "--prefix", NODE_DIR],
-                cwd=NODE_DIR,
-                check=True,
-                capture_output=True,
-                timeout=120,
-            )
-            return True
-        except Exception as exc:
-            log("NODE", f"npm install échoué: {exc}")
-            return False
+        log(
+            "NODE",
+            "node_modules absent — lancez d'abord: cd nodejs && npm install\n"
+            "         (Node sera ignoré au démarrage, l'app Python fonctionne quand même)",
+        )
+        return False
 
     def start(self):
         if not self.node_exe:

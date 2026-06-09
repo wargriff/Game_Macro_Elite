@@ -42,7 +42,22 @@ def safe_stop(ctx):
         pass
 
 
+def _print_build_info():
+    root = os.path.dirname(os.path.abspath(__file__))
+    has_node = os.path.isdir(os.path.join(root, "nodejs"))
+    has_debug = os.path.isfile(os.path.join(root, "utils", "debug.py"))
+    print(f"[XMACRO] Build check — nodejs/={has_node} utils/debug.py={has_debug}")
+    if not has_node or not has_debug:
+        print(
+            "[XMACRO] ⚠ Version ancienne détectée !\n"
+            "[XMACRO]   git fetch origin\n"
+            "[XMACRO]   git checkout cursor/sanctuary-diablo-ui-9626\n"
+            "[XMACRO]   git pull origin cursor/sanctuary-diablo-ui-9626"
+        )
+
+
 def main():
+    _print_build_info()
     log("XMACRO", "Booting unified launcher…")
     print("[XMACRO] Debug logs actifs — XMACRO_DEBUG=0 pour désactiver")
 

@@ -55,12 +55,11 @@ def _make_api_timer(app, callback):
 
 def _ensure_legacy_hooks(window):
     """Injecte master_combo/name_edit si MainWindow custom local sans ces attrs."""
-    cls = type(window)
-    if isinstance(getattr(cls, "master_combo", None), property):
+    if "master_combo" in getattr(window, "__dict__", {}) and "name_edit" in getattr(
+        window, "__dict__", {}
+    ):
         return
-    if isinstance(getattr(cls, "name_edit", None), property):
-        return
-    if hasattr(window, "master_combo") and hasattr(window, "name_edit"):
+    if getattr(window, "master_combo", None) and getattr(window, "name_edit", None):
         return
 
     from PyQt6.QtWidgets import QComboBox, QLineEdit

@@ -64,6 +64,10 @@ class SanctuaryWindow(QMainWindow):
         for _, label in MACRO_KEYS:
             self._legacy_master_combo.addItem(label)
 
+        # Attributs RÉELS dès t=0 (pas @property — ancien code lit __dict__)
+        self.master_combo = self._legacy_master_combo
+        self.name_edit = self._legacy_name_edit
+
         self.rgb = RGBEngine()
         self.profiles = boot.profiles if boot else ProfileManager()
         if not boot:
@@ -140,23 +144,30 @@ class SanctuaryWindow(QMainWindow):
         root.addWidget(self.footer)
 
         self._connect_mission_control()
-        log("WINDOW", "master_combo/name_edit legacy hooks OK")
+        self._bind_macro_attrs()
+        log("WINDOW", "master_combo/name_edit liés à la page macros")
 
-    @property
-    def master_combo(self):
-        """Compatibilité code legacy / hooks macro."""
-        macros = getattr(self, "macros", None)
-        if macros is not None and hasattr(macros, "master_combo"):
-            return macros.master_combo
-        return self._legacy_master_combo
-
-    @property
-    def name_edit(self):
-        """Compatibilité code legacy / hooks macro."""
-        macros = getattr(self, "macros", None)
-        if macros is not None and hasattr(macros, "name_edit"):
-            return macros.name_edit
-        return self._legacy_name_edit
+    def _bind_macro_attrs(self):
+        """Pointe master_combo / name_edit vers les widgets réels de MacrosPage."""
+        if getattr(self, "macros", None) is None:
+            log("WINDOW", "_bind_macro_attrs — macros page absente, legacy conservé")
+            return
+        self.master_combo = self.macros.master_combo
+        self.name_edit = self.macros.name_edit
+        log(
+            "WINDOW",
+            f"_bind_macro_attrs OK combo={self.master_combo is not None} "
+            f"name={self.name_edit is not None}",
+        )
+        try:
+            from utils.diagnostic_bot import say
+            say(
+                f"MACROS liés — master_combo={type(self.master_combo).__name__} "
+                f"name_edit={type(self.name_edit).__name__}",
+                "OK",
+            )
+        except Exception:
+            pass
 
     def _connect_mission_control(self):
         mission = self.home._tiles.get("mission")
@@ -212,6 +223,7 @@ class SanctuaryWindow(QMainWindow):
             self.stack.blockSignals(False)
             if tab == "macros":
                 self.sidebar._select("macro1", emit=False)
+                self._bind_macro_attrs()
             elif tab == "devices":
                 self.sidebar._select("lighting", emit=False)
             elif tab == "dashboard":
@@ -247,6 +259,7 @@ class SanctuaryWindow(QMainWindow):
     def _focus_macro_section(self, section: str):
         log("WINDOW", f"_focus_macro_section section={section}")
         try:
+            self._bind_macro_attrs()
             self.macros.focus_section(section)
         except Exception as exc:
             log_exc("WINDOW", exc)

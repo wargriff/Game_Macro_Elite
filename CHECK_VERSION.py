@@ -11,7 +11,7 @@ REQUIRED = [
     ("utils/diagnostic_bot.py", "Sanctuary Bot"),
     ("utils/autopatch.py", "autopatch"),
     ("utils/debug.py", "def log"),
-    ("ui/sanctuary_window.py", "def master_combo"),
+    ("ui/sanctuary_window.py", "_bind_macro_attrs"),
     ("ui/main_window.py", "SanctuaryWindow"),
     ("nodejs/server.js", "express"),
 ]

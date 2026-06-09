@@ -15,6 +15,8 @@ FILES = [
     "REPARER.bat",
     "main.py",
     "native_app.py",
+    "ui/control_center.py",
+    "scripts/build_exe.py",
     "gxclicker.py",
     "build.spec",
     "config/asset_system.py",
@@ -52,9 +54,9 @@ def main() -> int:
         print("INCOMPLET — double-cliquez REPARER.bat")
         print("  ou: git pull origin main")
     else:
-        print("PRET — double-clic START.bat")
-        print("PyCharm script: main.py  (PyQt6 natif — pas pygame)")
-    print("Mode web optionnel: python main.py --web")
+        print("PRET — un seul lanceur:")
+        print("  START.bat  ou  main.py  → Centre de controle (tout en 1)")
+        print("  PyCharm: Run main.py")
     return 0 if ok else 1
 
 

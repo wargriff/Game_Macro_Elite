@@ -5,13 +5,13 @@ block_cipher = None
 hidden = [
     'psutil', 'clr_loader',
     'PyQt6', 'PyQt6.QtCore', 'PyQt6.QtGui', 'PyQt6.QtWidgets',
-    'native_app',
+    'native_app', 'gxclicker',
     'config', 'config.paths', 'config.asset_system', 'config.runtime',
     'services.bootstrap', 'services.sidecar_api', 'services.engine_proxy',
     'services.profile_manager', 'services.node_bridge', 'services.device_scanner',
     'services.api_monitor',
     'core.engine', 'core.models', 'core.win32_input',
-    'ui.sanctuary_window', 'ui.splash_screen', 'ui.pages.home_page',
+    'ui.control_center', 'ui.sanctuary_window', 'ui.splash_screen', 'ui.pages.home_page',
     'rgb_engine',
 ]
 

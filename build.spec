@@ -1,30 +1,37 @@
 # -*- mode: python ; coding: utf-8 -*-
-# Build: scripts\BUILD_EXE.bat  →  dist\Game_XClicker_Elite.exe
+# Build: scripts\BUILD_EXE.bat
 
 block_cipher = None
 
+hidden = [
+    'psutil', 'webview', 'clr_loader',
+    'config', 'config.paths', 'config.asset_system', 'config.runtime',
+    'utils', 'utils.bootstrap', 'utils.autopatch', 'utils.legacy_patch', 'utils.debug',
+    'launch', 'launcher.desktop_main',
+    'services.bootstrap', 'services.sidecar_api', 'services.engine_proxy',
+    'services.profile_manager', 'services.node_bridge',
+    'core.engine', 'core.models', 'core.win32_input',
+]
+
 a = Analysis(
-    ['launcher/desktop_main.py'],
+    ['run.py'],
     pathex=[],
     binaries=[],
     datas=[
         ('assets', 'assets'),
         ('ui-web', 'ui-web'),
         ('profiles', 'profiles'),
-        ('nodejs', 'nodejs'),
         ('config', 'config'),
+        ('utils', 'utils'),
+        ('services', 'services'),
+        ('core', 'core'),
+        ('launcher', 'launcher'),
     ],
-    hiddenimports=[
-        'psutil',
-        'webview',
-        'clr_loader',
-    ],
+    hiddenimports=hidden,
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
-    excludes=['PyQt6'],
-    win_no_prefer_redirects=False,
-    win_private_assemblies=False,
+    excludes=['PyQt6', 'pytest'],
     cipher=block_cipher,
     noarchive=False,
 )
@@ -34,22 +41,29 @@ pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 exe = EXE(
     pyz,
     a.scripts,
-    a.binaries,
-    a.zipfiles,
-    a.datas,
     [],
-    name='Game_XClicker_Elite',
+    exclude_binaries=True,
+    name='Game XClicker Elite',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
-    upx=True,
-    upx_exclude=[],
-    runtime_tmpdir=None,
-    console=False,
+    upx=False,
+    console=True,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
     icon='assets/brand/favicon.ico',
+)
+
+coll = COLLECT(
+    exe,
+    a.binaries,
+    a.zipfiles,
+    a.datas,
+    strip=False,
+    upx=False,
+    upx_exclude=[],
+    name='Game XClicker Elite',
 )

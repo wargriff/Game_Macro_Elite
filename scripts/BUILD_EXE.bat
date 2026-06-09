@@ -2,26 +2,23 @@
 title Build Game XClicker Elite.exe
 cd /d "%~dp0.."
 
-echo === Generation icone .exe ===
+echo === 1. Icone ===
 python scripts\generate_icon.py
-if not exist "assets\brand\favicon.ico" (
-    echo Copiez favicon.ico dans assets\brand\ ou installez Pillow
-)
 
-echo === npm install ===
-pushd nodejs
-call npm install --silent
-popd
-
-echo === PyInstaller ===
-pip install pyinstaller pywebview pillow -q
-
+echo === 2. PyInstaller ===
+pip install pyinstaller pywebview pillow psutil -q
 pyinstaller build.spec --noconfirm
 
+echo === 3. Debloquer Windows Smart App Control ===
+powershell -Command "Get-ChildItem 'dist\Game XClicker Elite' -Recurse | Unblock-File" 2>nul
+
 echo.
-echo === Termine ===
-echo Executable: dist\Game_XClicker_Elite.exe
+echo === TERMINE ===
+echo Lancez: dist\Game XClicker Elite\Game XClicker Elite.exe
 echo.
-echo Raccourci bureau:
-echo   Clic droit dist\Game_XClicker_Elite.exe ^> Envoyer vers ^> Bureau
+echo Si Smart App Control bloque:
+echo   1. Parametres ^> Confidentialite ^> Controle intelligent des applications ^> Desactiver
+echo   OU
+echo   2. Clic droit .exe ^> Proprietes ^> Debloquer ^> OK
+echo.
 pause

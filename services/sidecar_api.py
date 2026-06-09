@@ -7,7 +7,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from typing import Optional
 from urllib.parse import parse_qs, urlparse
 
-from config.paths import UI_WEB_DIR
+from config.paths import BRAND_DIR, UI_WEB_DIR
 
 MISSION_HTML = os.path.join(UI_WEB_DIR, "index.html")
 
@@ -75,10 +75,48 @@ class SidecarAPI:
                 self._cors()
                 self.end_headers()
 
+            def _send_file(self, filepath: str):
+                ext = os.path.splitext(filepath)[1].lower()
+                mime = {
+                    ".html": "text/html; charset=utf-8",
+                    ".css": "text/css; charset=utf-8",
+                    ".js": "application/javascript; charset=utf-8",
+                    ".svg": "image/svg+xml",
+                    ".png": "image/png",
+                    ".ico": "image/x-icon",
+                    ".json": "application/json",
+                    ".webmanifest": "application/manifest+json",
+                }.get(ext, "application/octet-stream")
+                with open(filepath, "rb") as f:
+                    body = f.read()
+                self.send_response(200)
+                self.send_header("Content-Type", mime)
+                self.send_header("Content-Length", str(len(body)))
+                self._cors()
+                self.end_headers()
+                self.wfile.write(body)
+
+            def _serve_static(self, path: str) -> bool:
+                if path.startswith("/css/"):
+                    fp = os.path.join(UI_WEB_DIR, path[1:])
+                elif path.startswith("/js/"):
+                    fp = os.path.join(UI_WEB_DIR, path[1:])
+                elif path.startswith("/brand/"):
+                    fp = os.path.join(BRAND_DIR, path[7:])
+                else:
+                    return False
+                if os.path.isfile(fp):
+                    self._send_file(fp)
+                    return True
+                return False
+
             def do_GET(self):
                 path = urlparse(self.path).path.rstrip("/") or "/"
                 if path.startswith("/v1/"):
                     path = "/api" + path
+
+                if self._serve_static(path):
+                    return
 
                 if path in ("/", "/app", "/mission"):
                     if os.path.exists(MISSION_HTML):

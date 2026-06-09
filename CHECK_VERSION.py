@@ -7,8 +7,8 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ROOT)
 
 REQUIRED = [
-    ("run.py", "ensure_project_ready"),
-    ("main.py", "config.asset_system"),
+    ("run.py", "from launch import run"),
+    ("launch.py", "config.asset_system"),
     ("config/asset_system.py", "AssetSystem"),
     ("utils/bootstrap.py", "_fix_ui_py_conflict"),
     ("launcher/desktop_main.py", "webview"),

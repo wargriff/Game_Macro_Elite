@@ -1,16 +1,16 @@
 """
 Game XClicker Elite — Launcher bureau (interface JS iCUE + moteur Python).
-
-Lance le moteur Win32, l'API Sidecar (17840), Node.js (5173) et ouvre
-la fenêtre native avec l'interface web iCUE.
+Fonctionne sans Node.js : UI servie par Sidecar sur port 17840.
 """
 
 import os
 import sys
 import time
+import webbrowser
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, ROOT)
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
 
 import utils.autopatch  # noqa: F401
 
@@ -19,43 +19,45 @@ from services.bootstrap import bootstrap
 from utils.debug import log
 
 APP_TITLE = "Game XClicker Elite — SOURIS WARGRIFF"
-UI_URL = "http://127.0.0.1:5173"
+NODE_URL = "http://127.0.0.1:5173"
+SIDECAR_URL = "http://127.0.0.1:17840"
 
 
-def _wait_node(node, timeout=15.0) -> bool:
+def _wait_node(node, timeout=8.0) -> bool:
     deadline = time.time() + timeout
     while time.time() < deadline:
-        if node.online:
+        if node and node.online:
             return True
         time.sleep(0.2)
-    return node.online
+    return bool(node and node.online)
 
 
-def _run_webview():
+def _pick_ui_url(node) -> str:
+    if node and _wait_node(node, timeout=6.0):
+        return NODE_URL
+    log("LAUNCHER", "Node.js absent — UI via Sidecar Python (17840)")
+    return SIDECAR_URL
+
+
+def _run_webview(url: str):
     import webview
 
     icon = resolve_icon()
     window = webview.create_window(
         APP_TITLE,
-        UI_URL,
+        url,
         width=1280,
         height=820,
         min_size=(1024, 640),
         background_color="#1a1a1a",
     )
-    if icon and os.path.exists(icon):
-        try:
-            window.icon = icon
-        except Exception:
-            pass
     webview.start(debug=os.environ.get("XMACRO_DEBUG") == "1")
 
 
-def _run_browser_fallback():
-    import webbrowser
-    webbrowser.open(UI_URL)
-    print(f"[LAUNCHER] Navigateur → {UI_URL}")
-    print("[LAUNCHER] Appuyez Ctrl+C pour quitter")
+def _run_browser(url: str):
+    webbrowser.open(url)
+    print(f"[LAUNCHER] Navigateur → {url}")
+    print("[LAUNCHER] Ctrl+C pour quitter")
     try:
         while True:
             time.sleep(1)
@@ -64,24 +66,27 @@ def _run_browser_fallback():
 
 
 def main() -> int:
-    print("[LAUNCHER] Game XClicker Elite v3.0 — interface JS iCUE")
+    print("[LAUNCHER] Game XClicker Elite v3.1")
     ctx = None
     try:
         ctx = bootstrap()
-        if not _wait_node(ctx.node):
-            log("LAUNCHER", "Node.js lent — ouverture quand même")
+        url = _pick_ui_url(ctx.node)
+        print(f"[LAUNCHER] Interface → {url}")
 
         mode = os.environ.get("XCLICKER_UI", "webview").lower()
         if mode == "browser":
-            _run_browser_fallback()
+            _run_browser(url)
         else:
             try:
-                _run_webview()
+                _run_webview(url)
             except ImportError:
-                print("[LAUNCHER] pywebview absent — pip install pywebview")
-                _run_browser_fallback()
+                print("[LAUNCHER] pip install pywebview")
+                _run_browser(url)
     except Exception as exc:
+        import traceback
+        traceback.print_exc()
         print(f"[LAUNCHER] Erreur: {exc}")
+        input("Appuyez Entree pour fermer...")
         return 1
     finally:
         if ctx:

@@ -1,57 +1,62 @@
 """
-Bootstrap projet — corrige conflit ui.py / dossier ui/ et vérifie les fichiers.
+Bootstrap — corrige ui.py vs dossier ui/ (cause #1 des crashes Windows).
 """
 
 import os
 import sys
 
+from config.runtime import exe_dir, project_root
+
 
 def ensure_project_ready(root: str | None = None) -> bool:
-    root = root or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    root = root or project_root()
+    dev_root = exe_dir()
+
     if root not in sys.path:
         sys.path.insert(0, root)
 
-    _fix_ui_py_conflict(root)
+    # Conflit ui.py dans le dossier dev (pas dans le .exe)
+    _fix_ui_py_conflict(dev_root)
+    _purge_bad_ui_module()
     _ensure_asset_system(root)
     return True
 
 
 def _fix_ui_py_conflict(root: str):
-    """ui.py à la racine empêche d'importer le package ui/."""
     ui_py = os.path.join(root, "ui.py")
     ui_dir = os.path.join(root, "ui")
     if not (os.path.isfile(ui_py) and os.path.isdir(ui_dir)):
         return
 
     backup = ui_py + ".bak"
-    counter = 1
+    n = 1
     while os.path.exists(backup):
-        backup = ui_py + f".bak{counter}"
-        counter += 1
+        backup = ui_py + f".bak{n}"
+        n += 1
 
     try:
         os.rename(ui_py, backup)
-        print(f"[BOOT] Conflit corrige: ui.py -> {os.path.basename(backup)}")
-        print("[BOOT] Le dossier ui/ peut maintenant etre utilise comme package.")
+        print(f"[BOOT] ui.py renomme -> {os.path.basename(backup)}")
     except OSError as exc:
-        print(f"[BOOT] ERREUR: impossible de renommer ui.py: {exc}")
-        print("[BOOT] Renommez manuellement ui.py en ui_old.py puis relancez.")
+        print(f"[BOOT] ERREUR ui.py: {exc}")
+        print("[BOOT] Fermez PyCharm puis: ren ui.py ui_old.py")
 
-    if "ui" in sys.modules:
-        mod = sys.modules["ui"]
-        mod_file = getattr(mod, "__file__", "") or ""
-        if mod_file.replace("\\", "/").endswith("/ui.py"):
-            del sys.modules["ui"]
+
+def _purge_bad_ui_module():
+    if "ui" not in sys.modules:
+        return
+    mod = sys.modules["ui"]
+    mod_file = (getattr(mod, "__file__", "") or "").replace("\\", "/")
+    if mod_file.endswith("/ui.py"):
+        del sys.modules["ui"]
 
 
 def _ensure_asset_system(root: str):
-    """Garantit config/asset_system.py — copie depuis ui/ si absent."""
-    cfg_path = os.path.join(root, "config", "asset_system.py")
-    ui_path = os.path.join(root, "ui", "asset_system.py")
-    if os.path.isfile(cfg_path):
+    cfg = os.path.join(root, "config", "asset_system.py")
+    if os.path.isfile(cfg):
         return
-    if os.path.isfile(ui_path):
+    ui_copy = os.path.join(root, "ui", "asset_system.py")
+    if os.path.isfile(ui_copy):
         import shutil
-        os.makedirs(os.path.dirname(cfg_path), exist_ok=True)
-        shutil.copy2(ui_path, cfg_path)
-        print("[BOOT] config/asset_system.py cree depuis ui/asset_system.py")
+        os.makedirs(os.path.dirname(cfg), exist_ok=True)
+        shutil.copy2(ui_copy, cfg)

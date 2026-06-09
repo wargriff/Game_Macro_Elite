@@ -1,20 +1,19 @@
 # -*- mode: python ; coding: utf-8 -*-
-# Build: scripts\BUILD_EXE.bat
 
 block_cipher = None
 
 hidden = [
-    'psutil', 'webview', 'clr_loader',
+    'psutil', 'webview', 'clr_loader', 'pyc_loader',
     'config', 'config.paths', 'config.asset_system', 'config.runtime',
     'utils', 'utils.bootstrap', 'utils.autopatch', 'utils.legacy_patch', 'utils.debug',
-    'launch', 'launcher.desktop_main',
+    'launcher.desktop_main',
     'services.bootstrap', 'services.sidecar_api', 'services.engine_proxy',
     'services.profile_manager', 'services.node_bridge',
     'core.engine', 'core.models', 'core.win32_input',
 ]
 
 a = Analysis(
-    ['run.py'],
+    ['gxclicker.py'],
     pathex=[],
     binaries=[],
     datas=[
@@ -48,7 +47,7 @@ exe = EXE(
     bootloader_ignore_signals=False,
     strip=False,
     upx=False,
-    console=True,
+    console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,

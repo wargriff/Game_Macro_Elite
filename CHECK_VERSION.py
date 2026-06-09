@@ -1,4 +1,4 @@
-"""Vérifie que la build v3.0 est complète et sans conflit ui.py."""
+"""Vérifie gxclicker.py + START.bat + assets."""
 
 import os
 import sys
@@ -7,28 +7,22 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ROOT)
 
 REQUIRED = [
-    ("run.py", "from launch import run"),
-    ("launch.py", "config.asset_system"),
+    ("gxclicker.py", "_fix_ui_py"),
+    ("START.bat", "Game XClicker Elite.exe"),
+    ("BUILD.bat", "PyInstaller"),
     ("config/asset_system.py", "AssetSystem"),
-    ("utils/bootstrap.py", "_fix_ui_py_conflict"),
-    ("launcher/desktop_main.py", "webview"),
     ("ui-web/index.html", "Game XClicker Elite"),
-    ("ui-web/js/app.js", "LIGHTING SETUP"),
     ("assets/brand/favicon.ico", None),
-    ("services/sidecar_api.py", "MACRO_KEYS"),
-    ("nodejs/server.js", "ui-web"),
+    ("services/sidecar_api.py", "_serve_static"),
 ]
 
 
 def main() -> int:
-    print("=== Game XClicker Elite v3.0 — verification ===")
+    print("=== Game XClicker Elite — verification ===")
     ok = True
 
-    ui_py = os.path.join(ROOT, "ui.py")
-    ui_dir = os.path.join(ROOT, "ui")
-    if os.path.isfile(ui_py) and os.path.isdir(ui_dir):
-        print("[WARN] ui.py detecte — sera renomme auto au lancement (scripts/fix_ui_conflict.py)")
-        print("       Ou renommez manuellement: ren ui.py ui_old.py")
+    if os.path.isfile(os.path.join(ROOT, "ui.py")) and os.path.isdir(os.path.join(ROOT, "ui")):
+        print("[WARN] ui.py present — START.bat le renomme auto en ui.py.bak")
 
     for rel, needle in REQUIRED:
         path = os.path.join(ROOT, rel.replace("/", os.sep))
@@ -38,19 +32,19 @@ def main() -> int:
             continue
         if needle:
             with open(path, encoding="utf-8", errors="ignore") as f:
-                content = f.read()
-            if needle not in content:
-                print(f"[FAIL] {rel} — '{needle}' introuvable (git pull requis)")
-                ok = False
-            else:
-                print(f"[ OK ] {rel}")
+                if needle not in f.read():
+                    print(f"[FAIL] {rel} obsolete — git pull requis")
+                    ok = False
+                else:
+                    print(f"[ OK ] {rel}")
         else:
             print(f"[ OK ] {rel}")
 
     if ok:
-        print("\nResultat: PRET — START.bat ou python run.py")
+        print("\nPRET — double-clic START.bat")
+        print("Build .exe — START.bat build")
         return 0
-    print("\nResultat: INCOMPLET — git pull origin cursor/icue-web-launcher-9626")
+    print("\nINCOMPLET — git pull origin cursor/icue-web-launcher-9626")
     return 1
 
 

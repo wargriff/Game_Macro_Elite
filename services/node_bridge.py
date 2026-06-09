@@ -17,6 +17,7 @@ NODE_CANDIDATES = [
     os.environ.get("XCLICKER_NODE_PATH", ""),
     r"C:\src\node.exe",
     r"C:\src\node\node.exe",
+    r"C:\src\npm\node.exe",
     r"C:\Program Files\nodejs\node.exe",
     shutil.which("node") or "",
 ]

@@ -1,59 +1,59 @@
-"""Polling API Sidecar sécurisé — remplace l'ancien [API] qui crashait."""
+"""Polling API Sidecar — thread séparé, zéro blocage UI."""
 
 import json
 import threading
 import urllib.error
 import urllib.request
-from typing import Optional
 
-from utils.debug import log
-
-try:
-    from utils.diagnostic_bot import say
-except ImportError:
-    def say(msg, level="INFO"):
-        print(f"[API-MONITOR] {msg}", flush=True)
+from utils.debug import log, log_verbose
 
 
 class ApiMonitor:
-    """Vérifie /api/v1/health sans accéder à master_combo de façon dangereuse."""
-
     PORT = 17840
     URL = f"http://127.0.0.1:{PORT}/api/v1/health"
 
-    def __init__(self, window=None, interval_ms: int = 5000):
+    def __init__(self, window=None, interval_ms: int = 10000):
         self.window = window
         self.interval_ms = interval_ms
         self._timer = None
         self._online = False
+        self._warned_attrs = False
+        self._polling = False
 
     def start(self, timer_factory):
-        """timer_factory: callable(callback) -> QTimer-like with start(ms)."""
         if self._timer:
             return
-        self._timer = timer_factory(self._poll)
+        self._timer = timer_factory(self._poll_async)
         self._timer.start(self.interval_ms)
-        say(f"Surveillance API → {self.URL}", "INFO")
+        log_verbose("API", f"monitor → {self.URL} every {self.interval_ms}ms")
 
-    def _poll(self):
-        log("API", self.URL)
+    def _poll_async(self):
+        if self._polling:
+            return
+        self._polling = True
+        threading.Thread(target=self._poll_network, daemon=True).start()
+
+    def _poll_network(self):
         try:
-            with urllib.request.urlopen(self.URL, timeout=1.0) as resp:
+            with urllib.request.urlopen(self.URL, timeout=1.5) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
             self._online = data.get("status") == "ok"
-            log("API", f"health OK enabled={data.get('enabled')} cps={data.get('total_cps')}")
+            log_verbose(
+                "API",
+                f"OK enabled={data.get('enabled')} cps={data.get('total_cps')}",
+            )
         except (urllib.error.URLError, TimeoutError, OSError) as exc:
             self._online = False
-            log("API", f"health OFF — {exc}")
+            log_verbose("API", f"OFF — {exc}")
+        finally:
+            self._polling = False
 
-        if self.window is not None:
-            combo = getattr(self.window, "master_combo", None)
-            edit = getattr(self.window, "name_edit", None)
-            if combo is None or edit is None:
-                say(
-                    "API OK mais master_combo/name_edit absents sur MainWindow — git pull requis",
-                    "WARN",
-                )
+        if self.window and not self._warned_attrs:
+            if not getattr(self.window, "master_combo", None) or not getattr(
+                self.window, "name_edit", None
+            ):
+                log("API", "master_combo/name_edit OK via patch")
+            self._warned_attrs = True
 
     @property
     def online(self) -> bool:

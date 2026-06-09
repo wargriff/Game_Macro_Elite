@@ -108,3 +108,29 @@ QLabel#deviceName {{
     font-weight: 600;
 }}
 """
+
+ICUE_HEADER_STYLE = f"""
+HeaderBar {{
+    background: #1e1e1e;
+    border-bottom: 1px solid {ICUE['border']};
+}}
+QPushButton#tab {{
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    padding: 10px 14px;
+    color: {ICUE['text_dim']};
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}}
+QPushButton#tab:hover {{
+    color: {ICUE['text']};
+    background: rgba(255,255,255,0.04);
+}}
+QPushButton#tab:checked {{
+    color: {ICUE['yellow']};
+    border-bottom: 2px solid {ICUE['yellow']};
+}}
+"""

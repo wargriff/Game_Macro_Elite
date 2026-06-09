@@ -2,8 +2,9 @@ from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QButtonGroup, QHBoxLayout, QLabel, QPushButton, QWidget
 
-from ui.styles.diablo_theme import COLORS, HEADER_STYLE
-from utils.debug import log
+from ui.styles.diablo_theme import COLORS
+from ui.styles.icue_theme import ICUE, ICUE_HEADER_STYLE
+from utils.debug import log_verbose
 
 
 class HeaderBar(QWidget):
@@ -14,7 +15,7 @@ class HeaderBar(QWidget):
     TABS = [
         ("HOME", "home"),
         ("DASHBOARD", "dashboard"),
-        ("DEVICES", "devices"),
+        ("INSTANT LIGHTING", "devices"),
         ("MACROS", "macros"),
         ("SETTINGS", "settings"),
     ]
@@ -26,8 +27,10 @@ class HeaderBar(QWidget):
         self._tab_buttons = {}
         self._tab_ids = {}
         self._updating = False
+        self._last_engine = None
+        self._last_cps = -1
         self._build()
-        self.setStyleSheet(HEADER_STYLE)
+        self.setStyleSheet(ICUE_HEADER_STYLE)
 
     def _build(self):
         layout = QHBoxLayout(self)
@@ -79,18 +82,15 @@ class HeaderBar(QWidget):
 
     def _on_tab_id_clicked(self, btn_id: int):
         key = self._tab_ids.get(btn_id)
-        log("HEADER", f"idClicked id={btn_id} key={key}")
+        log_verbose("HEADER", f"tab={key}")
         if self._updating or not key:
-            log("HEADER", "idClicked ignoré (_updating ou key absente)")
             return
         self.tab_changed.emit(key)
 
     def _select_tab(self, key: str, emit: bool = True):
         if key not in self._tab_buttons:
-            log("HEADER", f"_select_tab key={key} INCONNUE")
             return
 
-        log("HEADER", f"_select_tab key={key} emit={emit}")
         self._updating = True
         try:
             self._group.blockSignals(True)
@@ -103,6 +103,9 @@ class HeaderBar(QWidget):
             self.tab_changed.emit(key)
 
     def update_engine(self, enabled: bool):
+        if self._last_engine == enabled:
+            return
+        self._last_engine = enabled
         if enabled:
             self._engine_lbl.setText("MOTEUR — ACTIF")
             self._engine_lbl.setStyleSheet(
@@ -115,4 +118,7 @@ class HeaderBar(QWidget):
             )
 
     def update_cps(self, total: int):
+        if self._last_cps == total:
+            return
+        self._last_cps = total
         self._cps_lbl.setText(f"CPS Σ {total}")

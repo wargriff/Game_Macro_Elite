@@ -11,7 +11,7 @@ from PyQt6.QtWidgets import (
     QWidget,
 )
 
-from utils.debug import log
+from utils.debug import log_verbose
 
 
 class MacroPanel(QWidget):
@@ -30,7 +30,6 @@ class MacroPanel(QWidget):
         self._syncing = False
         self._burst_group: Optional[QButtonGroup] = None
         self._build(show_burst)
-        log("MACRO_PANEL", f"init key={key} burst={show_burst}")
 
     def _build(self, show_burst: bool):
         layout = QVBoxLayout(self)
@@ -118,18 +117,18 @@ class MacroPanel(QWidget):
 
     def _on_burst_selected(self, val: int):
         if self._syncing:
-            log("MACRO_PANEL", f"burst ignoré (sync) val={val}")
+            log_verbose("MACRO_PANEL", f"burst ignoré (sync) val={val}")
             return
-        log("MACRO_PANEL", f"burst key={self.key} val={val}")
+        log_verbose("MACRO_PANEL", f"burst key={self.key} val={val}")
         self.engine.set_burst_count(self.key, val)
 
     def sync_from_engine(self):
         btn = self.engine.buttons.get(self.key)
         if not btn:
-            log("MACRO_PANEL", f"sync ignoré — key={self.key} absent")
+            log_verbose("MACRO_PANEL", f"sync ignoré — key={self.key} absent")
             return
 
-        log("MACRO_PANEL", f"sync key={self.key}")
+        log_verbose("MACRO_PANEL", f"sync key={self.key}")
         self._syncing = True
         try:
             for slider in (self.cps_slider, self.delay_slider, self.micro_slider):
@@ -155,7 +154,7 @@ class MacroPanel(QWidget):
             self._syncing = False
 
     def _apply_preset(self, cps: int, delay_ms: int):
-        log("MACRO_PANEL", f"preset cps={cps} delay={delay_ms}")
+        log_verbose("MACRO_PANEL", f"preset cps={cps} delay={delay_ms}")
         self.cps_slider.setValue(cps)
         self.delay_slider.setValue(delay_ms)
 

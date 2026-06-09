@@ -1,4 +1,4 @@
-from PyQt6.QtCore import Qt, pyqtSignal
+from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont, QPainter, QColor, QPen
 from PyQt6.QtWidgets import QLabel, QVBoxLayout, QWidget
 
@@ -6,7 +6,7 @@ from ui.styles.icue_theme import ICUE, ICUE_DEVICE_VIEW
 
 
 class DeviceCenterView(QWidget):
-    """Vue centrale — représentation du hub / contrôleur style iCUE."""
+    """Vue centrale Commander Pro style iCUE — repaint uniquement si device change."""
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -15,28 +15,25 @@ class DeviceCenterView(QWidget):
         self._device_name = "COMMANDER CORE XT"
         self._build()
         self.setStyleSheet(ICUE_DEVICE_VIEW)
-        self.setMinimumHeight(280)
+        self.setMinimumHeight(260)
 
     def _build(self):
         layout = QVBoxLayout(self)
-        layout.setContentsMargins(24, 16, 24, 16)
-
-        title = QLabel("DEVICES")
-        title.setObjectName("deviceTitle")
-        layout.addWidget(title)
-
+        layout.setContentsMargins(24, 8, 24, 8)
         self.name_lbl = QLabel(self._device_name)
         self.name_lbl.setObjectName("deviceName")
         layout.addWidget(self.name_lbl)
         layout.addStretch()
 
     def set_device(self, key: str):
+        if key == self._device_key:
+            return
         self._device_key = key
         names = {
-            "keyboard": "K70 RGB PRO — Clavier Sanctuaire",
-            "mouse": "Spirit of Gamer — Souris Elite",
-            "headset": "HS80 RGB — Casque",
-            "commander": "COMMANDER CORE XT",
+            "keyboard": "K70 RGB PRO",
+            "mouse": "M65 RGB ELITE — Souris Elite",
+            "headset": "HS80 RGB WIRELESS",
+            "commander": "COMMANDER PRO",
             "lighting": "Lighting Node PRO",
         }
         self._device_name = names.get(key, "Périphérique")
@@ -44,26 +41,28 @@ class DeviceCenterView(QWidget):
         self.update()
 
     def paintEvent(self, event):
-        super().paintEvent(event)
         painter = QPainter(self)
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
         w, h = self.width(), self.height()
-        cx, cy = w // 2, h // 2 + 20
+        cx, cy = w // 2, h // 2 + 30
 
-        # Boîtier Commander Core stylisé
+        # Boitier principal
         painter.setPen(QPen(QColor(ICUE["border"]), 2))
-        painter.setBrush(QColor(ICUE["bg_panel"]))
-        painter.drawRoundedRect(cx - 120, cy - 50, 240, 100, 8, 8)
+        painter.setBrush(QColor("#2a2a2a"))
+        painter.drawRoundedRect(cx - 140, cy - 55, 280, 110, 6, 6)
 
-        painter.setPen(QPen(QColor(ICUE["yellow"]), 1))
-        for i, label in enumerate(("CH1", "CH2", "USB", "SATA")):
-            x = cx - 90 + i * 55
-            painter.drawEllipse(x, cy - 15, 28, 28)
+        # Ports style iCUE: TEMP, USB, LED
+        port_labels = ("TEMP", "USB", "LED", "FAN")
+        painter.setFont(QFont("Segoe UI", 8))
+        for i, label in enumerate(port_labels):
+            x = cx - 105 + i * 70
+            painter.setPen(QPen(QColor(ICUE["yellow"]), 2))
+            painter.setBrush(QColor("#1a1a1a"))
+            painter.drawRoundedRect(x, cy - 22, 50, 44, 4, 4)
             painter.setPen(QColor(ICUE["text_dim"]))
-            font = QFont("Segoe UI", 7)
-            painter.setFont(font)
-            painter.drawText(x, cy + 28, 28, 16, Qt.AlignmentFlag.AlignCenter, label)
-            painter.setPen(QPen(QColor(ICUE["yellow"]), 1))
+            painter.drawText(x, cy - 8, 50, 20, Qt.AlignmentFlag.AlignCenter, label)
+            painter.setPen(QColor(ICUE["text"]))
+            painter.drawText(x, cy + 10, 50, 20, Qt.AlignmentFlag.AlignCenter, "●")
 
         painter.end()

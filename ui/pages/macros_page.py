@@ -11,7 +11,7 @@ from config_ui import PRESETS
 from ui.styles.diablo_theme import COLORS
 from ui.widgets.macro_panel import MacroPanel
 from ui.widgets.status_card import StatusCard
-from utils.debug import log
+from utils.debug import log_verbose
 
 MACRO_KEYS = [
     ("left", "Macro 1 — Clic gauche"),
@@ -32,9 +32,7 @@ class MacrosPage(QWidget):
         self._current_key = "left"
         self._updating = False
         self._refresh_tick = 0
-        log("MACROS_PAGE", "construction…")
         self._build()
-        log("MACROS_PAGE", "construction OK")
 
     def _build(self):
         layout = QVBoxLayout(self)
@@ -88,7 +86,7 @@ class MacrosPage(QWidget):
         self.master_combo.currentIndexChanged.connect(self._on_master_changed)
 
     def showEvent(self, event):
-        log("MACROS_PAGE", "showEvent — page visible")
+        log_verbose("MACROS_PAGE", "showEvent — page visible")
         super().showEvent(event)
 
     def _key_for_index(self, index: int) -> str:
@@ -103,14 +101,14 @@ class MacrosPage(QWidget):
 
     def _on_master_changed(self, index: int):
         if self._updating:
-            log("MACROS_PAGE", f"combo index={index} ignoré (_updating)")
+            log_verbose("MACROS_PAGE", f"combo index={index} ignoré (_updating)")
             return
         key = self._key_for_index(index)
-        log("MACROS_PAGE", f"combo → key={key}")
+        log_verbose("MACROS_PAGE", f"combo → key={key}")
         self._switch_key(key, sync_panel=True)
 
     def _switch_key(self, key: str, sync_panel: bool = False):
-        log("MACROS_PAGE", f"_switch_key key={key} sync={sync_panel}")
+        log_verbose("MACROS_PAGE", f"_switch_key key={key} sync={sync_panel}")
         self._current_key = key
         self.panel.key = key
         if sync_panel:
@@ -127,7 +125,6 @@ class MacrosPage(QWidget):
         self.panel.update_live_cps()
 
     def set_profile_name(self, name: str):
-        log("MACROS_PAGE", f"profil={name}")
         self.name_edit.setText(name or "default")
 
     def focus_section(self, section: str):
@@ -140,7 +137,6 @@ class MacrosPage(QWidget):
         }
         key = mapping.get(section, "left")
         idx = self._index_for_key(key)
-        log("MACROS_PAGE", f"focus_section {section} → key={key}")
         self._updating = True
         try:
             self.master_combo.blockSignals(True)
@@ -151,10 +147,7 @@ class MacrosPage(QWidget):
             self._updating = False
 
     def refresh(self):
-        self._refresh_tick += 1
-        if self._refresh_tick == 1 or self._refresh_tick % 20 == 0:
-            log("MACROS_PAGE", f"refresh tick={self._refresh_tick}")
         try:
             self._update_status()
-        except Exception as exc:
-            log("MACROS_PAGE", f"refresh ERREUR: {exc}")
+        except Exception:
+            pass

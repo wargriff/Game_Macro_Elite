@@ -103,7 +103,7 @@ def _print_build_info():
 def main():
     _print_build_info()
     log("XMACRO", "Booting unified launcher…")
-    print("[XMACRO] Debug logs actifs — XMACRO_DEBUG=0 pour désactiver")
+    print("[XMACRO] Debug logs — XMACRO_DEBUG=1 pour activer (désactivé par défaut)")
 
     signal.signal(signal.SIGINT, signal.SIG_DFL)
 

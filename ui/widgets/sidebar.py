@@ -3,7 +3,7 @@ from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QButtonGroup, QComboBox, QLabel, QPushButton, QVBoxLayout, QWidget
 
 from ui.styles.diablo_theme import COLORS, SIDEBAR_STYLE
-from utils.debug import log
+from utils.debug import log_verbose
 
 
 class Sidebar(QWidget):
@@ -92,9 +92,8 @@ class Sidebar(QWidget):
 
     def _on_section_id_clicked(self, btn_id: int):
         key = self._section_ids.get(btn_id)
-        log("SIDEBAR", f"idClicked id={btn_id} key={key}")
+        log_verbose("SIDEBAR", f"id={btn_id} key={key}")
         if self._updating or not key:
-            log("SIDEBAR", "idClicked ignoré (_updating ou key absente)")
             return
         self._apply_section_style(key)
         self.section_changed.emit(key)
@@ -105,10 +104,9 @@ class Sidebar(QWidget):
 
     def _select(self, key: str, emit: bool = True):
         if key not in self._buttons:
-            log("SIDEBAR", f"_select key={key} INCONNUE")
             return
 
-        log("SIDEBAR", f"_select key={key} emit={emit}")
+        log_verbose("SIDEBAR", f"_select {key} emit={emit}")
         self._updating = True
         try:
             self._group.blockSignals(True)

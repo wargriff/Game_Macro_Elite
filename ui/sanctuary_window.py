@@ -30,7 +30,7 @@ from ui.widgets.background_widget import BackgroundWidget
 from ui.widgets.header_bar import HeaderBar
 from ui.widgets.sensor_panel import SensorPanel
 from ui.widgets.sidebar import Sidebar
-from utils.debug import log, log_exc
+from utils.debug import log, log_exc, log_verbose
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BG_PATH = os.path.join(BASE_DIR, "assets", "bg", "diablo_bg.svg")
@@ -85,6 +85,7 @@ class SanctuaryWindow(QMainWindow):
             self.node.start()
 
         self._navigating = False
+        self._last_stats = {}
         self._build_ui()
         self._wire_events()
         self._sync_profile_name()
@@ -154,20 +155,7 @@ class SanctuaryWindow(QMainWindow):
             return
         self.master_combo = self.macros.master_combo
         self.name_edit = self.macros.name_edit
-        log(
-            "WINDOW",
-            f"_bind_macro_attrs OK combo={self.master_combo is not None} "
-            f"name={self.name_edit is not None}",
-        )
-        try:
-            from utils.diagnostic_bot import say
-            say(
-                f"MACROS liés — master_combo={type(self.master_combo).__name__} "
-                f"name_edit={type(self.name_edit).__name__}",
-                "OK",
-            )
-        except Exception:
-            pass
+        log_verbose("WINDOW", "_bind_macro_attrs OK")
 
     def _connect_mission_control(self):
         mission = self.home._tiles.get("mission")
@@ -201,19 +189,22 @@ class SanctuaryWindow(QMainWindow):
 
         self.engine.set_on_toggle(self._on_macro_toggle)
 
+        # UI stats — 500 ms (léger)
         self.ui_timer = QTimer()
         self.ui_timer.timeout.connect(self.refresh_all)
-        self.ui_timer.start(250)
+        self.ui_timer.start(500)
 
+        # RGB moteur — 100 ms, actif seulement sur HOME / INSTANT LIGHTING
         self.rgb_timer = QTimer()
         self.rgb_timer.timeout.connect(self._update_rgb)
-        self.rgb_timer.start(50)
+        self._sync_rgb_timer()
+        self.stack.currentChanged.connect(lambda _: self._sync_rgb_timer())
 
     def _sync_profile_name(self):
         self.macros.set_profile_name(self.profiles.current_name)
 
     def _on_tab(self, tab: str):
-        log("WINDOW", f"_on_tab tab={tab} navigating={self._navigating}")
+        log_verbose("WINDOW", f"_on_tab {tab}")
         if self._navigating:
             return
         idx = self.PAGE_MAP.get(tab, 0)
@@ -229,14 +220,14 @@ class SanctuaryWindow(QMainWindow):
                 self.sidebar._select("lighting", emit=False)
             elif tab == "dashboard":
                 self.sidebar._select("performance", emit=False)
-            log("WINDOW", f"_on_tab OK index={idx}")
+            log_verbose("WINDOW", f"_on_tab OK idx={idx}")
         except Exception as exc:
             log_exc("WINDOW", exc)
         finally:
             self._navigating = False
 
     def _on_section(self, section: str):
-        log("WINDOW", f"_on_section section={section} navigating={self._navigating}")
+        log_verbose("WINDOW", f"_on_section {section}")
         if self._navigating:
             return
         self._navigating = True
@@ -255,14 +246,13 @@ class SanctuaryWindow(QMainWindow):
                 self.stack.setCurrentIndex(self.PAGE_MAP["macros"])
                 self.header._select_tab("macros", emit=False)
                 QTimer.singleShot(0, lambda s=section: self._focus_macro_section(s))
-            log("WINDOW", f"_on_section OK section={section}")
+            log_verbose("WINDOW", f"_on_section OK {section}")
         except Exception as exc:
             log_exc("WINDOW", exc)
         finally:
             self._navigating = False
 
     def _focus_macro_section(self, section: str):
-        log("WINDOW", f"_focus_macro_section section={section}")
         try:
             self._bind_macro_attrs()
             self.macros.focus_section(section)
@@ -290,10 +280,21 @@ class SanctuaryWindow(QMainWindow):
         if zone and active:
             self.rgb.trigger_reactive(zone)
 
+    def _sync_rgb_timer(self):
+        current = self.stack.currentWidget()
+        if current in (self.devices, self.home):
+            if not self.rgb_timer.isActive():
+                self.rgb_timer.start(100)
+        elif self.rgb_timer.isActive():
+            self.rgb_timer.stop()
+
     def _update_rgb(self):
+        current = self.stack.currentWidget()
+        if current not in (self.devices, self.home):
+            return
         self.rgb.update()
-        if self.stack.currentWidget() == self.devices:
-            self.devices.refresh()
+        if current == self.devices:
+            self.devices.refresh_rgb()
 
     def _rescan_devices(self):
         self.sidebar.set_profiles(self.profiles.list_profiles())
@@ -318,25 +319,28 @@ class SanctuaryWindow(QMainWindow):
 
             self.header.update_engine(self.engine.enabled)
             self.header.update_cps(total_cps)
-            self.sensor_panel.update_stats(
-                cpu,
-                ram_used,
-                ram_total,
-                active,
-                total_cps,
-                self.sidecar.online,
-                node_online=node_online,
-            )
 
             current = self.stack.currentWidget()
-            self.home.refresh(
-                api_online=self.sidecar.online,
-                node_online=node_online,
-            )
-            if current == self.dashboard:
+
+            # Capteurs seulement sur HOME (évite latence autres pages)
+            if current == self.home:
+                self.sensor_panel.update_stats(
+                    cpu,
+                    ram_used,
+                    ram_total,
+                    active,
+                    total_cps,
+                    self.sidecar.online,
+                    node_online=node_online,
+                )
+                self.home.refresh(
+                    api_online=self.sidecar.online,
+                    node_online=node_online,
+                )
+            elif current == self.dashboard:
                 self.dashboard.refresh()
             elif current == self.devices:
-                self.devices.refresh()
+                self.devices.refresh_status(active, total_cps)
             elif current == self.macros:
                 self.macros.refresh()
         except Exception as exc:

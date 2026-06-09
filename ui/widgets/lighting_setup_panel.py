@@ -54,6 +54,7 @@ class LightingSetupPanel(QWidget):
         super().__init__(parent)
         self.setObjectName("LightingSetupPanel")
         self._focused_channel = 0
+        self._syncing = False
         self._build()
         self.setStyleSheet(ICUE_LIGHTING_PANEL)
         self.setFixedHeight(160)
@@ -126,6 +127,8 @@ class LightingSetupPanel(QWidget):
         return type_combo, qty_combo, row
 
     def _emit_change(self, channel: int):
+        if self._syncing:
+            return
         if channel == 1:
             self.config_changed.emit(
                 1, self.ch1_type.currentText(), self.ch1_qty.currentText()
@@ -136,10 +139,18 @@ class LightingSetupPanel(QWidget):
             )
 
     def _apply_defaults(self):
-        self.ch1_type.setCurrentText(DEFAULTS["ch1_type"])
-        self.ch1_qty.setCurrentText(DEFAULTS["ch1_qty"])
-        self.ch2_type.setCurrentText(DEFAULTS["ch2_type"])
-        self.ch2_qty.setCurrentText(DEFAULTS["ch2_qty"])
+        self._syncing = True
+        try:
+            for combo in (self.ch1_type, self.ch1_qty, self.ch2_type, self.ch2_qty):
+                combo.blockSignals(True)
+            self.ch1_type.setCurrentText(DEFAULTS["ch1_type"])
+            self.ch1_qty.setCurrentText(DEFAULTS["ch1_qty"])
+            self.ch2_type.setCurrentText(DEFAULTS["ch2_type"])
+            self.ch2_qty.setCurrentText(DEFAULTS["ch2_qty"])
+        finally:
+            for combo in (self.ch1_type, self.ch1_qty, self.ch2_type, self.ch2_qty):
+                combo.blockSignals(False)
+            self._syncing = False
 
     def _on_revert(self):
         self._apply_defaults()

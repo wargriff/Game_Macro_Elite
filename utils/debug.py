@@ -6,11 +6,17 @@ import traceback
 from functools import wraps
 
 
-DEBUG = os.environ.get("XMACRO_DEBUG", "1") == "1"
+DEBUG = os.environ.get("XMACRO_DEBUG", "0") == "1"
+VERBOSE = os.environ.get("XMACRO_VERBOSE", "0") == "1"
 
 
 def log(tag: str, msg: str):
     if DEBUG:
+        print(f"[{tag}] {msg}", flush=True)
+
+
+def log_verbose(tag: str, msg: str):
+    if DEBUG and VERBOSE:
         print(f"[{tag}] {msg}", flush=True)
 
 

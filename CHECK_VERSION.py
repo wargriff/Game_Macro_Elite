@@ -7,6 +7,10 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ROOT)
 
 REQUIRED = [
+    ("run.py", "from main import main"),
+    ("main.py", "asset_system"),
+    ("ui/asset_system.py", "AssetSystem"),
+    ("ui/__init__.py", "__getattr__"),
     ("launcher/desktop_main.py", "webview"),
     ("ui-web/index.html", "Game XClicker Elite"),
     ("ui-web/js/app.js", "MACROS"),

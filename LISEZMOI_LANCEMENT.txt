@@ -1,0 +1,26 @@
+Game XClicker Elite — Lancement unique
+========================================
+
+UN SEUL LAUNCHER : START.bat
+UN SEUL EXE      : dist\Game_XClicker_Elite.exe
+
+--- Lancer le programme ---
+    Double-cliquez START.bat
+    ou dans PyCharm : START.bat
+
+--- Compiler le .exe (une seule fois) ---
+    START.bat build
+
+--- Lancer le .exe compile ---
+    START.bat exe
+    ou double-cliquez dist\Game_XClicker_Elite.exe
+
+--- Anciens fichiers supprimes / inutiles ---
+    Build-Pro.bat
+    Lancer Game XClicker.bat
+    starter.bat
+    main.py
+    xmacro_game.py
+    Tout le dossier launchers\
+
+Utilisez uniquement START.bat et Xmacro_main.py.

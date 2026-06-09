@@ -187,29 +187,21 @@ pip install -r requirements.txt
 
 # Lancement
 
-## Windows (recommandé — avec IA Guardian Node.js)
-
-Double-cliquez sur `starter.bat` ou dans le terminal PyCharm :
+## Un seul launcher : `START.bat`
 
 ```bat
 cd Game_XClicker_Elite
-starter.bat
+START.bat
 ```
 
-Le starter lance automatiquement :
-1. **IA Guardian** (Node.js depuis `C:\src`) — analyse et corrige le projet
-2. **Xmacro_main.py** — l'application principale
+| Commande | Action |
+|----------|--------|
+| `START.bat` | Lance l'app (IA Guardian + Xmacro_main.py) |
+| `START.bat build` | Compile **un seul** `.exe` → `dist\Game_XClicker_Elite.exe` |
+| `START.bat exe` | Lance le `.exe` déjà compilé |
 
-## Lancement manuel
-
-```bash
-cd Game_XClicker_Elite
-pip install -r requirements.txt
-python Xmacro_main.py
-```
-
-> L'IA Guardian cherche Node.js dans `C:\src\node.exe` puis `C:\src\ai-guardian\`.
-> Les modules sont copiés automatiquement vers `C:\src\ai-guardian\` au premier lancement.
+> Point d'entrée Python unique : `Xmacro_main.py`
+> Anciens launchers (`Build-Pro.bat`, `starter.bat`, `Lancer Game XClicker.bat`, dossier `launchers\`) : **ne plus utiliser**.
 
 ---
 
@@ -231,23 +223,14 @@ Vous pouvez :
 
 # Compilation EXE
 
-## Installer PyInstaller
+Un seul exécutable :
 
-```bash
-pip install pyinstaller
+```bat
+cd Game_XClicker_Elite
+START.bat build
 ```
 
-## Build
-
-```bash
-pyinstaller --onefile --windowed Xmacro_main.py
-```
-
-Le build sera généré dans :
-
-```text
-dist/
-```
+Sortie : `dist\Game_XClicker_Elite.exe`
 
 ---
 

@@ -1,0 +1,70 @@
+# PyInstaller — un seul .exe : dist/Game_XClicker_Elite.exe
+
+block_cipher = None
+
+a = Analysis(
+    ['Xmacro_main.py'],
+    pathex=[],
+    binaries=[],
+    datas=[
+        ('assets', 'assets'),
+        ('profiles', 'profiles'),
+        ('nodejs/ai-guardian', 'nodejs/ai-guardian'),
+        ('config_ui.py', '.'),
+    ],
+    hiddenimports=[
+        'PyQt6.QtCore',
+        'PyQt6.QtGui',
+        'PyQt6.QtWidgets',
+        'core.engine',
+        'core.models',
+        'core.win32_input',
+        'core.debug_log',
+        'services.engine_proxy',
+        'services.profile_manager',
+        'services.ai_guardian',
+        'services.node_sidecar',
+        'ui.main_window',
+        'ui.tabs.dashboard_tab',
+        'ui.tabs.mouse_tab',
+        'ui.tabs.right_click_tab',
+        'ui.tabs.keyboard_tab',
+        'ui.tabs.rgb_tab',
+        'ui.tabs.settings_tab',
+        'ui.widgets.macro_panel',
+        'ui.widgets.status_card',
+        'rgb_engine',
+    ],
+    hookspath=[],
+    hooksconfig={},
+    runtime_hooks=[],
+    excludes=[],
+    win_no_prefer_redirects=False,
+    win_private_assemblies=False,
+    cipher=block_cipher,
+    noarchive=False,
+)
+
+pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
+
+exe = EXE(
+    pyz,
+    a.scripts,
+    a.binaries,
+    a.zipfiles,
+    a.datas,
+    [],
+    name='Game_XClicker_Elite',
+    debug=False,
+    bootloader_ignore_signals=False,
+    strip=False,
+    upx=True,
+    upx_exclude=[],
+    runtime_tmpdir=None,
+    console=True,
+    disable_windowed_traceback=False,
+    argv_emulation=False,
+    target_arch=None,
+    codesign_identity=None,
+    entitlements_file=None,
+)

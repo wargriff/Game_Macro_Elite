@@ -5,9 +5,9 @@ import traceback
 from PyQt6.QtCore import QTimer
 from PyQt6.QtWidgets import QApplication
 
-from core.engine import MacroManager
-from services.engine_proxy import EngineProxy
+from services.bootstrap import bootstrap
 from ui.sanctuary_window import SanctuaryWindow
+from ui.splash_screen import SplashScreen
 
 
 def handle_exception(exc_type, exc_value, exc_tb):
@@ -18,48 +18,62 @@ def handle_exception(exc_type, exc_value, exc_tb):
 sys.excepthook = handle_exception
 
 
-def safe_stop(engine):
-    if not engine:
+def safe_stop(ctx):
+    if not ctx:
         return
     try:
-        engine.stop()
+        ctx.proxy.stop()
+        ctx.sidecar.stop()
     except Exception:
         pass
 
 
 def main():
-    print("[XMACRO] Booting...")
+    print("[XMACRO] Booting unified launcher…")
 
     signal.signal(signal.SIGINT, signal.SIG_DFL)
 
     app = QApplication(sys.argv)
+    app.setApplicationName("Game XClicker Elite")
 
     timer = QTimer()
     timer.start(500)
     timer.timeout.connect(lambda: None)
 
-    proxy = None
+    splash = SplashScreen()
+    splash.show()
+    app.processEvents()
+
+    ctx = None
     exit_code = 0
 
     try:
-        manager = MacroManager()
-        proxy = EngineProxy(manager)
-        window = SanctuaryWindow(proxy, "assets/mouse.svg")
+        def on_progress(percent: int, message: str):
+            splash.set_progress(percent, message)
+            app.processEvents()
+
+        ctx = bootstrap(on_progress)
+        splash.set_progress(95, "Ouverture interface iCUE Sanctuary…")
+        app.processEvents()
+
+        window = SanctuaryWindow(ctx.proxy, boot=ctx)
         window.show()
+        splash.close()
 
         def shutdown():
-            print("[XMACRO] Shutting down...")
-            safe_stop(proxy)
+            print("[XMACRO] Shutting down…")
+            safe_stop(ctx)
 
         app.aboutToQuit.connect(shutdown)
         exit_code = app.exec()
 
     except Exception:
         traceback.print_exc()
+        splash.set_progress(0, "Erreur au démarrage — voir la console")
         exit_code = 1
 
     finally:
-        safe_stop(proxy)
+        safe_stop(ctx)
         print("[XMACRO] Exit complete")
 
     return exit_code

@@ -8,8 +8,8 @@ from ui.widgets.sensor_panel import SensorPanel
 
 
 class HomePage(QWidget):
-    SIDECAR_URL = "http://127.0.0.1:17840"
-    SIDECAR_VERSION = "v2.1.0"
+    SIDECAR_URL = "http://127.0.0.1:17840/mission"
+    SIDECAR_VERSION = "v2.1.0 · intégré"
 
     def __init__(self, engine, rgb, sensor_panel: SensorPanel, parent=None):
         super().__init__(parent)

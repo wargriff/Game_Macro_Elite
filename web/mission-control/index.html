@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mission Control — Game XClicker Elite</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #0a0806;
+      color: #e8dcc8;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    h1 { color: #ffd700; letter-spacing: 2px; font-size: 1.4rem; margin-bottom: 4px; }
+    .sub { color: #a89878; font-size: 0.85rem; margin-bottom: 24px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+    .card {
+      background: rgba(18, 16, 14, 0.92);
+      border: 1px solid #3d2b1f;
+      border-radius: 6px;
+      padding: 16px;
+    }
+    .card h2 { color: #c9a227; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; }
+    .val { font-size: 1.6rem; font-weight: bold; color: #ffd700; }
+    .ok { color: #4caf50; }
+    .off { color: #ffb300; }
+    .macros { margin-top: 20px; }
+    .macro-row {
+      display: flex; justify-content: space-between;
+      padding: 8px 0; border-bottom: 1px solid #2a2018;
+      font-size: 0.9rem;
+    }
+    .refresh { margin-top: 20px; color: #8a7020; font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <h1>◎ MISSION CONTROL</h1>
+  <p class="sub">Game XClicker Elite · API Sidecar · port 17840</p>
+  <div class="grid">
+    <div class="card"><h2>MOTEUR</h2><div class="val" id="engine">—</div></div>
+    <div class="card"><h2>MACROS ACTIVES</h2><div class="val" id="active">—</div></div>
+    <div class="card"><h2>CPS TOTAL</h2><div class="val" id="cps">—</div></div>
+    <div class="card"><h2>VERSION</h2><div class="val" id="ver" style="font-size:1rem;">—</div></div>
+  </div>
+  <div class="card macros">
+    <h2>MACROS</h2>
+    <div id="macro-list"></div>
+  </div>
+  <p class="refresh">Actualisation automatique · pas de Node.js requis</p>
+  <script>
+    async function refresh() {
+      try {
+        const h = await fetch("/api/health").then(r => r.json());
+        const s = await fetch("/api/status").then(r => r.json());
+        document.getElementById("engine").textContent = h.enabled ? "ACTIF" : "STASE";
+        document.getElementById("engine").className = "val " + (h.enabled ? "ok" : "off");
+        document.getElementById("active").textContent = h.active_macros;
+        document.getElementById("cps").textContent = h.total_cps;
+        document.getElementById("ver").textContent = h.version;
+        const list = document.getElementById("macro-list");
+        list.innerHTML = "";
+        for (const [key, m] of Object.entries(s.macros || {})) {
+          const row = document.createElement("div");
+          row.className = "macro-row";
+          row.innerHTML = `<span>${key}</span><span class="${m.active ? "ok" : "off"}">${m.active ? "ACTIF" : "OFF"} · CPS ${m.cps}</span>`;
+          list.appendChild(row);
+        }
+      } catch (e) {
+        document.getElementById("engine").textContent = "HORS LIGNE";
+      }
+    }
+    refresh();
+    setInterval(refresh, 2000);
+  </script>
+</body>
+</html>

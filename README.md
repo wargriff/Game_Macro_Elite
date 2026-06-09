@@ -202,8 +202,42 @@ pip install -r requirements.txt
 
 # Lancement
 
+**Un seul lanceur** — double-cliquez `START.bat` ou :
+
 ```bash
 python Xmacro_main.py
+```
+
+Le splash Control Center charge automatiquement :
+1. Moteur Win32
+2. Profils
+3. API Sidecar + Mission Control (port 17840)
+4. Interface iCUE Sanctuary
+
+Plus besoin de lancer séparément Sidecar, React (5173) ou iCUE.
+
+---
+
+# Lancement (développement)
+
+```bash
+python Xmacro_main.py
+```
+
+---
+
+## Mission Control Web
+
+Intégré dans l'API Sidecar — **pas de Node.js requis** au runtime.
+
+- URL : `http://127.0.0.1:17840/mission`
+- Clic sur tuile **Mission Control** ou **Sidecar API** dans l'UI
+
+Dev optionnel (Node.js dans `C:\src`) :
+
+```bash
+cd web/mission-control
+npm run dev
 ```
 
 ---

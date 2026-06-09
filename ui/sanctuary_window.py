@@ -1,12 +1,14 @@
 """Sanctuary Edition main window — iCUE-style layout with Diablo 4 theme."""
 
 import os
+import webbrowser
 
 from PyQt6.QtCore import QTimer
 from PyQt6.QtGui import QIcon
 from PyQt6.QtWidgets import QHBoxLayout, QLabel, QMainWindow, QStackedWidget, QVBoxLayout
 
 from rgb_engine import RGBEngine
+from services.bootstrap import BootContext
 from services.profile_manager import ProfileManager
 from services.sidecar_api import SidecarAPI
 from ui.pages.dashboard_page import DashboardPage
@@ -34,18 +36,29 @@ class SanctuaryWindow(QMainWindow):
         "settings": 4,
     }
 
-    def __init__(self, engine, image_path: str = "assets/mouse.svg"):
+    def __init__(
+        self,
+        engine,
+        boot: BootContext = None,
+        image_path: str = "assets/mouse.svg",
+    ):
         super().__init__()
         self.engine = engine
         self.rgb = RGBEngine()
-        self.profiles = ProfileManager()
-        self.profiles.load("default")
-        self.profiles.apply_to_engine(engine.manager)
+        self.profiles = boot.profiles if boot else ProfileManager()
+        if not boot:
+            self.profiles.load("default")
+            self.profiles.apply_to_engine(engine.manager)
         self.profiles.apply_to_rgb(self.rgb)
 
-        self.sidecar = SidecarAPI(engine)
-        self.sidecar.start()
+        self.sidecar = boot.sidecar if boot else SidecarAPI(engine)
+        if not boot:
+            self.sidecar.start()
 
+        self._build_ui()
+        self._wire_events()
+
+    def _build_ui(self):
         self.setWindowTitle(WINDOW_TITLE)
         self.resize(*WINDOW_SIZE)
         self.setStyleSheet(GLOBAL_STYLE)
@@ -70,12 +83,12 @@ class SanctuaryWindow(QMainWindow):
 
         self.stack = QStackedWidget()
         self.sensor_panel = SensorPanel()
-        self.home = HomePage(engine, self.rgb, self.sensor_panel)
-        self.dashboard = DashboardPage(engine)
-        self.devices = DevicesPage(engine, self.rgb)
-        self.macros = MacrosPage(engine)
+        self.home = HomePage(self.engine, self.rgb, self.sensor_panel)
+        self.dashboard = DashboardPage(self.engine)
+        self.devices = DevicesPage(self.engine, self.rgb)
+        self.macros = MacrosPage(self.engine)
         self.settings = SettingsPage(
-            engine,
+            self.engine,
             self.profiles,
             on_profile_loaded=self._on_profile_loaded,
             on_profile_saved=lambda: self.profiles.capture_from_rgb(self.rgb),
@@ -94,6 +107,20 @@ class SanctuaryWindow(QMainWindow):
         self.footer.setStyleSheet(FOOTER_STYLE + " padding-left:12px;")
         root.addWidget(self.footer)
 
+        self._connect_mission_control()
+
+    def _connect_mission_control(self):
+        mission = self.home._tiles.get("mission")
+        sidecar = self.home._tiles.get("sidecar")
+        if mission:
+            mission.clicked.connect(self._open_mission_control)
+        if sidecar:
+            sidecar.clicked.connect(self._open_mission_control)
+
+    def _open_mission_control(self):
+        webbrowser.open(self.sidecar.MISSION_URL)
+
+    def _wire_events(self):
         self.header.tab_changed.connect(self._on_tab)
         self.header.seal_clicked.connect(self.close)
         self.header.stasis_clicked.connect(self.engine.toggle)
@@ -101,7 +128,7 @@ class SanctuaryWindow(QMainWindow):
         self.sidebar.profile_combo.currentTextChanged.connect(self._on_profile_change)
         self.sensor_panel.rescan_btn.clicked.connect(self._rescan_devices)
 
-        engine.set_on_toggle(self._on_macro_toggle)
+        self.engine.set_on_toggle(self._on_macro_toggle)
 
         self.ui_timer = QTimer()
         self.ui_timer.timeout.connect(self.refresh_all)

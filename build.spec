@@ -9,6 +9,7 @@ a = Analysis(
     datas=[
         ('assets', 'assets'),
         ('profiles', 'profiles'),
+        ('web', 'web'),
     ],
     hiddenimports=[
         'PyQt6.QtCore',

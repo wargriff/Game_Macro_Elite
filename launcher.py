@@ -97,6 +97,17 @@ def ensure_dependencies(*, quiet: bool = True) -> bool:
     ) == 0
 
 
+def run_cpp_native(root: str | None = None) -> int | None:
+    """Lance GameXClicker.exe (C++) si compile."""
+    if sys.platform != "win32":
+        return None
+    root = root or ROOT
+    exe = os.path.join(root, "GameXClicker.exe")
+    if os.path.isfile(exe):
+        return subprocess.call([exe], cwd=root)
+    return None
+
+
 def run(argv: list[str] | None = None) -> int:
     """Prépare l'environnement puis ouvre Control Panel (ou mode CLI)."""
     root = prepare()
@@ -104,6 +115,12 @@ def run(argv: list[str] | None = None) -> int:
     if err:
         show_error(err)
         return 1
+
+    if argv is None:
+        cpp_code = run_cpp_native(root)
+        if cpp_code is not None:
+            return cpp_code
+
     if not ensure_dependencies():
         show_error(
             "Impossible d'installer les dépendances.\n\n"

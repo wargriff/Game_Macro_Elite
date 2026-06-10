@@ -1,0 +1,18 @@
+Game XClicker Elite - Architecture C++
+======================================
+
+LANCEUR PRINCIPAL (Windows)
+  GameXClicker.exe  ->  Control Panel C++ (Win32)
+
+MOTEUR NATIF (C++)
+  cpp/src/core/win32_input.*  SendInput souris/clavier
+  cpp/src/core/engine.*       MacroManager, MouseEngine, KeyEngine
+  cpp/src/core/rgb_engine.*   Eclairage RGB (sans Qt)
+
+INTERFACE PYQT / WEB (Python - en migration)
+  OUVRE_MOI.pyw, native_app.py, gxclicker.py
+  Boutons du Control Panel C++ lancent Python si besoin.
+
+BUILD
+  BUILD_CPP.bat
+  Visual Studio 2022 -> Ouvrir CMake -> cpp/CMakeLists.txt

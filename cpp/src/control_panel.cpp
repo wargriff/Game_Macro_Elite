@@ -1,5 +1,6 @@
 #include "control_panel.h"
 
+#include "core/engine.hpp"
 #include "process_launcher.h"
 
 #include <commctrl.h>
@@ -8,6 +9,7 @@
 namespace {
 
 enum ButtonId : int {
+    BTN_ENGINE = 1000,
     BTN_PANEL = 1001,
     BTN_NATIVE = 1002,
     BTN_WEB = 1003,
@@ -51,7 +53,7 @@ bool ControlPanel::Create(HINSTANCE instance) {
 
     hwnd_ = CreateWindowW(cls, L"GAME XCLICKER — Control Panel (C++)",
                           WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX,
-                          CW_USEDEFAULT, CW_USEDEFAULT, 520, 420,
+                          CW_USEDEFAULT, CW_USEDEFAULT, 520, 500,
                           nullptr, nullptr, instance, this);
     return hwnd_ != nullptr;
 }
@@ -77,15 +79,17 @@ void ControlPanel::OnCreate(HWND hwnd) {
                                20, 16, 460, 32, hwnd, nullptr, instance_, nullptr);
     SendMessageW(title, WM_SETFONT, reinterpret_cast<WPARAM>(titleFont), TRUE);
 
-    HWND sub = CreateWindowW(L"STATIC", L"Control Panel C++ — lanceur unique",
+    HWND sub = CreateWindowW(L"STATIC", L"C++ natif — moteur macros + lanceur",
                              WS_CHILD | WS_VISIBLE | SS_CENTER,
                              20, 48, 460, 20, hwnd, nullptr, instance_, nullptr);
 
-    int y = 90;
+    int y = 82;
     const int w = 460;
-    const int h = 44;
+    const int h = 40;
     const int x = 20;
 
+    HWND b0 = MakeButton(hwnd, L"DEMARRER MOTEUR MACROS (C++)", BTN_ENGINE, x, y, w, h);
+    y += h + 8;
     HWND b1 = MakeButton(hwnd, L"CONTROL PANEL (Python UI)", BTN_PANEL, x, y, w, h);
     y += h + 10;
     HWND b2 = MakeButton(hwnd, L"INTERFACE NATIVE", BTN_NATIVE, x, y, w, h);
@@ -98,13 +102,13 @@ void ControlPanel::OnCreate(HWND hwnd) {
     y += h + 10;
     HWND b6 = MakeButton(hwnd, L"REPARER (git + deps)", BTN_REPAIR, x, y, w, h);
 
-    for (HWND b : {b1, b2, b3, b4, b5, b6}) {
+    for (HWND b : {b0, b1, b2, b3, b4, b5, b6}) {
         SendMessageW(b, WM_SETFONT, reinterpret_cast<WPARAM>(btnFont), TRUE);
     }
 
     status_ = CreateWindowW(L"STATIC", L"Pret.",
                             WS_CHILD | WS_VISIBLE | SS_LEFT,
-                            20, 360, 460, 20, hwnd, nullptr, instance_, nullptr);
+                            20, 440, 460, 20, hwnd, nullptr, instance_, nullptr);
 
     std::wstring st = L"Projet: " + projectRoot_;
     SetStatus(st.c_str());
@@ -114,9 +118,26 @@ void ControlPanel::SetStatus(const wchar_t* text) {
     if (status_) SetWindowTextW(status_, text);
 }
 
+void ControlPanel::OnClose() {
+    if (engine_) {
+        engine_->stop();
+        engine_.reset();
+    }
+}
+
 void ControlPanel::OnCommand(int id) {
     bool ok = false;
     switch (id) {
+        case BTN_ENGINE:
+            if (!engine_) {
+                engine_ = std::make_unique<MacroManager>();
+                SetStatus(L"Moteur C++ actif (souris + clavier). XButton2 = toggle.");
+            } else {
+                engine_->stop();
+                engine_.reset();
+                SetStatus(L"Moteur C++ arrete.");
+            }
+            break;
         case BTN_PANEL:
             ok = LaunchPythonMode(projectRoot_, L"");
             SetStatus(ok ? L"Control Panel Python lance." : L"Echec lancement.");
@@ -171,7 +192,12 @@ LRESULT CALLBACK ControlPanel::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARA
             SetBkColor(hdc, kBg);
             return reinterpret_cast<LRESULT>(CreateSolidBrush(kBg));
         }
+        case WM_CLOSE:
+            if (self) self->OnClose();
+            DestroyWindow(hwnd);
+            return 0;
         case WM_DESTROY:
+            if (self) self->OnClose();
             PostQuitMessage(0);
             return 0;
         default:

@@ -1,3 +1,5 @@
+"""Moteur macros Python (fallback). Version native: cpp/src/core/engine.cpp"""
+
 import random
 import threading
 import time

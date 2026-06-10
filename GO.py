@@ -38,7 +38,12 @@ def main() -> int:
 
     if os.path.isdir(os.path.join(ROOT, ".git")):
         print("git pull origin main...")
-        subprocess.call(["git", "pull", "origin", "main"], cwd=ROOT)
+        env = {**os.environ, "GIT_MERGE_AUTOEDIT": "no"}
+        subprocess.call(
+            ["git", "pull", "--no-edit", "origin", "main"],
+            cwd=ROOT,
+            env=env,
+        )
 
     subprocess.call([py, "-m", "pip", "install", "-r", "requirements.txt", "-q"], cwd=ROOT)
     print("Lancement Mission Control...\n")

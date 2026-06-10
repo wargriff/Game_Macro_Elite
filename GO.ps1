@@ -26,7 +26,8 @@ Write-Host "Dossier projet: $Root" -ForegroundColor Green
 
 if (Test-Path ".git") {
     Write-Host "git pull origin main..."
-    git pull origin main
+    $env:GIT_MERGE_AUTOEDIT = "no"
+    git pull --no-edit origin main
 } else {
     Write-Host "Pas de .git — clonez le depot GitHub d'abord." -ForegroundColor Yellow
 }

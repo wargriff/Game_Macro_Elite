@@ -449,10 +449,19 @@ class MissionControlWindow(QMainWindow):
             self._log(f"✗ {exc}")
 
     def _run_repair(self):
-        repair = os.path.join(ROOT, "REPARER.bat")
-        if os.path.isfile(repair):
+        self._log("→ REPARER (git fetch + reset, sans editeur Vim)...")
+        repair_py = os.path.join(ROOT, "REPARER.py")
+        if os.path.isfile(repair_py):
             subprocess.Popen(
-                ["cmd", "/c", repair],
+                [sys.executable, repair_py],
+                cwd=ROOT,
+                creationflags=getattr(subprocess, "CREATE_NEW_CONSOLE", 0),
+            )
+            return
+        repair_bat = os.path.join(ROOT, "REPARER.bat")
+        if os.path.isfile(repair_bat):
+            subprocess.Popen(
+                ["cmd", "/c", repair_bat],
                 cwd=ROOT,
                 creationflags=getattr(subprocess, "CREATE_NEW_CONSOLE", 0),
             )

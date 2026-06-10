@@ -4,7 +4,10 @@ cd /d "%~dp0"
 call "%~dp0scripts\_env.bat"
 
 echo.
-echo  Mission Control — un seul programme
+echo  Si .bat bloque par Windows Smart App Control, utilisez PYTHON:
+echo    python DEBLOQUER.py
+echo    python GO.py
+echo    python REPARER.py
 echo.
 
 if not exist "GameXClicker.py" (

@@ -33,10 +33,11 @@ def main() -> int:
             ok = False
     print()
     if ok:
-        print("PRET — un seul programme:")
-        print("  GameXClicker.py  ou  START.bat  → Mission Control")
-        print("  PyCharm: import pycharm/Game_XClicker_Elite.run.xml")
-        print("  Build .exe → copie auto sur le Bureau")
+        print("PRET — lancez avec PYTHON (pas .bat si Smart App Control bloque):")
+        print("  python DEBLOQUER.py   # debloquer fichiers")
+        print("  python GO.py          # lancer Mission Control")
+        print("  python REPARER.py     # reparer + lancer")
+        print("  python GameXClicker.py")
     else:
         print("INCOMPLET — REPARER.bat")
     return 0 if ok else 1

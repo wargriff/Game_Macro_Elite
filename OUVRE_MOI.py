@@ -5,7 +5,7 @@ OUVRE MOI — un seul fichier pour tout lancer.
 Windows : double-clic OUVRE_MOI.pyw  (recommande)
 PyCharm  : Run OUVRE_MOI.py
 PowerShell:
-  Set-Location "C:\Users\wargriff\Pycharm_Project_v 3.12\Game_XClicker_Elite"
+  Set-Location "C:/Users/wargriff/Pycharm_Project_v 3.12/Game_XClicker_Elite"
   python OUVRE_MOI.py
 """
 

@@ -375,11 +375,16 @@ class MissionControlWindow(QMainWindow):
     def _launch_native(self):
         self._log("→ Interface native PyQt6…")
         self.hide()
-        from native_app import main as native_main
+        code = 1
+        try:
+            from native_app import main as native_main
 
-        code = native_main()
-        self.show()
-        self._refresh_status()
+            code = native_main()
+        except Exception as exc:
+            self._log(f"✗ Erreur native: {exc}")
+        finally:
+            self.show()
+            self._refresh_status()
         if code != 0:
             self._log(f"Native code {code}")
 
@@ -387,10 +392,15 @@ class MissionControlWindow(QMainWindow):
         self._log("→ Interface web…")
         os.environ["GX_BROWSER"] = "1"
         self.hide()
-        from gxclicker import main as web_main
+        code = 1
+        try:
+            from gxclicker import main as web_main
 
-        code = web_main()
-        self.show()
+            code = web_main()
+        except Exception as exc:
+            self._log(f"✗ Erreur web: {exc}")
+        finally:
+            self.show()
         if code != 0:
             self._log(f"Web code {code}")
 

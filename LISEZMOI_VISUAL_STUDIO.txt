@@ -25,6 +25,18 @@ PROJETS DANS LA SOLUTION
 GameXClicker     Win32 Control Panel + moteur + API REST (toujours)
 GameXClickerQt   Interface Qt6 (necessite variable QTDIR)
 
+ERREUR MSB8020 (outils de generation introuvables)
+--------------------------------------------------
+1. Ouvrez "Visual Studio Installer"
+2. Modifier votre installation
+3. Cochez: "Developpement Desktop en C++" (ou "Desktop development with C++")
+4. Sous "Composants individuels", verifiez:
+   - MSVC v143 ou version la plus recente (x64/x86)
+   - Windows 10/11 SDK
+5. Redemarrez Visual Studio, puis Regenerer la solution
+
+Le projet utilise $(DefaultPlatformToolset): il s'adapte a VS 2022, 2025 ou 2026.
+
 QT6 (optionnel)
 ---------------
 Installez Qt 6 avec MSVC 2022 64-bit.

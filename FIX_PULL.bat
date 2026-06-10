@@ -1,6 +1,6 @@
 @echo off
-title Fix Git Pull — Game XClicker Elite
+title Fix Git — Game XClicker Elite
 cd /d "%~dp0"
-echo Redirection vers REPARER.bat ...
-call "%~dp0REPARER.bat"
+call "%~dp0scripts\_env.bat"
+"%PY%" REPARER.py
 exit /b %ERRORLEVEL%

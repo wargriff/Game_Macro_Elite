@@ -7,11 +7,12 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ROOT)
 
 FILES = [
-    "START.bat",
+    "OUVRE_MOI.py",
+    "OUVRE_MOI.pyw",
+    "launcher.py",
     "GameXClicker.py",
     "ui/mission_control.py",
-    "BUILD.bat",
-    "REPARER.bat",
+    "REPARER.py",
     "native_app.py",
     "gxclicker.py",
     "build.spec",
@@ -33,13 +34,12 @@ def main() -> int:
             ok = False
     print()
     if ok:
-        print("PRET — lancez avec PYTHON (pas .bat si Smart App Control bloque):")
-        print("  python DEBLOQUER.py   # debloquer fichiers")
-        print("  python GO.py          # lancer Mission Control")
-        print("  python REPARER.py     # reparer + lancer")
-        print("  python GameXClicker.py")
+        print("PRET — lanceur unique :")
+        print("  double-clic OUVRE_MOI.pyw   # Windows")
+        print("  python OUVRE_MOI.py         # PyCharm / terminal")
+        print("  python REPARER.py           # maintenance seulement")
     else:
-        print("INCOMPLET — REPARER.bat")
+        print("INCOMPLET — python REPARER.py")
     return 0 if ok else 1
 
 

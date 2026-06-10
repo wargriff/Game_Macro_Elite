@@ -181,7 +181,7 @@ class MissionControlWindow(QMainWindow):
 
         hint = QLabel(
             "Choisissez comment lancer Game XClicker Elite. "
-            "Tout est centralisé ici — un seul programme (GameXClicker.py / START.bat)."
+            "Un seul lanceur au démarrage (OUVRE_MOI.pyw) — tout le reste se gère ici."
         )
         hint.setWordWrap(True)
         hint.setStyleSheet(f"color:{MC['text_dim']}; font-size:11px; margin-bottom:12px;")
@@ -281,7 +281,7 @@ class MissionControlWindow(QMainWindow):
         lay.setContentsMargins(20, 20, 20, 20)
         lay.addWidget(QLabel("Settings Hub"))
         lay.addWidget(QLabel(f"Projet: {ROOT}"))
-        btn = QPushButton("REPARER (git pull)")
+        btn = QPushButton("REPARER (git reset + dépendances)")
         btn.clicked.connect(self._run_repair)
         lay.addWidget(btn)
         lay.addStretch()
@@ -375,11 +375,16 @@ class MissionControlWindow(QMainWindow):
     def _launch_native(self):
         self._log("→ Interface native PyQt6…")
         self.hide()
-        from native_app import main as native_main
+        code = 1
+        try:
+            from native_app import main as native_main
 
-        code = native_main()
-        self.show()
-        self._refresh_status()
+            code = native_main()
+        except Exception as exc:
+            self._log(f"✗ Erreur native: {exc}")
+        finally:
+            self.show()
+            self._refresh_status()
         if code != 0:
             self._log(f"Native code {code}")
 
@@ -387,10 +392,15 @@ class MissionControlWindow(QMainWindow):
         self._log("→ Interface web…")
         os.environ["GX_BROWSER"] = "1"
         self.hide()
-        from gxclicker import main as web_main
+        code = 1
+        try:
+            from gxclicker import main as web_main
 
-        code = web_main()
-        self.show()
+            code = web_main()
+        except Exception as exc:
+            self._log(f"✗ Erreur web: {exc}")
+        finally:
+            self.show()
         if code != 0:
             self._log(f"Web code {code}")
 
@@ -439,10 +449,19 @@ class MissionControlWindow(QMainWindow):
             self._log(f"✗ {exc}")
 
     def _run_repair(self):
-        repair = os.path.join(ROOT, "REPARER.bat")
-        if os.path.isfile(repair):
+        self._log("→ REPARER (console séparée)...")
+        repair_py = os.path.join(ROOT, "REPARER.py")
+        if os.path.isfile(repair_py):
             subprocess.Popen(
-                ["cmd", "/c", repair],
+                [sys.executable, repair_py],
+                cwd=ROOT,
+                creationflags=getattr(subprocess, "CREATE_NEW_CONSOLE", 0),
+            )
+            return
+        repair_bat = os.path.join(ROOT, "REPARER.bat")
+        if os.path.isfile(repair_bat):
+            subprocess.Popen(
+                ["cmd", "/c", repair_bat],
                 cwd=ROOT,
                 creationflags=getattr(subprocess, "CREATE_NEW_CONSOLE", 0),
             )

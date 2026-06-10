@@ -1,27 +1,35 @@
 #!/usr/bin/env python3
 """
-Game XClicker Elite — point d'entrée UNIQUE.
+Routeur interne — modes avancés uniquement.
 
-  GameXClicker.py           → Mission Control (hub visuel)
-  GameXClicker.py --native → interface PyQt6 iCUE
-  GameXClicker.py --web      → interface web
-  GameXClicker.py --build    → compile .exe + copie Bureau
+  (défaut)              → Mission Control
+  --native               → interface PyQt6
+  --web                  → interface web
+  --build [--desktop]    → compile .exe
+  --repair               → REPARER.py (sans relancer)
 
-PyCharm / START.bat : lancez uniquement ce fichier.
+Usage quotidien : OUVRE_MOI.py / OUVRE_MOI.pyw
 """
 
 from __future__ import annotations
 
 import os
+import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-if ROOT not in sys.path:
-    sys.path.insert(0, ROOT)
 
 
 def main() -> int:
+    from launcher import prepare
+
+    prepare(ROOT)
     args = sys.argv[1:]
+
+    if "--repair" in args:
+        from REPARER import main as repair_main
+
+        return repair_main(launch=False)
 
     if "--native" in args:
         from native_app import main as native_main
@@ -34,11 +42,9 @@ def main() -> int:
         return web_main()
 
     if "--build" in args:
-        import subprocess
-
         script = os.path.join(ROOT, "scripts", "build_exe.py")
         extra = ["--desktop"] if "--desktop" in args else []
-        return subprocess.call([sys.executable, script] + extra, cwd=ROOT)
+        return subprocess.call([sys.executable, script, *extra], cwd=ROOT)
 
     from ui.mission_control import main as hub_main
 

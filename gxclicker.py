@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Game XClicker Elite — START.bat / .exe"""
+"""Game XClicker Elite — interface web (lancée depuis Mission Control)."""
 
 from __future__ import annotations
 

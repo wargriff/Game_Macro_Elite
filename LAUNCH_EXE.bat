@@ -1,11 +1,10 @@
 @echo off
+REM Obsolète — utilisez Mission Control (LANCER .EXE)
 cd /d "%~dp0"
-set "EXE=%USERPROFILE%\Desktop\Game XClicker Elite\Game XClicker Elite.exe"
-if not exist "%EXE%" set "EXE=%~dp0dist\Game XClicker Elite\Game XClicker Elite.exe"
-if not exist "%EXE%" (
-    echo .exe absent — lancez BUILD.bat depuis Mission Control
-    pause
-    exit /b 1
-)
-start "" "%EXE%"
-exit /b 0
+call "%~dp0scripts\_env.bat"
+echo.
+echo  Ce raccourci est obsolete.
+echo  Lancez OUVRE_MOI.pyw puis cliquez LANCER .EXE dans Mission Control.
+echo.
+"%PY%" OUVRE_MOI.py
+exit /b %ERRORLEVEL%

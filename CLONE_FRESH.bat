@@ -44,8 +44,8 @@ echo ============================================================
 echo   OK — Ouvrez PyCharm sur:
 echo   %TARGET%
 echo.
-echo   Script PyCharm: main.py
-echo   Lancement: double-clic START.bat
+echo   Script PyCharm: OUVRE_MOI.py
+echo   Lancement: double-clic OUVRE_MOI.pyw
 echo ============================================================
 echo.
 call REPARER.bat

@@ -50,9 +50,8 @@ Write-Host "Fichiers debloques: $count"
     print()
     print("  Option A — Utilisez Python (recommande, pas bloque) :")
     print(f'    cd "{ROOT}"')
-    print("    python GO.py")
+    print("    python OUVRE_MOI.py")
     print("    python REPARER.py")
-    print("    python GameXClicker.py")
     print()
     print("  Option B — Desactiver Smart App Control (une fois) :")
     print("    Parametres Windows > Confidentialite et securite")
@@ -65,7 +64,7 @@ Write-Host "Fichiers debloques: $count"
     print()
 
     if r.returncode == 0:
-        print("OK — Relancez: python GO.py")
+        print("OK — Relancez: python OUVRE_MOI.py")
     input("Entree pour fermer...")
     return r.returncode
 

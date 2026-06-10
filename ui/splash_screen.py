@@ -90,11 +90,11 @@ class SplashScreen(QWidget):
         )
         layout.addWidget(self.progress)
 
-        self.status_lbl = QLabel("Prêt — lancement via START.bat")
+        self.status_lbl = QLabel("Prêt — lancement via OUVRE_MOI")
         self.status_lbl.setStyleSheet(f"color:{COLORS['parchment_dim']}; font-size:11px;")
         layout.addWidget(self.status_lbl)
 
-        footer = QLabel("START.bat · un seul lanceur · Sanctuary Edition")
+        footer = QLabel("OUVRE_MOI.pyw · un seul lanceur · Sanctuary Edition")
         footer.setStyleSheet(f"color:{COLORS['gold_dim']}; font-size:10px;")
         footer.setAlignment(Qt.AlignmentFlag.AlignRight)
         layout.addStretch()

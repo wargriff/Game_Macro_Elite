@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-Reparation complete — version PYTHON (pas de .bat, pas bloque par Smart App Control).
+Réparation complète — maintenance uniquement (pas le lanceur quotidien).
 
-PyCharm ou PowerShell :
   python REPARER.py
+
+Git fetch + reset, pip, Node, puis ouverture de Mission Control.
 """
 
 from __future__ import annotations
@@ -18,6 +19,7 @@ if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 from scripts.find_python import find_python
+from scripts.setup import install_node_deps, install_pip_deps, unblock_windows
 
 REQUIRED = (
     "GameXClicker.py",
@@ -32,7 +34,7 @@ def _run(cmd: list[str], cwd: str = ROOT) -> int:
     return subprocess.call(cmd, cwd=cwd)
 
 
-def main() -> int:
+def main(*, launch: bool = True) -> int:
     os.chdir(ROOT)
     py = find_python(ROOT)
     print("=" * 60)
@@ -40,64 +42,63 @@ def main() -> int:
     print(f"  Python: {py}")
     print("=" * 60)
 
-    if sys.platform == "win32":
-        print("[0/7] Unblock-File...")
-        ps = f"Get-ChildItem -LiteralPath '{ROOT}' -Recurse -Force | Unblock-File -ErrorAction SilentlyContinue"
-        subprocess.call(["powershell", "-ExecutionPolicy", "Bypass", "-Command", ps])
+    print("[0/7] Déblocage Windows...")
+    unblock_windows(ROOT)
 
     if not os.path.isdir(os.path.join(ROOT, ".git")):
-        print("ERREUR: pas de depot git. Clonez:")
+        print("ERREUR: pas de dépôt git. Clonez :")
         print("  git clone https://github.com/wargriff/Game_XClicker_Elite.git")
-        input("Entree...")
+        input("Entrée...")
         return 1
 
     backup = os.path.join(ROOT, "_backup_local")
     os.makedirs(backup, exist_ok=True)
-    for name in ("START.bat", "GameXClicker.py", "profiles/default.json"):
+    for name in ("OUVRE_MOI.pyw", "GameXClicker.py", "profiles/default.json"):
         src = os.path.join(ROOT, name.replace("/", os.sep))
         if os.path.isfile(src):
             shutil.copy2(src, os.path.join(backup, os.path.basename(name) + ".bak"))
 
     print("[1/7] git fetch...")
     if _run(["git", "fetch", "origin", "main"]) != 0:
-        input("git fetch echoue — Entree...")
+        input("git fetch échoué — Entrée...")
         return 1
 
     print("[2/7] git reset main...")
     _run(["git", "checkout", "-B", "main", "origin/main"])
     _run(["git", "reset", "--hard", "origin/main"])
 
-    print("[3/7] Verification fichiers...")
+    print("[3/7] Vérification fichiers...")
     missing = [f for f in REQUIRED if not os.path.isfile(os.path.join(ROOT, f.replace("/", os.sep)))]
     if missing:
         print("MANQUE:", ", ".join(missing))
-        input("Entree...")
+        input("Entrée...")
         return 1
     print("  OK")
 
-    ui_py = os.path.join(ROOT, "ui.py")
-    ui_dir = os.path.join(ROOT, "ui")
-    if os.path.isfile(ui_py) and os.path.isdir(ui_dir):
-        os.rename(ui_py, ui_py + ".bak")
-        print("  ui.py -> ui.py.bak")
+    from utils.bootstrap import ensure_project_ready
+
+    ensure_project_ready(ROOT)
 
     print("[4/7] pip install...")
-    subprocess.call([py, "-m", "pip", "install", "-r", "requirements.txt", "-q"], cwd=ROOT)
+    if not install_pip_deps(py, ROOT, quiet=False):
+        input("pip échoué — Entrée...")
+        return 1
 
     print("[5/7] Node.js...")
-    node = r"C:\src\node.exe"
-    nodejs = os.path.join(ROOT, "nodejs")
-    if os.path.isfile(node) and os.path.isdir(nodejs):
-        subprocess.call([node, "--version"], cwd=nodejs)
-        if not os.path.isdir(os.path.join(nodejs, "node_modules")):
-            subprocess.call(["npm", "install", "--silent"], cwd=nodejs, shell=True)
+    install_node_deps(ROOT)
 
     print("[6/7] CHECK_VERSION...")
     subprocess.call([py, "CHECK_VERSION.py"], cwd=ROOT)
 
-    print("[7/7] Lancement Mission Control...")
-    print()
-    return subprocess.call([py, "GameXClicker.py"], cwd=ROOT)
+    print("[7/7] Terminé.")
+    if not launch:
+        print("Réparation OK. Lancez OUVRE_MOI.pyw ou python OUVRE_MOI.py")
+        return 0
+
+    print("Ouverture Mission Control...\n")
+    from launcher import run
+
+    return run()
 
 
 if __name__ == "__main__":

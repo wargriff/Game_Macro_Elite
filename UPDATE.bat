@@ -1,5 +1,6 @@
 @echo off
-title Mise a jour Game XClicker Elite
+title Mise a jour — Game XClicker Elite
 cd /d "%~dp0"
-call "%~dp0REPARER.bat"
+call "%~dp0scripts\_env.bat"
+"%PY%" REPARER.py
 exit /b %ERRORLEVEL%

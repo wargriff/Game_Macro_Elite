@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 120">
+  <defs>
+    <linearGradient id="stick" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#222230"/>
+      <stop offset="100%" stop-color="#121218"/>
+    </linearGradient>
+    <linearGradient id="rgb" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e02626"/>
+      <stop offset="50%" stop-color="#3498db"/>
+      <stop offset="100%" stop-color="#9b59b6"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect x="20" y="30" width="50" height="60" rx="4" fill="url(#stick)" stroke="#2a2a34" stroke-width="2"/>
+  <rect x="80" y="30" width="50" height="60" rx="4" fill="url(#stick)" stroke="#2a2a34" stroke-width="2"/>
+  <rect x="140" y="30" width="50" height="60" rx="4" fill="url(#stick)" stroke="#e02626" stroke-width="2" filter="url(#glow)"/>
+  <rect x="200" y="30" width="50" height="60" rx="4" fill="url(#stick)" stroke="#2a2a34" stroke-width="2"/>
+  <rect x="24" y="34" width="42" height="8" rx="2" fill="#181820"/>
+  <rect x="84" y="34" width="42" height="8" rx="2" fill="#181820"/>
+  <rect x="144" y="34" width="42" height="8" rx="2" fill="#181820"/>
+  <rect x="204" y="34" width="42" height="8" rx="2" fill="#181820"/>
+  <rect x="20" y="98" width="230" height="4" rx="2" fill="url(#rgb)" filter="url(#glow)"/>
+</svg>

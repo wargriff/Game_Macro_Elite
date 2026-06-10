@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 280">
+  <defs>
+    <linearGradient id="pcb" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#141420"/>
+      <stop offset="100%" stop-color="#0a0a10"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect x="30" y="30" width="260" height="220" rx="6" fill="url(#pcb)" stroke="#2a2a34" stroke-width="2"/>
+  <rect x="50" y="50" width="80" height="80" rx="4" fill="#181820" stroke="#e02626" filter="url(#glow)"/>
+  <rect x="150" y="50" width="120" height="40" rx="3" fill="#121218" stroke="#3a3a48"/>
+  <rect x="150" y="100" width="120" height="40" rx="3" fill="#121218" stroke="#3a3a48"/>
+  <rect x="50" y="150" width="220" height="20" rx="3" fill="#1a1a22" stroke="#e02626" opacity="0.5"/>
+  <g fill="#e02626" opacity="0.8">
+    <rect x="60" y="190" width="8" height="40" rx="2"/><rect x="80" y="190" width="8" height="40" rx="2"/>
+    <rect x="100" y="190" width="8" height="40" rx="2"/><rect x="120" y="190" width="8" height="40" rx="2"/>
+    <rect x="140" y="190" width="8" height="40" rx="2"/><rect x="160" y="190" width="8" height="40" rx="2"/>
+    <rect x="180" y="190" width="8" height="40" rx="2"/><rect x="200" y="190" width="8" height="40" rx="2"/>
+    <rect x="220" y="190" width="8" height="40" rx="2"/><rect x="240" y="190" width="8" height="40" rx="2"/>
+  </g>
+  <text x="90" y="95" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="12" fill="#9090a0">CPU</text>
+</svg>

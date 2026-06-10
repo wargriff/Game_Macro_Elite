@@ -1,0 +1,33 @@
+QWidget#deviceDock {
+    background-color: #08080c;
+    border-top: 1px solid #1c1c26;
+    min-height: 88px;
+}
+
+QFrame#dockItem {
+    background-color: #16161e;
+    border: 1px solid #2a3040;
+    border-radius: 12px;
+    min-width: 68px;
+    min-height: 68px;
+}
+
+QFrame#dockItem:hover {
+    border-color: #3498db;
+    background-color: #141820;
+}
+
+QFrame#dockItem[selected="true"] {
+    border: 2px solid #3498db;
+    background-color: #101820;
+}
+
+QLabel#dockIcon {
+    background: transparent;
+}
+
+QLabel#dockTemp {
+    color: #3498db;
+    font-size: 10px;
+    font-weight: 700;
+}

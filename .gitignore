@@ -1,0 +1,34 @@
+# Build
+build/
+out/
+cmake-build-*/
+*.user
+*.suo
+*.sln.docstates
+.vs/
+.vscode/
+
+# Qt / MOC
+*_autogen/
+*.qrc.depends
+
+# Binaires
+*.exe
+*.dll
+*.obj
+*.o
+*.pdb
+*.ilk
+*.exp
+*.lib
+!resources/**
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Logs temporaires
+_git_status.txt
+launch_test.log
+scripts/last_run.log

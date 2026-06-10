@@ -1,0 +1,6 @@
+QWidget#keyboardWidget, QWidget#mouseWidget {
+    background-color: #0a0b0f;
+    border: 1px solid #2a3040;
+    border-radius: 12px;
+    min-height: 300px;
+}

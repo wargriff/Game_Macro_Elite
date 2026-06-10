@@ -1,0 +1,107 @@
+QWidget#titleBar {
+    background-color: #0c0c10;
+    border-bottom: 1px solid #1c1c26;
+}
+
+QLabel#titleBarSection {
+    font-size: 14px;
+    font-weight: 600;
+    color: #888898;
+}
+
+QLabel#titleBarProfile {
+    color: #c0c0cc;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+QFrame#titleBarEngine {
+    background-color: #101016;
+    border: 1px solid #22222e;
+    border-radius: 10px;
+}
+
+QLabel#titleBarEngineLabel {
+    color: #707080;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+QLabel#titleBarEngineBadge {
+    color: #2ecc71;
+    font-size: 10px;
+    font-weight: 700;
+    background-color: #142818;
+    border: 1px solid #1e4028;
+    border-radius: 8px;
+    padding: 2px 8px;
+}
+
+QLabel#titleBarEngineBadge[running="true"] {
+    color: #3498db;
+    background-color: #141824;
+    border-color: #2a5080;
+}
+
+QLabel#titleBarMeterLabel {
+    color: #606070;
+    font-size: 9px;
+    font-weight: 600;
+    min-width: 28px;
+}
+
+QProgressBar#titleBarMeterBar {
+    background-color: #1a1a22;
+    border: none;
+    border-radius: 2px;
+}
+
+QProgressBar#titleBarMeterBar[accent="cpu"]::chunk {
+    background-color: #3498db;
+    border-radius: 2px;
+}
+
+QProgressBar#titleBarMeterBar[accent="ram"]::chunk {
+    background-color: #e02626;
+    border-radius: 2px;
+}
+
+QLabel#titleBarVersion {
+    color: #505060;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+QPushButton#titleBarChangeBtn {
+    color: #3498db;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border: 1px solid #2a5080;
+    border-radius: 6px;
+    background: #141824;
+}
+
+QPushButton#titleBarChangeBtn:hover {
+    color: #5dade2;
+    border-color: #3498db;
+}
+
+QPushButton#titleBarBtn {
+    background: transparent;
+    border: none;
+    color: #888898;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+QPushButton#titleBarBtn:hover {
+    background-color: #22222c;
+    color: #ffffff;
+}
+
+QPushButton#titleBarBtn:last-child:hover {
+    background-color: #e02626;
+    color: #ffffff;
+}

@@ -1,0 +1,139 @@
+QWidget#sidebar {
+    background-color: #0c0c10;
+    border-right: 1px solid #1c1c26;
+}
+
+QPushButton#sidebarButton {
+    text-align: left;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    color: #9898a8;
+    background: transparent;
+}
+
+QPushButton#sidebarButton:hover {
+    background-color: #181820;
+}
+
+QPushButton#sidebarButton:checked,
+QPushButton#sidebarButton[active="true"] {
+    background-color: qlineargradient(x1:0,y1:0,x2:1,y2:0, stop:0 #301414, stop:1 transparent);
+    color: #ffffff;
+    border-left: 3px solid #e02626;
+}
+
+QLabel#sidebarButtonText {
+    color: inherit;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+QPushButton#sidebarButton:checked QLabel#sidebarButtonText,
+QPushButton#sidebarButton[active="true"] QLabel#sidebarButtonText {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+QFrame#sidebarFooter {
+    background-color: #101016;
+    border: 1px solid #22222e;
+    border-radius: 12px;
+}
+
+QLabel#sidebarFooterLabel {
+    color: #707080;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+QLabel#sidebarEngineBadge {
+    color: #2ecc71;
+    font-size: 11px;
+    font-weight: 600;
+    background-color: #142818;
+    border: 1px solid #1e4028;
+    border-radius: 10px;
+    padding: 2px 8px;
+}
+
+QLabel#sidebarMeterLabel {
+    color: #808090;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+QLabel#sidebarMeterValue {
+    color: #c8c8d4;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+QProgressBar#sidebarMeterBar {
+    background-color: #1a1a22;
+    border: none;
+    border-radius: 3px;
+}
+
+QProgressBar#sidebarMeterBar[accent="cpu"]::chunk {
+    background-color: #3498db;
+    border-radius: 3px;
+}
+
+QProgressBar#sidebarMeterBar[accent="ram"]::chunk {
+    background-color: #e02626;
+    border-radius: 3px;
+}
+
+QFrame#sidebarProfileCard {
+    background-color: #14141c;
+    border: 1px solid #282834;
+    border-radius: 10px;
+}
+
+QLabel#sidebarProfileHint {
+    color: #606070;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+QLabel#sidebarProfile {
+    color: #f4f4f8;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+QPushButton#sidebarChangeBtn {
+    color: #3498db;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border: 1px solid #2a5080;
+    border-radius: 6px;
+    background: #141824;
+}
+
+QPushButton#sidebarChangeBtn:hover {
+    color: #5dade2;
+    border-color: #3498db;
+    background: #182030;
+}
+
+QLabel#sidebarVersion {
+    color: #606070;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+QLabel#sidebarUpdateBadge {
+    color: #2ecc71;
+    font-size: 10px;
+    font-weight: 600;
+    background-color: #142818;
+    border: 1px solid #1e4028;
+    border-radius: 8px;
+    padding: 2px 8px;
+}

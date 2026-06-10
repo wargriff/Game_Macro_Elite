@@ -1,0 +1,139 @@
+2026-06-10 21:46:02,595 - aqt.main - INFO - installer 88692 aqtinstall(aqt) v3.3.0 on Python 3.12.10 [CPython MSC v.1943 64 bit (AMD64)]
+2026-06-10 21:46:02,595 - aqt.helper - DEBUG - helper 88692 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-10 21:46:19,032 - aqt.helper - DEBUG - helper 88692 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/680/msvc2022_64/Updates.xml.sha256
+2026-06-10 21:46:22,093 - aqt.archives - INFO - archives 88692 Found extension qtwebengine
+2026-06-10 21:46:22,093 - aqt.helper - DEBUG - helper 88692 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/680/msvc2022_64/Updates.xml.sha256
+2026-06-10 21:46:26,199 - aqt.archives - INFO - archives 88692 Found extension qtpdf
+2026-06-10 21:46:26,686 - aqt.helper - DEBUG - helper 77472 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.addons.qtshadertools.win64_msvc2022_64/6.8.0-0-202410030750qtshadertools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-10 21:46:26,688 - aqt.helper - DEBUG - helper 79040 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-10 21:46:26,696 - aqt.helper - DEBUG - helper 39492 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-10 21:46:26,700 - aqt.helper - DEBUG - helper 92356 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-10 21:46:27,575 - aqt.helper - INFO - helper 39492 Downloading qtsvg...
+2026-06-10 21:46:27,575 - aqt.installer - DEBUG - installer 39492 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-10 21:46:27,827 - aqt.helper - INFO - helper 79040 Downloading qtbase...
+2026-06-10 21:46:27,827 - aqt.installer - DEBUG - installer 79040 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-10 21:46:28,394 - aqt.helper - DEBUG - helper 39492 Asked to redirect(302) to: https://mirrors.20i.com/pub/qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-10 21:46:28,394 - aqt.helper - INFO - helper 39492 Redirected: mirrors.20i.com
+2026-06-10 21:46:28,728 - aqt.helper - DEBUG - helper 79040 Asked to redirect(302) to: https://mirrors.20i.com/pub/qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-10 21:46:28,728 - aqt.helper - INFO - helper 79040 Redirected: mirrors.20i.com
+2026-06-10 21:46:28,754 - aqt.helper - INFO - helper 92356 Downloading qtdeclarative...
+2026-06-10 21:46:28,754 - aqt.installer - DEBUG - installer 92356 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-10 21:46:30,070 - aqt.helper - DEBUG - helper 92356 Asked to redirect(302) to: https://mirrors.20i.com/pub/qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-10 21:46:30,070 - aqt.helper - INFO - helper 92356 Redirected: mirrors.20i.com
+2026-06-10 21:46:32,137 - aqt.helper - INFO - helper 77472 Downloading qtshadertools...
+2026-06-10 21:46:32,137 - aqt.installer - DEBUG - installer 77472 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.addons.qtshadertools.win64_msvc2022_64/6.8.0-0-202410030750qtshadertools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-10 21:46:33,021 - aqt.helper - DEBUG - helper 77472 Asked to redirect(302) to: https://mirrors.20i.com/pub/qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.addons.qtshadertools.win64_msvc2022_64/6.8.0-0-202410030750qtshadertools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-10 21:46:33,021 - aqt.helper - INFO - helper 77472 Redirected: mirrors.20i.com
+2026-06-10 21:46:49,381 - aqt.installer - INFO - installer 77472 Finished installation of qtshadertools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z in 22.69595330
+2026-06-10 21:46:49,391 - aqt.helper - DEBUG - helper 77472 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-10 21:46:51,280 - aqt.helper - INFO - helper 77472 Downloading qttools...
+2026-06-10 21:46:51,280 - aqt.installer - DEBUG - installer 77472 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-10 21:46:52,219 - aqt.helper - DEBUG - helper 77472 Asked to redirect(302) to: https://mirrors.20i.com/pub/qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-10 21:46:52,220 - aqt.helper - INFO - helper 77472 Redirected: mirrors.20i.com
+2026-06-10 21:46:55,141 - aqt.installer - INFO - installer 39492 Finished installation of qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z in 28.44671090
+2026-06-10 21:46:55,149 - aqt.helper - DEBUG - helper 39492 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-10 21:46:56,055 - aqt.helper - INFO - helper 39492 Downloading qttranslations...
+2026-06-10 21:46:56,055 - aqt.installer - DEBUG - installer 39492 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-10 21:46:56,960 - aqt.helper - DEBUG - helper 39492 Asked to redirect(302) to: https://mirrors.20i.com/pub/qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-10 21:46:56,960 - aqt.helper - INFO - helper 39492 Redirected: mirrors.20i.com
+2026-06-10 21:48:14,886 - aqt.installer - INFO - installer 39492 Finished installation of qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z in 79.73900390
+2026-06-10 21:48:14,897 - aqt.helper - DEBUG - helper 39492 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z.sha256
+2026-06-10 21:48:15,697 - aqt.helper - INFO - helper 39492 Downloading d3dcompiler_47...
+2026-06-10 21:48:15,698 - aqt.installer - DEBUG - installer 39492 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z
+2026-06-10 21:48:16,731 - aqt.helper - DEBUG - helper 39492 Asked to redirect(302) to: https://mirrors.20i.com/pub/qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z
+2026-06-10 21:48:16,732 - aqt.helper - INFO - helper 39492 Redirected: mirrors.20i.com
+2026-06-10 21:48:34,735 - aqt.installer - INFO - installer 39492 Finished installation of d3dcompiler_47-x64.7z in 19.83999010
+2026-06-10 21:48:34,754 - aqt.helper - DEBUG - helper 39492 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z.sha256
+2026-06-10 21:48:35,969 - aqt.helper - INFO - helper 39492 Downloading opengl32sw...
+2026-06-10 21:48:35,969 - aqt.installer - DEBUG - installer 39492 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z
+2026-06-10 21:48:38,046 - aqt.helper - DEBUG - helper 39492 Asked to redirect(302) to: https://mirrors.20i.com/pub/qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z
+2026-06-10 21:48:38,046 - aqt.helper - INFO - helper 39492 Redirected: mirrors.20i.com
+2026-06-10 21:50:28,677 - aqt.installer - INFO - installer 39492 Finished installation of opengl32sw-64-mesa_11_2_2-signed_sha256.7z in 113.92617490
+2026-06-10 21:51:45,472 - aqt.installer - INFO - installer 77472 Finished installation of qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z in 296.08246180
+2026-06-10 21:55:58,564 - aqt.installer - WARNING - installer 88692 Caught ArchiveDownloadError, terminating installer workers
+2026-06-10 21:55:58,610 - aqt.main - ERROR - installer 88692 Download of 6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z has error: ('Connection broken: IncompleteRead(33755383 bytes read, 113076636 more expected)', IncompleteRead(33755383 bytes read, 113076636 more expected))
+2026-06-10 21:56:33,982 - aqt.main - INFO - installer 105148 aqtinstall(aqt) v3.3.0 on Python 3.12.10 [CPython MSC v.1943 64 bit (AMD64)]
+2026-06-10 21:56:33,982 - aqt.helper - DEBUG - helper 105148 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-10 21:56:38,118 - aqt.helper - DEBUG - helper 105148 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/680/msvc2022_64/Updates.xml.sha256
+2026-06-10 21:56:40,396 - aqt.archives - INFO - archives 105148 Found extension qtwebengine
+2026-06-10 21:56:40,396 - aqt.helper - DEBUG - helper 105148 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/680/msvc2022_64/Updates.xml.sha256
+2026-06-10 21:56:43,660 - aqt.archives - INFO - archives 105148 Found extension qtpdf
+2026-06-10 21:56:43,675 - aqt.main - ERROR - installer 105148 The packages ['qtbase'] were not found while parsing XML of package information!
+==============================Suggested follow-up:==============================
+* Please use 'aqt list-qt windows desktop --modules 6.8.0 <arch>' to show modules available.
+2026-06-10 21:56:53,074 - aqt.helper - DEBUG - helper 102684 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-10 21:57:07,729 - aqt.main - INFO - installer 37844 aqtinstall(aqt) v3.3.0 on Python 3.12.10 [CPython MSC v.1943 64 bit (AMD64)]
+2026-06-10 21:57:07,729 - aqt.helper - DEBUG - helper 37844 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-10 21:57:09,474 - aqt.helper - DEBUG - helper 37844 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/680/msvc2022_64/Updates.xml.sha256
+2026-06-10 21:57:17,173 - aqt.archives - INFO - archives 37844 Found extension qtwebengine
+2026-06-10 21:57:17,174 - aqt.helper - DEBUG - helper 37844 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/680/msvc2022_64/Updates.xml.sha256
+2026-06-10 21:57:19,273 - aqt.archives - INFO - archives 37844 Found extension qtpdf
+2026-06-10 21:57:19,687 - aqt.helper - DEBUG - helper 99232 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-10 21:57:19,707 - aqt.helper - DEBUG - helper 89560 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z.sha256
+2026-06-10 21:57:19,708 - aqt.helper - DEBUG - helper 26672 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z.sha256
+2026-06-10 21:57:20,427 - aqt.helper - INFO - helper 89560 Downloading d3dcompiler_47...
+2026-06-10 21:57:20,427 - aqt.installer - DEBUG - installer 89560 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z
+2026-06-10 21:57:20,625 - aqt.helper - INFO - helper 26672 Downloading opengl32sw...
+2026-06-10 21:57:20,626 - aqt.installer - DEBUG - installer 26672 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z
+2026-06-10 21:57:21,147 - aqt.helper - DEBUG - helper 89560 Asked to redirect(302) to: https://mirrors.20i.com/pub/qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z
+2026-06-10 21:57:21,147 - aqt.helper - INFO - helper 89560 Redirected: mirrors.20i.com
+2026-06-10 21:57:21,621 - aqt.helper - DEBUG - helper 26672 Asked to redirect(302) to: https://mirrors.20i.com/pub/qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z
+2026-06-10 21:57:21,622 - aqt.helper - INFO - helper 26672 Redirected: mirrors.20i.com
+2026-06-10 21:57:21,630 - aqt.helper - INFO - helper 99232 Downloading qtbase...
+2026-06-10 21:57:21,630 - aqt.installer - DEBUG - installer 99232 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-10 21:57:23,864 - aqt.helper - DEBUG - helper 99232 Asked to redirect(302) to: https://mirrors.20i.com/pub/qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-10 21:57:23,865 - aqt.helper - INFO - helper 99232 Redirected: mirrors.20i.com
+2026-06-10 21:57:28,195 - aqt.installer - INFO - installer 89560 Finished installation of d3dcompiler_47-x64.7z in 8.48979300
+2026-06-10 21:57:43,433 - aqt.installer - INFO - installer 26672 Finished installation of opengl32sw-64-mesa_11_2_2-signed_sha256.7z in 23.72794090
+2026-06-10 22:05:03,389 - aqt.installer - INFO - installer 99232 Finished installation of qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z in 463.70157410
+2026-06-10 22:05:03,880 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\bin\qmake.exe
+2026-06-10 22:05:03,891 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Concurrent.prl
+2026-06-10 22:05:03,893 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Concurrentd.prl
+2026-06-10 22:05:03,894 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Core.prl
+2026-06-10 22:05:03,895 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Cored.prl
+2026-06-10 22:05:03,896 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6DBus.prl
+2026-06-10 22:05:03,897 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6DBusd.prl
+2026-06-10 22:05:03,898 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Designer.prl
+2026-06-10 22:05:03,900 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6DesignerComponents.prl
+2026-06-10 22:05:03,901 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6DesignerComponentsd.prl
+2026-06-10 22:05:03,903 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Designerd.prl
+2026-06-10 22:05:03,904 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6DeviceDiscoverySupport.prl
+2026-06-10 22:05:03,905 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6DeviceDiscoverySupportd.prl
+2026-06-10 22:05:03,907 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6EntryPoint.prl
+2026-06-10 22:05:03,908 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6EntryPointd.prl
+2026-06-10 22:05:03,908 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6ExampleIcons.prl
+2026-06-10 22:05:03,910 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6ExampleIconsd.prl
+2026-06-10 22:05:03,912 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6ExamplesAssetDownloader.prl
+2026-06-10 22:05:03,914 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6ExamplesAssetDownloaderd.prl
+2026-06-10 22:05:03,915 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6FbSupport.prl
+2026-06-10 22:05:03,916 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6FbSupportd.prl
+2026-06-10 22:05:03,918 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Gui.prl
+2026-06-10 22:05:03,918 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Guid.prl
+2026-06-10 22:05:03,919 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Help.prl
+2026-06-10 22:05:03,920 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Helpd.prl
+2026-06-10 22:05:03,921 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Network.prl
+2026-06-10 22:05:03,922 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Networkd.prl
+2026-06-10 22:05:03,923 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6OpenGL.prl
+2026-06-10 22:05:03,924 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6OpenGLd.prl
+2026-06-10 22:05:03,925 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6OpenGLWidgets.prl
+2026-06-10 22:05:03,926 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6OpenGLWidgetsd.prl
+2026-06-10 22:05:03,927 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6PrintSupport.prl
+2026-06-10 22:05:03,928 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6PrintSupportd.prl
+2026-06-10 22:05:03,930 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6ShaderTools.prl
+2026-06-10 22:05:03,931 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6ShaderToolsd.prl
+2026-06-10 22:05:03,933 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Sql.prl
+2026-06-10 22:05:03,934 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Sqld.prl
+2026-06-10 22:05:03,935 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Svg.prl
+2026-06-10 22:05:03,937 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Svgd.prl
+2026-06-10 22:05:03,938 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6SvgWidgets.prl
+2026-06-10 22:05:03,939 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6SvgWidgetsd.prl
+2026-06-10 22:05:03,940 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Test.prl
+2026-06-10 22:05:03,942 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Testd.prl
+2026-06-10 22:05:03,943 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6UiTools.prl
+2026-06-10 22:05:03,944 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6UiToolsd.prl
+2026-06-10 22:05:03,946 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Widgets.prl
+2026-06-10 22:05:03,948 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Widgetsd.prl
+2026-06-10 22:05:03,949 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Xml.prl
+2026-06-10 22:05:03,950 - aqt.updater - INFO - updater 37844 Patching C:\Qt\6.8.0\msvc2022_64\lib\Qt6Xmld.prl
+2026-06-10 22:05:03,952 - aqt.main - INFO - installer 37844 Finished installation
+2026-06-10 22:05:03,952 - aqt.main - INFO - installer 37844 Time elapsed: 476.22213250 second

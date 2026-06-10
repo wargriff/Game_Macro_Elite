@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <circle cx="32" cy="32" r="28" fill="#121218" stroke="#e02626" stroke-width="2" filter="url(#glow)"/>
+  <text x="32" y="42" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="32" font-weight="700" fill="#f0f0f5">G</text>
+</svg>

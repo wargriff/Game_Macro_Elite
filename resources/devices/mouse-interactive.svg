@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 420">
+  <defs>
+    <linearGradient id="body" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#2a2a36"/>
+      <stop offset="100%" stop-color="#0e0e14"/>
+    </linearGradient>
+    <linearGradient id="rgb" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e02626"/>
+      <stop offset="50%" stop-color="#3498db"/>
+      <stop offset="100%" stop-color="#9b59b6"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <ellipse cx="160" cy="200" rx="95" ry="130" fill="url(#body)" stroke="#3a3a48" stroke-width="2"/>
+  <path id="btn-left" d="M95 80 L160 40 L225 80 L225 160 Q160 190 95 160 Z" fill="#181820" stroke="#606070" stroke-width="1.5"/>
+  <path id="btn-right" d="M95 240 L160 280 L225 240 L225 320 Q160 350 95 320 Z" fill="#181820" stroke="#606070" stroke-width="1.5"/>
+  <ellipse id="btn-wheel" cx="160" cy="200" rx="22" ry="32" fill="#121218" stroke="#e02626" stroke-width="2" filter="url(#glow)"/>
+  <line x1="160" y1="168" x2="160" y2="232" stroke="#e02626" stroke-width="1.5" opacity="0.6"/>
+  <rect x="70" y="370" width="180" height="8" rx="4" fill="url(#rgb)" filter="url(#glow)"/>
+  <circle cx="160" cy="200" r="6" fill="#e02626" opacity="0.9"/>
+</svg>

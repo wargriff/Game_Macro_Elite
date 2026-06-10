@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 480">
+  <defs>
+    <linearGradient id="shellTop" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#343440"/>
+      <stop offset="45%" stop-color="#22222c"/>
+      <stop offset="100%" stop-color="#0e0e14"/>
+    </linearGradient>
+    <linearGradient id="shellSide" x1="0" y1="0.5" x2="1" y2="0.5">
+      <stop offset="0%" stop-color="#181820"/>
+      <stop offset="50%" stop-color="#282830"/>
+      <stop offset="100%" stop-color="#181820"/>
+    </linearGradient>
+    <linearGradient id="blueGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5dade2"/>
+      <stop offset="100%" stop-color="#1a6fb5"/>
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <!-- Elite M40  souris gaming symétrique -->
+  <ellipse cx="180" cy="420" rx="95" ry="18" fill="#000" opacity="0.35"/>
+  <path d="M180 36 C248 36 298 92 298 188 L298 292 C298 362 248 418 180 428 C112 418 62 362 62 292 L62 188 C62 92 112 36 180 36 Z"
+        fill="url(#shellTop)" stroke="#3498db" stroke-width="2.8"/>
+  <path d="M62 188 C62 260 112 330 180 340 C248 330 298 260 298 188"
+        fill="none" stroke="#3498db" stroke-width="1.2" opacity="0.35"/>
+  <!-- Split boutons -->
+  <line x1="180" y1="58" x2="180" y2="138" stroke="#3498db" stroke-width="2.2" opacity="0.85"/>
+  <!-- Molette -->
+  <rect x="162" y="148" width="36" height="62" rx="10" fill="#0c0c12" stroke="#3498db" stroke-width="2"/>
+  <rect x="168" y="156" width="24" height="18" rx="4" fill="url(#blueGlow)" opacity="0.55"/>
+  <line x1="168" y1="182" x2="192" y2="182" stroke="#3498db" stroke-width="1" opacity="0.5"/>
+  <line x1="168" y1="192" x2="192" y2="192" stroke="#3498db" stroke-width="1" opacity="0.35"/>
+  <!-- Zone DPI -->
+  <ellipse cx="180" cy="248" rx="22" ry="32" fill="#0a0a10" stroke="#3498db" stroke-width="1.8"/>
+  <circle cx="180" cy="248" r="6" fill="#3498db" opacity="0.7"/>
+  <!-- Side buttons -->
+  <rect x="66" y="198" width="16" height="44" rx="5" fill="url(#shellSide)" stroke="#3498db" stroke-width="1.6"/>
+  <rect x="278" y="198" width="16" height="44" rx="5" fill="url(#shellSide)" stroke="#3498db" stroke-width="1.6"/>
+  <rect x="68" y="210" width="12" height="8" rx="2" fill="#3498db" opacity="0.45"/>
+  <rect x="280" y="210" width="12" height="8" rx="2" fill="#3498db" opacity="0.45"/>
+  <!-- RGB strip -->
+  <rect x="110" y="368" width="140" height="6" rx="3" fill="url(#blueGlow)" opacity="0.75" filter="url(#softGlow)"/>
+  <!-- Branding -->
+  <text x="180" y="398" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="26" font-weight="700" fill="#3498db" letter-spacing="4">M40</text>
+  <text x="180" y="424" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="13" font-weight="600" fill="#808090" letter-spacing="6">ELITE</text>
+</svg>

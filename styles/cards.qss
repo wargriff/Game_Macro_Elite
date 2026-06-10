@@ -1,0 +1,16 @@
+QFrame#infoCard, QFrame#statsCard, QFrame#deviceCard {
+    background-color: #14141a;
+    border: 1px solid #2a2a34;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+QLabel#infoCardValue, QLabel#statsCardValue {
+    font-size: 28px;
+    font-weight: bold;
+    color: #e02626;
+}
+
+QFrame#statsCard[role="macro"] QLabel#statsCardValue { color: #e02626; }
+QFrame#statsCard[role="function"] QLabel#statsCardValue { color: #ff8c2a; }
+QFrame#statsCard[role="disabled"] QLabel#statsCardValue { color: #606070; }

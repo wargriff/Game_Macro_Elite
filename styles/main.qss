@@ -1,0 +1,352 @@
+/* GAMEX CLICKER — theme rouge premium (lisibilite amelioree) */
+QWidget#mainWindow {
+    background-color: #0a0a0c;
+    color: #f4f4f8;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 14px;
+}
+
+QWidget#deviceCenterPage {
+    background-color: #0a0a0c;
+    color: #f4f4f8;
+}
+
+QLabel#sidebarLogo {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #f4f4f8;
+}
+
+QLabel#pageTitle {
+    font-size: 26px;
+    font-weight: 600;
+    color: #ffffff;
+    padding-bottom: 4px;
+}
+
+QLabel#pageSubtitle {
+    color: #808090;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+QWidget#profileManagerPage, QWidget#analyticsPage, QWidget#lightingPage {
+    background-color: #0a0a0c;
+}
+
+QFrame#lightControlPanel, QFrame#lightPreviewPanel, QFrame#lightDeviceCard {
+    background-color: #14141c;
+    border: 1px solid #2a2a34;
+    border-radius: 12px;
+}
+
+QLabel#lightDeviceName {
+    color: #f4f4f8;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+QLabel#lightDeviceStatus {
+    color: #808090;
+    font-size: 12px;
+}
+
+QLabel#toggleHint {
+    color: #ff8c2a;
+    font-size: 12px;
+    font-style: italic;
+}
+
+QFrame#profileListPanel, QFrame#profileDetailPanel, QFrame#profileDetailHero, QFrame#profileHero {
+    background-color: #14141c;
+    border: 1px solid #2a2a34;
+    border-radius: 12px;
+}
+
+QFrame#profileHero {
+    background: qlineargradient(x1:0,y1:0,x2:1,y2:0, stop:0 #181820, stop:1 #14141c);
+    border-color: #2e2e3a;
+}
+
+QScrollArea#profileScroll {
+    border: none;
+    background: transparent;
+}
+
+QPushButton#profileCard, QPushButton#profileCardActive {
+    text-align: left;
+    background-color: #101016;
+    border: 1px solid #22222e;
+    border-radius: 12px;
+    padding: 0;
+}
+
+QPushButton#profileCard:hover {
+    border-color: #3498db;
+    background-color: #141824;
+}
+
+QPushButton#profileCardActive {
+    border: 2px solid #3498db;
+    background-color: #141824;
+}
+
+QLabel#profileCardName {
+    color: #f4f4f8;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+QLabel#profileCardGame {
+    color: #808090;
+    font-size: 12px;
+}
+
+QLabel#profileDetailName {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+QLabel#profileDetailGame {
+    color: #3498db;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+QFrame#profileStatBox {
+    background-color: #101016;
+    border: 1px solid #22222e;
+    border-radius: 10px;
+}
+
+QLabel#profileStatValue {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+QLabel#profileStatLabel {
+    color: #707080;
+    font-size: 11px;
+}
+
+QFrame#macroLibraryHint {
+    background-color: #141824;
+    border: 1px solid #2a5080;
+    border-radius: 10px;
+}
+
+QLabel#macroHintText {
+    color: #3498db;
+    font-size: 13px;
+}
+
+QTableWidget#macroTable {
+    background-color: #101016;
+    border: 1px solid #22222e;
+    border-radius: 10px;
+    gridline-color: #1c1c26;
+    color: #d0d0dc;
+    font-size: 13px;
+}
+
+QTableWidget#macroTable::item {
+    padding: 8px;
+    border-bottom: 1px solid #1c1c26;
+}
+
+QTableWidget#macroTable::item:selected {
+    background-color: #1a2430;
+    color: #ffffff;
+}
+
+QLabel#macroLegendItem {
+    color: #b0b0bc;
+    font-size: 13px;
+}
+
+QTableWidget#macroTable QTableWidgetItem {
+    padding: 6px;
+}
+
+QListWidget#profileList {
+    background-color: #101016;
+    border: 1px solid #22222e;
+    border-radius: 8px;
+    outline: none;
+}
+
+QListWidget#profileList::item {
+    border-bottom: 1px solid #1c1c26;
+    padding: 2px;
+}
+
+QListWidget#profileList::item:selected {
+    background-color: #1a2430;
+    border-left: 3px solid #3498db;
+}
+
+QLabel#profileItemName {
+    color: #f4f4f8;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+QLabel#profileItemGame {
+    color: #808090;
+    font-size: 12px;
+}
+
+QLabel#profileCloudBadge {
+    color: #3498db;
+    font-size: 10px;
+    font-weight: 700;
+    background: #141824;
+    border: 1px solid #2a5080;
+    border-radius: 6px;
+    padding: 2px 6px;
+}
+
+QLabel#profileActiveBadge {
+    color: #2ecc71;
+    font-size: 10px;
+    font-weight: 700;
+    background: #142818;
+    border: 1px solid #1e4028;
+    border-radius: 6px;
+    padding: 2px 6px;
+}
+
+QLabel#detailLabel {
+    color: #808090;
+    font-size: 13px;
+}
+
+QLabel#detailValue {
+    color: #f4f4f8;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+QFrame#activityRow {
+    background-color: #101016;
+    border: 1px solid #22222e;
+    border-radius: 8px;
+}
+
+QLabel#activityTime {
+    color: #606070;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+QLabel#activityEvent {
+    color: #3498db;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+QLabel#activityDetail {
+    color: #b0b0bc;
+    font-size: 12px;
+}
+
+QLabel#panelHeader {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+QPushButton#primaryButton {
+    background-color: #e02626;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 28px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+QPushButton#primaryButton:hover {
+    background-color: #ff3b3b;
+}
+
+QPushButton#secondaryButton {
+    background-color: #22222c;
+    color: #f4f4f8;
+    border: 1px solid #3a3a48;
+    border-radius: 8px;
+    padding: 11px 28px;
+    font-weight: 600;
+}
+
+QPushButton#secondaryButton:hover {
+    border-color: #e02626;
+    color: #ffffff;
+}
+
+QFrame#keyConfigPanel {
+    background-color: #14141c;
+    border: 1px solid #2e2e3a;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+QFrame#keyConfigPanel QLabel {
+    color: #c8c8d4;
+    font-size: 14px;
+}
+
+QFrame#keyConfigPanel QLabel#panelHeader {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+QComboBox, QSlider, QTabWidget::pane {
+    background-color: #181820;
+    border: 1px solid #2e2e3a;
+    border-radius: 8px;
+    color: #f4f4f8;
+    padding: 6px 10px;
+    min-height: 28px;
+}
+
+QTabBar::tab {
+    background: transparent;
+    color: #888898;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 3px solid transparent;
+}
+
+QTabBar::tab:selected {
+    color: #ffffff;
+    border-bottom: 3px solid #e02626;
+}
+
+QTabBar::tab:hover {
+    color: #d0d0dc;
+}
+
+QSlider::groove:horizontal {
+    height: 6px;
+    background: #22222c;
+    border-radius: 3px;
+}
+
+QSlider::handle:horizontal {
+    width: 16px;
+    margin: -5px 0;
+    background: #e02626;
+    border-radius: 8px;
+}
+
+QSlider::sub-page:horizontal {
+    background: #e02626;
+    border-radius: 3px;
+}

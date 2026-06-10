@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="16" fill="#101820" stroke="#3498db" stroke-width="2"/>
+  <text x="64" y="78" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="32" font-weight="700" fill="#3498db">CS2</text>
+</svg>

@@ -1,0 +1,39 @@
+GAME XCLICKER ELITE - VISUAL STUDIO
+===================================
+
+NE PAS utiliser un projet C++ vide cree a la main.
+Utilisez la solution fournie:
+
+  Game_XClicker_Elite.sln
+
+INSTALLATION RAPIDE
+-------------------
+1. Double-clic: OUVRIR_VISUAL_STUDIO.bat
+2. Visual Studio s'ouvre avec TOUS les fichiers C++:
+   - 01_Launcher   (main, control_panel)
+   - 02_App        (bootstrap)
+   - 03_Core       (engine, win32_input, rgb)
+   - 04_Services   (sidecar API, profiles JSON)
+   - 05_Config     (paths)
+
+3. En haut: Release | x64
+4. Menu Generation > Generer la solution
+5. F5 pour lancer GameXClicker.exe
+
+PROJETS DANS LA SOLUTION
+------------------------
+GameXClicker     Win32 Control Panel + moteur + API REST (toujours)
+GameXClickerQt   Interface Qt6 (necessite variable QTDIR)
+
+QT6 (optionnel)
+---------------
+Installez Qt 6 avec MSVC 2022 64-bit.
+Definissez QTDIR ex:
+  C:\Qt\6.7.0\msvc2019_64
+
+Puis compilez le projet GameXClickerQt.
+
+FICHIERS PYTHON (ui-web, native PyQt)
+--------------------------------------
+Restent dans le dossier pour l'interface web et sanctuary.
+Le Control Panel C++ les lance via les boutons.

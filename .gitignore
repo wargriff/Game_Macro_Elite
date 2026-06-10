@@ -15,6 +15,9 @@ dist/
 build/
 cpp/build/
 cpp/out/
+bin/
+obj/
+cpp/third_party/include/
 platform/bin/
 platform/web/node_modules/
 platform/web/dist/

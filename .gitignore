@@ -13,6 +13,8 @@ Thumbs.db
 logs/
 dist/
 build/
+cpp/build/
+cpp/out/
 platform/bin/
 platform/web/node_modules/
 platform/web/dist/

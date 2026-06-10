@@ -22,7 +22,7 @@ Dans PyCharm : **File → Close Project**
 Supprimez le dossier local (exemple) :
 
 ```text
-C:\Users\wargriff\Pycharm_Project_v 3.12\Game_XClicker_Elite
+C:\Users\wargriff\visual_studio_project\Game_XClicker_Elite
 ```
 
 ## 2. Réinstaller depuis GitHub
@@ -34,7 +34,7 @@ Double-cliquez `CLONE_FRESH.bat` (télécharge depuis GitHub puis lance `REPARER
 **Option B — manuel**
 
 ```cmd
-cd /d "C:\Users\wargriff\Pycharm_Project_v 3.12"
+cd /d "C:\Users\wargriff\visual_studio_project"
 git clone https://github.com/wargriff/Game_XClicker_Elite.git
 cd Game_XClicker_Elite
 REPARER.bat
@@ -45,11 +45,12 @@ REPARER.bat
 1. **File → Open** → dossier `Game_XClicker_Elite`
 2. Interpréteur : Python 3.12 (venv parent `..\.venv` ou créez `.venv`)
 3. **Run → Edit Configurations → Import** → `pycharm/Game_XClicker_Elite.run.xml`
-4. Script : **`main.py`** — cliquez Run ▶
+4. Script : **`OUVRE_MOI.py`** — cliquez Run ▶
 
 ## 4. Lancement quotidien
 
-Double-clic **`START.bat`** (sans PyCharm).
+- **C++** : `BUILD_CPP.bat` puis double-clic **`GameXClicker.exe`**
+- **Python** : double-clic **`OUVRE_MOI.pyw`**
 
 ---
 
@@ -65,7 +66,7 @@ Application desktop Windows :
 * profils JSON
 
 ```
-START.bat → main.py → gxclicker.py → moteur + API + fenêtre web
+GameXClicker.exe / OUVRE_MOI.pyw → Control Panel → native / web / build
 ```
 
 ---

@@ -1,4 +1,4 @@
-"""Mission Control — hub unique avant lancement (style gaming rouge)."""
+"""Control Panel — hub unique avant lancement (style gaming rouge)."""
 
 from __future__ import annotations
 
@@ -84,7 +84,7 @@ class MissionControlWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self._build_proc: Optional[QProcess] = None
-        self.setWindowTitle("GAME XCLICKER — Mission Control")
+        self.setWindowTitle("GAME XCLICKER — Control Panel")
         self.resize(1100, 720)
         self.setStyleSheet(f"background:{MC['bg']}; color:{MC['text']};")
         self._build_ui()
@@ -111,7 +111,7 @@ class MissionControlWindow(QMainWindow):
         brand.setStyleSheet(f"color:{MC['red_glow']}; padding:8px 16px; letter-spacing:2px;")
         sb_lay.addWidget(brand)
 
-        sub = QLabel("Mission Control v3")
+        sub = QLabel("Control Panel v4")
         sub.setStyleSheet(f"color:{MC['text_dim']}; font-size:9px; padding:0 16px 12px;")
         sb_lay.addWidget(sub)
 
@@ -181,7 +181,7 @@ class MissionControlWindow(QMainWindow):
 
         hint = QLabel(
             "Choisissez comment lancer Game XClicker Elite. "
-            "Un seul lanceur au démarrage (OUVRE_MOI.pyw) — tout le reste se gère ici."
+            "Lanceur unique : GameXClicker.exe (C++) ou OUVRE_MOI.pyw — tout se gère ici."
         )
         hint.setWordWrap(True)
         hint.setStyleSheet(f"color:{MC['text_dim']}; font-size:11px; margin-bottom:12px;")
@@ -469,7 +469,7 @@ class MissionControlWindow(QMainWindow):
 
 def main() -> int:
     app = QApplication(sys.argv)
-    app.setApplicationName("Game XClicker Mission Control")
+    app.setApplicationName("Game XClicker Control Panel")
     win = MissionControlWindow()
     win.show()
     return app.exec()

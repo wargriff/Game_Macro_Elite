@@ -5,7 +5,7 @@ Utilisateur :
   - Windows : double-clic OUVRE_MOI.pyw
   - Terminal : python OUVRE_MOI.py  ou  python launcher.py
 
-Mission Control (interface) gère ensuite native / web / build / .exe.
+Control Panel (interface) gère ensuite native / web / build / .exe.
 Maintenance seule : python REPARER.py
 """
 
@@ -98,7 +98,7 @@ def ensure_dependencies(*, quiet: bool = True) -> bool:
 
 
 def run(argv: list[str] | None = None) -> int:
-    """Prépare l'environnement puis ouvre Mission Control (ou mode CLI)."""
+    """Prépare l'environnement puis ouvre Control Panel (ou mode CLI)."""
     root = prepare()
     err = verify_installation(root)
     if err:

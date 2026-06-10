@@ -14,6 +14,7 @@ def find_python(root: str | None = None) -> str:
         os.path.join(parent, ".venv", "Scripts", "python.exe"),
         os.path.join(root, ".venv", "Scripts", "python.exe"),
         os.path.join(root, "venv", "Scripts", "python.exe"),
+        os.path.join(parent, "venv", "Scripts", "python.exe"),
         shutil.which("python") or "",
         shutil.which("python3") or "",
         sys.executable,

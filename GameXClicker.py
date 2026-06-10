@@ -2,7 +2,7 @@
 """
 Routeur interne — modes avancés uniquement.
 
-  (défaut)              → Mission Control
+  (défaut)              → Control Panel
   --native               → interface PyQt6
   --web                  → interface web
   --build [--desktop]    → compile .exe
@@ -46,9 +46,9 @@ def main() -> int:
         extra = ["--desktop"] if "--desktop" in args else []
         return subprocess.call([sys.executable, script, *extra], cwd=ROOT)
 
-    from ui.mission_control import main as hub_main
+    from ui.control_panel import main as panel_main
 
-    return hub_main()
+    return panel_main()
 
 
 if __name__ == "__main__":

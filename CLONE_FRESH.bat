@@ -1,7 +1,9 @@
 @echo off
 title CLONE FRESH — Game XClicker Elite
-set "PARENT=C:\Users\wargriff\Pycharm_Project_v 3.12"
-set "TARGET=%PARENT%\Game_XClicker_Elite"
+cd /d "%~dp0"
+
+set "TARGET=%~dp0"
+if "%TARGET:~-1%"=="\" set "TARGET=%TARGET:~0,-1%"
 
 echo.
 echo ============================================================
@@ -11,17 +13,13 @@ echo ============================================================
 echo.
 
 if exist "%TARGET%\.git" (
-    echo Le dossier existe deja avec git.
-    echo Ouvrez-le et lancez REPARER.bat
+    echo Ce dossier contient deja git. Lancez: python REPARER.py
     pause
     exit /b 1
 )
 
-if exist "%TARGET%" (
-    echo Le dossier existe sans git — renommez-le d'abord.
-    pause
-    exit /b 1
-)
+for %%I in ("%TARGET%") do set "PARENT=%%~dpI"
+if "%PARENT:~-1%"=="\" set "PARENT=%PARENT:~0,-1%"
 
 echo Clone branche main ...
 git clone https://github.com/wargriff/Game_XClicker_Elite.git "%TARGET%"
@@ -34,6 +32,7 @@ if errorlevel 1 (
 cd /d "%TARGET%"
 
 set "PY=%PARENT%\.venv\Scripts\python.exe"
+if not exist "%PY%" set "PY=%TARGET%\.venv\Scripts\python.exe"
 if not exist "%PY%" set "PY=python"
 
 echo Installation Python ...
@@ -41,11 +40,11 @@ echo Installation Python ...
 
 echo.
 echo ============================================================
-echo   OK — Ouvrez PyCharm sur:
+echo   OK — Visual Studio / Cursor :
 echo   %TARGET%
 echo.
-echo   Script PyCharm: OUVRE_MOI.py
-echo   Lancement: double-clic OUVRE_MOI.pyw
+echo   Lanceur C++     : BUILD_CPP.bat puis GameXClicker.exe
+echo   Lanceur Python  : OUVRE_MOI.pyw
 echo ============================================================
 echo.
 call REPARER.bat

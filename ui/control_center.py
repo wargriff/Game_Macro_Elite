@@ -1,5 +1,5 @@
-"""Alias vers Mission Control."""
+"""Alias vers Control Panel."""
 
-from ui.mission_control import MissionControlWindow, main
+from ui.control_panel import ControlPanelWindow, main
 
-__all__ = ["MissionControlWindow", "main"]
+__all__ = ["ControlPanelWindow", "main"]

@@ -6,12 +6,20 @@
 **Destination:** Kerbin Polaire
 **Masse estimée:** 174.910 t
 **Δv estimé (indicatif):** ~3600 m/s
+**Tags:** starlink, polar
 
 ## Important — KSP 2
 
 KSP2 n'a pas d'import craft 1-clic stable comme KSP1.
 Reconstruisez ce vaisseau dans le **VAB** avec les pièces stock ci-dessous
 (noms affichés = ceux du jeu). Les meshes/textures restent ceux de votre installation.
+
+### Astuce VAB
+
+1. Ouvre le VAB → cherche chaque **Nom affiché** dans la barre de recherche.
+2. Assemble bas → haut (boosters d'abord, payload en dernier).
+3. Sauvegarde le craft dans ton dossier véhicules KSP2.
+4. Les JSON `Vehicles/` sont des scaffolds expérimentaux — ne les copie pas comme crafts natifs.
 
 ## Checklist pièces (stock KSP2)
 
@@ -32,6 +40,36 @@ Reconstruisez ce vaisseau dans le **VAB** avec les pièces stock ci-dessous
 | 4 | Delta-Deluxe Winglet | `fin_delta_deluxe` | aero | 0.080 |
 | 4 | S1 SRB Kickback | `engine_srf_kickback` | boosters | 43.000 |
 
+## Par rôle (rapide VAB)
+
+### payload
+- [ ] ×1 **Constellation Dispenser x48** (`payload_dispenser_48`)
+
+### sat
+- [ ] ×48 **Starlink-K V2 Bus** (`payload_starlink_v2`)
+- [ ] ×48 **Gigantor XL Solar Array** (`panel_gigantor`)
+- [ ] ×48 **HG-55** (`antenna_hg55`)
+- [ ] ×48 **Probodobodyne OKTO** (`probe_1v_octo`)
+- [ ] ×48 **Z-100 Rechargeable Battery** (`battery_z100`)
+
+### upper
+- [ ] ×1 **LV-909 Terrier** (`engine_1v_methalox_terrier`)
+- [ ] ×3 **FL-T800** (`fueltank_1v_inline_methalox_1x8`)
+
+### stage
+- [ ] ×1 **TR-38-D Stack Decoupler** (`decoupler_2v_stack`)
+
+### booster
+- [ ] ×1 **RE-M3 Mainsail** (`engine_2v_methalox_mainsail`)
+- [ ] ×2 **X200-64** (`fueltank_2v_inline_methalox_1x8`)
+
+### aero
+- [ ] ×1 **AE-FF2 Airstream Protective Shell** (`fairing_2v`)
+- [ ] ×4 **Delta-Deluxe Winglet** (`fin_delta_deluxe`)
+
+### boosters
+- [ ] ×4 **S1 SRB Kickback** (`engine_srf_kickback`)
+
 ## Ordre de montage suggéré (bas → haut)
 
 1. Moteurs / boosters + réservoirs bas
@@ -44,4 +82,4 @@ Reconstruisez ce vaisseau dans le **VAB** avec les pièces stock ci-dessous
 
 Starlink Polar Heavy ×48
 
-_Généré 2026-09-14 20:03 UTC — OrbitWorks_
+_Généré 2026-09-14 20:52 UTC — OrbitWorks_

@@ -6,12 +6,20 @@
 **Destination:** Bop
 **Masse estimée:** 63.595 t
 **Δv estimé (indicatif):** ~9200 m/s
+**Tags:** bop
 
 ## Important — KSP 2
 
 KSP2 n'a pas d'import craft 1-clic stable comme KSP1.
 Reconstruisez ce vaisseau dans le **VAB** avec les pièces stock ci-dessous
 (noms affichés = ceux du jeu). Les meshes/textures restent ceux de votre installation.
+
+### Astuce VAB
+
+1. Ouvre le VAB → cherche chaque **Nom affiché** dans la barre de recherche.
+2. Assemble bas → haut (boosters d'abord, payload en dernier).
+3. Sauvegarde le craft dans ton dossier véhicules KSP2.
+4. Les JSON `Vehicles/` sont des scaffolds expérimentaux — ne les copie pas comme crafts natifs.
 
 ## Checklist pièces (stock KSP2)
 
@@ -27,6 +35,31 @@ Reconstruisez ce vaisseau dans le **VAB** avec les pièces stock ci-dessous
 | 2 | X200-32 | `fueltank_2v_inline_methalox_1x4` | booster | 36.000 |
 | 4 | Delta-Deluxe Winglet | `fin_delta_deluxe` | aero | 0.080 |
 
+## Par rôle (rapide VAB)
+
+### core
+- [ ] ×1 **Probodobodyne HECS** (`probe_1v_hecs`)
+
+### comms
+- [ ] ×1 **HG-55** (`antenna_hg55`)
+
+### power
+- [ ] ×1 **Gigantor XL Solar Array** (`panel_gigantor`)
+
+### cruise
+- [ ] ×1 **LV-N Nerv** (`engine_1v_nuclear_nerv`)
+- [ ] ×4 **FL-T800** (`fueltank_1v_inline_methalox_1x8`)
+
+### stage
+- [ ] ×1 **TR-18A Stack Decoupler** (`decoupler_1v_stack`)
+
+### booster
+- [ ] ×1 **RE-M3 Mainsail** (`engine_2v_methalox_mainsail`)
+- [ ] ×2 **X200-32** (`fueltank_2v_inline_methalox_1x4`)
+
+### aero
+- [ ] ×4 **Delta-Deluxe Winglet** (`fin_delta_deluxe`)
+
 ## Ordre de montage suggéré (bas → haut)
 
 1. Moteurs / boosters + réservoirs bas
@@ -39,4 +72,4 @@ Reconstruisez ce vaisseau dans le **VAB** avec les pièces stock ci-dessous
 
 Probe Bop.
 
-_Généré 2026-09-14 20:03 UTC — OrbitWorks_
+_Généré 2026-09-14 20:52 UTC — OrbitWorks_

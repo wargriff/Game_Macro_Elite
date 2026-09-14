@@ -6,28 +6,43 @@ Plans de **fusées / Starlink / Starship / rovers** pour **Kerbal Space Program 
 
 Les meshes et textures officiels KSP2 sont **propriétaires**. OrbitWorks **ne les extrait pas et ne les redistribue pas**.
 
-- La vue 3D = **reconstruction procédurale** (silhouette Starship, bus Starlink, fusées, rovers).
-- Pour jouer avec les **vrais modèles du jeu** : reconstruis chaque craft dans le **VAB** en suivant le blueprint (noms affichés stock).
+- La vue 3D = **reconstruction procédurale** (silhouette Starship, bus Starlink, fusées, rovers) avec glow moteurs / fond étoilé.
+- Pour jouer avec les **vrais modèles du jeu** : reconstruis chaque craft dans le **VAB** en suivant le blueprint (noms affichés stock + checklist par rôle).
 
 ## Lancer
 
 ```bash
 cd OrbitWorks_KSP2
+./GO_OrbitWorks.sh
+# → http://127.0.0.1:8777/
+```
+
+Ou :
+
+```bash
 python3 python/generate_crafts.py
 python3 python/web_server.py
 ```
 
-→ http://127.0.0.1:8777/
-
 Windows : `GO_OrbitWorks.bat`
 
-## Contenu généré
+## Contenu (67 crafts)
 
-- Starlink (rideshare, SSO, polar, GTO, MEO, HEO, DTC, déploiement Starship…)
-- Starship-K (crew, cargo, tanker, Mun/Duna, hop, depot…)
-- Fusées planétaires
-- Rovers
-- Comms / Data
+| Catégorie | Exemples |
+|-----------|----------|
+| **Starlink** ×26 | LEO dense, SSO, polar, GTO, Mun/Minmus relays |
+| **Starship** ×12 | Crew, cargo, tanker, HLS, depot, rescue, Eve/Jool |
+| **Fusées** ×18 | Mun → Eeloo, station core, shuttles |
+| **Rovers** ×7 | Mun, Duna, Eve, Laythe, Ike, Vall |
+| **Comms / Data** ×4 | GEO, Mun, LEO science |
+
+## UI atelier
+
+- Onglets + chips destinations + recherche
+- Tri (nom / masse / Δv / pièces)
+- Checklist pièces collée au HUD (noms jeu)
+- Copier checklist, blueprint Markdown, wireframe, auto-rotate
+- Raccourcis : `←` `→` crafts, `W` wireframe, `R` rotate
 
 ## Import dans le vrai jeu
 
@@ -39,9 +54,9 @@ Cible typique Windows :
 
 `%USERPROFILE%\AppData\LocalLow\Intercept Games\Kerbal Space Program 2\OrbitWorks_Import\`
 
-1. Ouvre le `.md` blueprint du craft
+1. Ouvre le `.md` blueprint
 2. Dans le VAB, cherche chaque **nom affiché**
-3. Assemble selon l’ordre suggéré
+3. Assemble selon l’ordre / checklist par rôle
 4. Sauvegarde le véhicule dans KSP2
 
 Les `Vehicles/*.json` sont des **scaffolds expérimentaux**, pas un format craft officiel.
@@ -57,4 +72,8 @@ Les `Vehicles/*.json` sont des **scaffolds expérimentaux**, pas un format craft
 
 ## Modifier un modèle
 
-Édite `data/craft_recipes.json` puis relance `python3 python/generate_crafts.py`.
+Édite `data/craft_recipes.json` puis :
+
+```bash
+python3 python/generate_crafts.py
+```

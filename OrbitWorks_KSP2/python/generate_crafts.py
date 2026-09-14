@@ -106,12 +106,20 @@ def write_blueprint(recipe: dict, resolved: list[dict], total_mass: float, dv: i
         f"**Destination:** {dest_name}",
         f"**Masse estimée:** {total_mass:.3f} t",
         f"**Δv estimé (indicatif):** ~{dv} m/s",
+        f"**Tags:** {', '.join(recipe.get('tags') or []) or '—'}",
         "",
         "## Important — KSP 2",
         "",
         "KSP2 n'a pas d'import craft 1-clic stable comme KSP1.",
         "Reconstruisez ce vaisseau dans le **VAB** avec les pièces stock ci-dessous",
         "(noms affichés = ceux du jeu). Les meshes/textures restent ceux de votre installation.",
+        "",
+        "### Astuce VAB",
+        "",
+        "1. Ouvre le VAB → cherche chaque **Nom affiché** dans la barre de recherche.",
+        "2. Assemble bas → haut (boosters d'abord, payload en dernier).",
+        "3. Sauvegarde le craft dans ton dossier véhicules KSP2.",
+        "4. Les JSON `Vehicles/` sont des scaffolds expérimentaux — ne les copie pas comme crafts natifs.",
         "",
         "## Checklist pièces (stock KSP2)",
         "",
@@ -122,8 +130,19 @@ def write_blueprint(recipe: dict, resolved: list[dict], total_mass: float, dv: i
         lines.append(
             f"| {p['qty']} | {p['display_name']} | `{p['part_id']}` | {p['role'] or '—'} | {p['mass_t']:.3f} |"
         )
+
+    # Group by role for quicker VAB workflow
+    by_role: dict[str, list[dict]] = {}
+    for p in resolved:
+        by_role.setdefault(p["role"] or "misc", []).append(p)
+    lines += ["", "## Par rôle (rapide VAB)", ""]
+    for role, items in by_role.items():
+        lines.append(f"### {role}")
+        for p in items:
+            lines.append(f"- [ ] ×{p['qty']} **{p['display_name']}** (`{p['part_id']}`)")
+        lines.append("")
+
     lines += [
-        "",
         "## Ordre de montage suggéré (bas → haut)",
         "",
         "1. Moteurs / boosters + réservoirs bas",

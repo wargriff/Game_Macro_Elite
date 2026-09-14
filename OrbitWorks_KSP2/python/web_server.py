@@ -24,6 +24,8 @@ class Handler(SimpleHTTPRequestHandler):
             self.path = "/web/index.html"
         elif path == "/catalog.json":
             self.path = "/web/catalog.json"
+        elif path.startswith("/css/") or path.startswith("/js/"):
+            self.path = "/web" + path
         return super().do_GET()
 
     def end_headers(self):

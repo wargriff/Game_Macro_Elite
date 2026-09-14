@@ -1,0 +1,774 @@
+{
+  "meta": {
+    "game": "Kerbal Space Program 2",
+    "note": "IDs internes stock observés dans les saves KSP2 (ex: pod_1v_conical_crew). Les display_name correspondent au VAB. Les meshes propriétaires du jeu NE sont PAS inclus — OrbitWorks génère des prévisualisations 3D procédurales.",
+    "fuel": "methalox"
+  },
+  "parts": [
+    {
+      "id": "pod_1v_conical_crew",
+      "display_name": "Mk1 Conical Command Pod",
+      "category": "command",
+      "size": "SM",
+      "mass_t": 0.84,
+      "crew": 1,
+      "mesh": "capsule",
+      "name": "Mk1 Conical Command Pod"
+    },
+    {
+      "id": "pod_2v_lander_crew",
+      "display_name": "Mk2 Lander Can",
+      "category": "command",
+      "size": "MD",
+      "mass_t": 1.2,
+      "crew": 2,
+      "mesh": "lander_can",
+      "name": "Mk2 Lander Can"
+    },
+    {
+      "id": "pod_3v_capsule_crew",
+      "display_name": "Mk1-3 Command Pod",
+      "category": "command",
+      "size": "MD",
+      "mass_t": 2.56,
+      "crew": 3,
+      "mesh": "capsule_wide",
+      "name": "Mk1-3 Command Pod"
+    },
+    {
+      "id": "probe_1v_octo",
+      "display_name": "Probodobodyne OKTO",
+      "category": "probe",
+      "size": "XS",
+      "mass_t": 0.1,
+      "mesh": "probe_octo",
+      "name": "Probodobodyne OKTO"
+    },
+    {
+      "id": "probe_1v_hecs",
+      "display_name": "Probodobodyne HECS",
+      "category": "probe",
+      "size": "XS",
+      "mass_t": 0.1,
+      "mesh": "probe_hecs",
+      "name": "Probodobodyne HECS"
+    },
+    {
+      "id": "probe_1v_cube",
+      "display_name": "Probodobodyne QBE",
+      "category": "probe",
+      "size": "XS",
+      "mass_t": 0.05,
+      "mesh": "probe_cube",
+      "name": "Probodobodyne QBE"
+    },
+    {
+      "id": "fueltank_0v_inline_methalox_oscar",
+      "display_name": "Oscar-B",
+      "category": "tank",
+      "size": "XS",
+      "mass_t": 0.096,
+      "fuel_t": 0.085,
+      "mesh": "tank_xs",
+      "name": "Oscar-B"
+    },
+    {
+      "id": "fueltank_1v_inline_methalox_1x1",
+      "display_name": "FL-T100",
+      "category": "tank",
+      "size": "SM",
+      "mass_t": 0.5625,
+      "fuel_t": 0.5,
+      "mesh": "tank_sm",
+      "name": "FL-T100"
+    },
+    {
+      "id": "fueltank_1v_inline_methalox_1x2",
+      "display_name": "FL-T200",
+      "category": "tank",
+      "size": "SM",
+      "mass_t": 1.125,
+      "fuel_t": 1.0,
+      "mesh": "tank_sm",
+      "name": "FL-T200"
+    },
+    {
+      "id": "fueltank_1v_inline_methalox_1x4",
+      "display_name": "FL-T400",
+      "category": "tank",
+      "size": "SM",
+      "mass_t": 2.25,
+      "fuel_t": 2.0,
+      "mesh": "tank_sm",
+      "name": "FL-T400"
+    },
+    {
+      "id": "fueltank_1v_inline_methalox_1x8",
+      "display_name": "FL-T800",
+      "category": "tank",
+      "size": "SM",
+      "mass_t": 4.5,
+      "fuel_t": 4.0,
+      "mesh": "tank_sm_tall",
+      "name": "FL-T800"
+    },
+    {
+      "id": "fueltank_2v_inline_methalox_1x2",
+      "display_name": "X200-16",
+      "category": "tank",
+      "size": "MD",
+      "mass_t": 9.0,
+      "fuel_t": 8.0,
+      "mesh": "tank_md",
+      "name": "X200-16"
+    },
+    {
+      "id": "fueltank_2v_inline_methalox_1x4",
+      "display_name": "X200-32",
+      "category": "tank",
+      "size": "MD",
+      "mass_t": 18.0,
+      "fuel_t": 16.0,
+      "mesh": "tank_md",
+      "name": "X200-32"
+    },
+    {
+      "id": "fueltank_2v_inline_methalox_1x8",
+      "display_name": "X200-64",
+      "category": "tank",
+      "size": "MD",
+      "mass_t": 36.0,
+      "fuel_t": 32.0,
+      "mesh": "tank_md_tall",
+      "name": "X200-64"
+    },
+    {
+      "id": "fueltank_3v_inline_methalox_1x2",
+      "display_name": "S3-7200",
+      "category": "tank",
+      "size": "LG",
+      "mass_t": 40.5,
+      "fuel_t": 36.0,
+      "mesh": "tank_lg",
+      "name": "S3-7200"
+    },
+    {
+      "id": "fueltank_3v_inline_methalox_1x4",
+      "display_name": "S3-14400",
+      "category": "tank",
+      "size": "LG",
+      "mass_t": 81.0,
+      "fuel_t": 72.0,
+      "mesh": "tank_lg",
+      "name": "S3-14400"
+    },
+    {
+      "id": "fueltank_3v_inline_methalox_1x8",
+      "display_name": "S4-25600",
+      "category": "tank",
+      "size": "XL",
+      "mass_t": 144.0,
+      "fuel_t": 128.0,
+      "mesh": "tank_xl",
+      "name": "S4-25600"
+    },
+    {
+      "id": "engine_1v_methalox_swivel",
+      "display_name": "LV-T45 Swivel",
+      "category": "engine",
+      "size": "SM",
+      "mass_t": 1.5,
+      "thrust_vac_kn": 215,
+      "isp_vac": 320,
+      "isp_asl": 250,
+      "mesh": "engine_gimbal",
+      "name": "LV-T45 Swivel"
+    },
+    {
+      "id": "engine_1v_methalox_reliant",
+      "display_name": "LV-T30 Reliant",
+      "category": "engine",
+      "size": "SM",
+      "mass_t": 1.25,
+      "thrust_vac_kn": 260,
+      "isp_vac": 305,
+      "isp_asl": 265,
+      "mesh": "engine_bell",
+      "name": "LV-T30 Reliant"
+    },
+    {
+      "id": "engine_1v_methalox_terrier",
+      "display_name": "LV-909 Terrier",
+      "category": "engine",
+      "size": "SM",
+      "mass_t": 0.5,
+      "thrust_vac_kn": 60,
+      "isp_vac": 345,
+      "isp_asl": 85,
+      "mesh": "engine_vac",
+      "name": "LV-909 Terrier"
+    },
+    {
+      "id": "engine_1v_methalox_spark",
+      "display_name": "48-7S Spark",
+      "category": "engine",
+      "size": "XS",
+      "mass_t": 0.13,
+      "thrust_vac_kn": 20,
+      "isp_vac": 315,
+      "isp_asl": 270,
+      "mesh": "engine_small",
+      "name": "48-7S Spark"
+    },
+    {
+      "id": "engine_2v_methalox_poodle",
+      "display_name": "RE-L10 Poodle",
+      "category": "engine",
+      "size": "MD",
+      "mass_t": 1.75,
+      "thrust_vac_kn": 250,
+      "isp_vac": 350,
+      "isp_asl": 90,
+      "mesh": "engine_vac_md",
+      "name": "RE-L10 Poodle"
+    },
+    {
+      "id": "engine_2v_methalox_mainsail",
+      "display_name": "RE-M3 Mainsail",
+      "category": "engine",
+      "size": "MD",
+      "mass_t": 6.0,
+      "thrust_vac_kn": 1500,
+      "isp_vac": 310,
+      "isp_asl": 285,
+      "mesh": "engine_heavy",
+      "name": "RE-M3 Mainsail"
+    },
+    {
+      "id": "engine_2v_methalox_skipper",
+      "display_name": "RE-I5 Skipper",
+      "category": "engine",
+      "size": "MD",
+      "mass_t": 3.0,
+      "thrust_vac_kn": 650,
+      "isp_vac": 320,
+      "isp_asl": 280,
+      "mesh": "engine_bell",
+      "name": "RE-I5 Skipper"
+    },
+    {
+      "id": "engine_3v_methalox_vector",
+      "display_name": "S3 KS-25 Vector",
+      "category": "engine",
+      "size": "LG",
+      "mass_t": 4.0,
+      "thrust_vac_kn": 1000,
+      "isp_vac": 315,
+      "isp_asl": 295,
+      "mesh": "engine_raptor_sl",
+      "name": "S3 KS-25 Vector"
+    },
+    {
+      "id": "engine_3v_methalox_rhino",
+      "display_name": "S3 KS-25x4 / Rhino-class",
+      "category": "engine",
+      "size": "LG",
+      "mass_t": 9.0,
+      "thrust_vac_kn": 2000,
+      "isp_vac": 340,
+      "isp_asl": 255,
+      "mesh": "engine_raptor_vac",
+      "name": "S3 KS-25x4 / Rhino-class"
+    },
+    {
+      "id": "engine_1v_nuclear_nerv",
+      "display_name": "LV-N Nerv",
+      "category": "engine",
+      "size": "SM",
+      "mass_t": 3.0,
+      "thrust_vac_kn": 60,
+      "isp_vac": 800,
+      "isp_asl": 185,
+      "mesh": "engine_nerv",
+      "name": "LV-N Nerv"
+    },
+    {
+      "id": "engine_srf_kickback",
+      "display_name": "S1 SRB Kickback",
+      "category": "engine",
+      "size": "SM",
+      "mass_t": 10.75,
+      "thrust_vac_kn": 670,
+      "isp_vac": 220,
+      "isp_asl": 195,
+      "mesh": "srb",
+      "name": "S1 SRB Kickback"
+    },
+    {
+      "id": "decoupler_1v_stack",
+      "display_name": "TR-18A Stack Decoupler",
+      "category": "coupling",
+      "size": "SM",
+      "mass_t": 0.04,
+      "mesh": "decoupler",
+      "name": "TR-18A Stack Decoupler"
+    },
+    {
+      "id": "decoupler_2v_stack",
+      "display_name": "TR-38-D Stack Decoupler",
+      "category": "coupling",
+      "size": "MD",
+      "mass_t": 0.08,
+      "mesh": "decoupler",
+      "name": "TR-38-D Stack Decoupler"
+    },
+    {
+      "id": "decoupler_3v_stack",
+      "display_name": "TR-XL Stack Decoupler",
+      "category": "coupling",
+      "size": "LG",
+      "mass_t": 0.2,
+      "mesh": "decoupler",
+      "name": "TR-XL Stack Decoupler"
+    },
+    {
+      "id": "docking_1v_sr",
+      "display_name": "Clamp-O-Tron Docking Port",
+      "category": "coupling",
+      "size": "SM",
+      "mass_t": 0.1,
+      "mesh": "docking",
+      "name": "Clamp-O-Tron Docking Port"
+    },
+    {
+      "id": "panel_oxstat",
+      "display_name": "OX-STAT Photovoltaic Panels",
+      "category": "electrical",
+      "size": "XS",
+      "mass_t": 0.005,
+      "ec_gen": 0.35,
+      "mesh": "solar_flat",
+      "name": "OX-STAT Photovoltaic Panels"
+    },
+    {
+      "id": "panel_gigantor",
+      "display_name": "Gigantor XL Solar Array",
+      "category": "electrical",
+      "size": "SM",
+      "mass_t": 0.3,
+      "ec_gen": 24,
+      "mesh": "solar_xl",
+      "name": "Gigantor XL Solar Array"
+    },
+    {
+      "id": "battery_z100",
+      "display_name": "Z-100 Rechargeable Battery",
+      "category": "electrical",
+      "size": "XS",
+      "mass_t": 0.005,
+      "ec": 100,
+      "mesh": "battery",
+      "name": "Z-100 Rechargeable Battery"
+    },
+    {
+      "id": "battery_z1k",
+      "display_name": "Z-1k Battery",
+      "category": "electrical",
+      "size": "SM",
+      "mass_t": 0.05,
+      "ec": 1000,
+      "mesh": "battery",
+      "name": "Z-1k Battery"
+    },
+    {
+      "id": "battery_z4k",
+      "display_name": "Z-4k Battery",
+      "category": "electrical",
+      "size": "MD",
+      "mass_t": 0.2,
+      "ec": 4000,
+      "mesh": "battery",
+      "name": "Z-4k Battery"
+    },
+    {
+      "id": "antenna_comm16",
+      "display_name": "Communotron 16",
+      "category": "comms",
+      "size": "XS",
+      "mass_t": 0.005,
+      "mesh": "antenna_whip",
+      "name": "Communotron 16"
+    },
+    {
+      "id": "antenna_hg5",
+      "display_name": "HG-5 High Gain Antenna",
+      "category": "comms",
+      "size": "SM",
+      "mass_t": 0.07,
+      "mesh": "antenna_dish",
+      "name": "HG-5 High Gain Antenna"
+    },
+    {
+      "id": "antenna_hg55",
+      "display_name": "HG-55",
+      "category": "comms",
+      "size": "SM",
+      "mass_t": 0.075,
+      "mesh": "antenna_dish",
+      "name": "HG-55"
+    },
+    {
+      "id": "antenna_ra2",
+      "display_name": "RA-2 Relay Antenna",
+      "category": "comms",
+      "size": "SM",
+      "mass_t": 0.15,
+      "mesh": "antenna_relay",
+      "name": "RA-2 Relay Antenna"
+    },
+    {
+      "id": "antenna_ra15",
+      "display_name": "RA-15 Relay Antenna",
+      "category": "comms",
+      "size": "MD",
+      "mass_t": 0.3,
+      "mesh": "antenna_relay",
+      "name": "RA-15 Relay Antenna"
+    },
+    {
+      "id": "antenna_ra100",
+      "display_name": "RA-100 Relay Antenna",
+      "category": "comms",
+      "size": "LG",
+      "mass_t": 0.65,
+      "mesh": "antenna_relay",
+      "name": "RA-100 Relay Antenna"
+    },
+    {
+      "id": "fairing_1v",
+      "display_name": "AE-FF1 Airstream Protective Shell",
+      "category": "aero",
+      "size": "SM",
+      "mass_t": 0.1,
+      "mesh": "fairing",
+      "name": "AE-FF1 Airstream Protective Shell"
+    },
+    {
+      "id": "fairing_2v",
+      "display_name": "AE-FF2 Airstream Protective Shell",
+      "category": "aero",
+      "size": "MD",
+      "mass_t": 0.25,
+      "mesh": "fairing",
+      "name": "AE-FF2 Airstream Protective Shell"
+    },
+    {
+      "id": "fairing_3v",
+      "display_name": "AE-FF3 Heavy Fairing",
+      "category": "aero",
+      "size": "LG",
+      "mass_t": 0.6,
+      "mesh": "fairing",
+      "name": "AE-FF3 Heavy Fairing"
+    },
+    {
+      "id": "fin_delta_deluxe",
+      "display_name": "Delta-Deluxe Winglet",
+      "category": "aero",
+      "size": "SM",
+      "mass_t": 0.02,
+      "mesh": "fin",
+      "name": "Delta-Deluxe Winglet"
+    },
+    {
+      "id": "gridfin_heavy",
+      "display_name": "Heavy Grid Fin",
+      "category": "aero",
+      "size": "LG",
+      "mass_t": 0.25,
+      "mesh": "gridfin",
+      "name": "Heavy Grid Fin"
+    },
+    {
+      "id": "wing_starship_flap",
+      "display_name": "Starship-K Elevon",
+      "category": "aero",
+      "size": "LG",
+      "mass_t": 0.35,
+      "mesh": "flap",
+      "name": "Starship-K Elevon"
+    },
+    {
+      "id": "nosecone_3v_heatshield",
+      "display_name": "Starship-K Heatshield Nose",
+      "category": "thermal",
+      "size": "LG",
+      "mass_t": 2.5,
+      "mesh": "nose_heat",
+      "name": "Starship-K Heatshield Nose"
+    },
+    {
+      "id": "parachute_mk16",
+      "display_name": "Mk16 Parachute",
+      "category": "utility",
+      "size": "XS",
+      "mass_t": 0.1,
+      "mesh": "chute",
+      "name": "Mk16 Parachute"
+    },
+    {
+      "id": "parachute_mk16xl",
+      "display_name": "Mk16-XL Parachute",
+      "category": "utility",
+      "size": "SM",
+      "mass_t": 0.3,
+      "mesh": "chute",
+      "name": "Mk16-XL Parachute"
+    },
+    {
+      "id": "heatshield_1v",
+      "display_name": "Heat Shield (1.25m)",
+      "category": "thermal",
+      "size": "SM",
+      "mass_t": 0.3,
+      "mesh": "heatshield",
+      "name": "Heat Shield (1.25m)"
+    },
+    {
+      "id": "heatshield_2v",
+      "display_name": "Heat Shield (2.5m)",
+      "category": "thermal",
+      "size": "MD",
+      "mass_t": 1.0,
+      "mesh": "heatshield",
+      "name": "Heat Shield (2.5m)"
+    },
+    {
+      "id": "landingleg_lt1",
+      "display_name": "LT-1 Landing Struts",
+      "category": "ground",
+      "size": "SM",
+      "mass_t": 0.05,
+      "mesh": "leg",
+      "name": "LT-1 Landing Struts"
+    },
+    {
+      "id": "landingleg_lt2",
+      "display_name": "LT-2 Landing Struts",
+      "category": "ground",
+      "size": "MD",
+      "mass_t": 0.1,
+      "mesh": "leg",
+      "name": "LT-2 Landing Struts"
+    },
+    {
+      "id": "landingleg_starship",
+      "display_name": "Starship-K Catch / Landing Leg",
+      "category": "ground",
+      "size": "LG",
+      "mass_t": 0.4,
+      "mesh": "leg_heavy",
+      "name": "Starship-K Catch / Landing Leg"
+    },
+    {
+      "id": "wheel_rover_m1",
+      "display_name": "RoveMax Model M1",
+      "category": "ground",
+      "size": "SM",
+      "mass_t": 0.05,
+      "mesh": "wheel",
+      "name": "RoveMax Model M1"
+    },
+    {
+      "id": "wheel_rover_s2",
+      "display_name": "RoveMax Model S2",
+      "category": "ground",
+      "size": "SM",
+      "mass_t": 0.04,
+      "mesh": "wheel",
+      "name": "RoveMax Model S2"
+    },
+    {
+      "id": "chassis_rover_tr2l",
+      "display_name": "TR-2L Ruggedized Vehicle Wheel",
+      "category": "ground",
+      "size": "SM",
+      "mass_t": 0.3,
+      "mesh": "chassis",
+      "name": "TR-2L Ruggedized Vehicle Wheel"
+    },
+    {
+      "id": "science_thermometer",
+      "display_name": "2HOT Thermometer",
+      "category": "science",
+      "size": "XS",
+      "mass_t": 0.005,
+      "mesh": "science",
+      "name": "2HOT Thermometer"
+    },
+    {
+      "id": "science_barometer",
+      "display_name": "PresMat Barometer",
+      "category": "science",
+      "size": "XS",
+      "mass_t": 0.005,
+      "mesh": "science",
+      "name": "PresMat Barometer"
+    },
+    {
+      "id": "science_gravioli",
+      "display_name": "GRAVMAX Negative Gravioli Detector",
+      "category": "science",
+      "size": "XS",
+      "mass_t": 0.01,
+      "mesh": "science",
+      "name": "GRAVMAX Negative Gravioli Detector"
+    },
+    {
+      "id": "science_mysterygoo",
+      "display_name": "Mystery Goo™ Containment Unit",
+      "category": "science",
+      "size": "XS",
+      "mass_t": 0.05,
+      "mesh": "science",
+      "name": "Mystery Goo™ Containment Unit"
+    },
+    {
+      "id": "science_sc9001",
+      "display_name": "SC-9001 Science Jr.",
+      "category": "science",
+      "size": "SM",
+      "mass_t": 0.2,
+      "mesh": "science_bay",
+      "name": "SC-9001 Science Jr."
+    },
+    {
+      "id": "payload_starlink_bus",
+      "display_name": "Starlink-K Flat Bus",
+      "category": "payload",
+      "size": "XS",
+      "mass_t": 0.26,
+      "mesh": "starlink",
+      "name": "Starlink-K Flat Bus"
+    },
+    {
+      "id": "payload_starlink_v2",
+      "display_name": "Starlink-K V2 Bus",
+      "category": "payload",
+      "size": "XS",
+      "mass_t": 0.32,
+      "mesh": "starlink_v2",
+      "name": "Starlink-K V2 Bus"
+    },
+    {
+      "id": "payload_starlink_dtc",
+      "display_name": "Starlink-K Direct-to-Cell",
+      "category": "payload",
+      "size": "XS",
+      "mass_t": 0.4,
+      "mesh": "starlink_dtc",
+      "name": "Starlink-K Direct-to-Cell"
+    },
+    {
+      "id": "payload_dispenser_24",
+      "display_name": "Constellation Dispenser x24",
+      "category": "payload",
+      "size": "MD",
+      "mass_t": 0.8,
+      "mesh": "dispenser",
+      "name": "Constellation Dispenser x24"
+    },
+    {
+      "id": "payload_dispenser_36",
+      "display_name": "Constellation Dispenser x36",
+      "category": "payload",
+      "size": "MD",
+      "mass_t": 1.0,
+      "mesh": "dispenser",
+      "name": "Constellation Dispenser x36"
+    },
+    {
+      "id": "payload_dispenser_48",
+      "display_name": "Constellation Dispenser x48",
+      "category": "payload",
+      "size": "MD",
+      "mass_t": 1.1,
+      "mesh": "dispenser",
+      "name": "Constellation Dispenser x48"
+    },
+    {
+      "id": "payload_dispenser_60",
+      "display_name": "Constellation Dispenser x60",
+      "category": "payload",
+      "size": "MD",
+      "mass_t": 1.2,
+      "mesh": "dispenser",
+      "name": "Constellation Dispenser x60"
+    },
+    {
+      "id": "payload_data_core",
+      "display_name": "Orbital Data Core",
+      "category": "payload",
+      "size": "SM",
+      "mass_t": 0.15,
+      "mesh": "box",
+      "name": "Orbital Data Core"
+    },
+    {
+      "id": "payload_relay_hub",
+      "display_name": "Comm Relay Hub",
+      "category": "payload",
+      "size": "SM",
+      "mass_t": 0.2,
+      "mesh": "box",
+      "name": "Comm Relay Hub"
+    },
+    {
+      "id": "body_starship_crew",
+      "display_name": "Starship-K Crew Cabin",
+      "category": "command",
+      "size": "LG",
+      "mass_t": 8.5,
+      "crew": 8,
+      "mesh": "starship_crew",
+      "name": "Starship-K Crew Cabin"
+    },
+    {
+      "id": "body_starship_cargo",
+      "display_name": "Starship-K Cargo Bay",
+      "category": "payload",
+      "size": "LG",
+      "mass_t": 4.0,
+      "mesh": "starship_cargo",
+      "name": "Starship-K Cargo Bay"
+    },
+    {
+      "id": "body_superheavy",
+      "display_name": "SuperHeavy-K Booster Core",
+      "category": "tank",
+      "size": "XL",
+      "mass_t": 120.0,
+      "fuel_t": 100.0,
+      "mesh": "superheavy",
+      "name": "SuperHeavy-K Booster Core"
+    },
+    {
+      "id": "rcs_rv105",
+      "display_name": "RV-105 RCS Thruster Block",
+      "category": "control",
+      "size": "XS",
+      "mass_t": 0.05,
+      "mesh": "rcs",
+      "name": "RV-105 RCS Thruster Block"
+    },
+    {
+      "id": "rcs_tank_str",
+      "display_name": "Stratus-V Roundified Monopropellant Tank",
+      "category": "control",
+      "size": "XS",
+      "mass_t": 0.075,
+      "mesh": "rcs_tank",
+      "name": "Stratus-V Roundified Monopropellant Tank"
+    }
+  ]
+}

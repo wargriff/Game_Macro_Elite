@@ -1,0 +1,1227 @@
+{
+  "name": "OrbitWorks KSP2",
+  "version": "2.0.0",
+  "generated_at": "2026-09-14T19:57:26.075324+00:00",
+  "craft_count": 53,
+  "by_type": {
+    "rocket": 23,
+    "rover": 5,
+    "satellite": 25
+  },
+  "crafts": [
+    {
+      "id": "sat_sl_k12",
+      "name": "Starlink Rideshare ×12",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "rideshare"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink Rideshare ×12",
+      "stats": {
+        "mass_t": 96.75,
+        "fuel_t": 72.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4163,
+        "twr_kerbin": 1.64,
+        "part_count": 73
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_k12.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_k12.vessel.json"
+    },
+    {
+      "id": "sat_sl_k18",
+      "name": "Starlink Shell-A ×18",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "shell"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink Shell-A ×18",
+      "stats": {
+        "mass_t": 100.77,
+        "fuel_t": 72.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 3828,
+        "twr_kerbin": 1.58,
+        "part_count": 103
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_k18.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_k18.vessel.json"
+    },
+    {
+      "id": "sat_sl_k24",
+      "name": "Starlink Cluster ×24",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "leo"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink Cluster ×24",
+      "stats": {
+        "mass_t": 104.79,
+        "fuel_t": 72.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 3548,
+        "twr_kerbin": 1.52,
+        "part_count": 133
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_k24.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_k24.vessel.json"
+    },
+    {
+      "id": "sat_sl_k36",
+      "name": "Starlink Dense ×36",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "dense"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink Dense ×36",
+      "stats": {
+        "mass_t": 136.87,
+        "fuel_t": 72.0,
+        "thrust_vac_kn": 2900.0,
+        "estimated_dv_ms": 1971,
+        "twr_kerbin": 2.16,
+        "part_count": 195
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_k36.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_k36.vessel.json"
+    },
+    {
+      "id": "sat_sl_k48",
+      "name": "Starlink Train ×48",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "train"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink Train ×48",
+      "stats": {
+        "mass_t": 153.17,
+        "fuel_t": 76.0,
+        "thrust_vac_kn": 2900.0,
+        "estimated_dv_ms": 1809,
+        "twr_kerbin": 1.93,
+        "part_count": 256
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_k48.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_k48.vessel.json"
+    },
+    {
+      "id": "sat_sl_k60",
+      "name": "Starlink Mega ×60",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "mega"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink Mega ×60",
+      "stats": {
+        "mass_t": 184.31,
+        "fuel_t": 76.0,
+        "thrust_vac_kn": 4240.0,
+        "estimated_dv_ms": 1322,
+        "twr_kerbin": 2.35,
+        "part_count": 318
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_k60.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_k60.vessel.json"
+    },
+    {
+      "id": "sat_sl_v2_24",
+      "name": "Starlink V2 Mini ×24",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "v2"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink V2 Mini ×24",
+      "stats": {
+        "mass_t": 129.29,
+        "fuel_t": 72.0,
+        "thrust_vac_kn": 2900.0,
+        "estimated_dv_ms": 2148,
+        "twr_kerbin": 2.29,
+        "part_count": 135
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_v2_24.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_v2_24.vessel.json"
+    },
+    {
+      "id": "sat_sl_dtc",
+      "name": "Starlink Direct-to-Cell ×12",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "dtc"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink Direct-to-Cell ×12",
+      "stats": {
+        "mass_t": 99.27,
+        "fuel_t": 72.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 3946,
+        "twr_kerbin": 1.6,
+        "part_count": 73
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_dtc.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_dtc.vessel.json"
+    },
+    {
+      "id": "sat_sl_sso24",
+      "name": "Starlink SSO ×24",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_sso",
+      "tags": [
+        "starlink",
+        "sso"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink SSO ×24",
+      "stats": {
+        "mass_t": 127.85,
+        "fuel_t": 72.0,
+        "thrust_vac_kn": 2900.0,
+        "estimated_dv_ms": 2186,
+        "twr_kerbin": 2.31,
+        "part_count": 135
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_sso24.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_sso24.vessel.json"
+    },
+    {
+      "id": "sat_sl_sso36",
+      "name": "Starlink SSO Dense ×36",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_sso",
+      "tags": [
+        "starlink",
+        "sso"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink SSO Dense ×36",
+      "stats": {
+        "mass_t": 143.53,
+        "fuel_t": 76.0,
+        "thrust_vac_kn": 2900.0,
+        "estimated_dv_ms": 1990,
+        "twr_kerbin": 2.06,
+        "part_count": 196
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_sso36.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_sso36.vessel.json"
+    },
+    {
+      "id": "sat_sl_pol12",
+      "name": "Starlink Polar ×12",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_polar",
+      "tags": [
+        "starlink",
+        "polar"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink Polar ×12",
+      "stats": {
+        "mass_t": 97.53,
+        "fuel_t": 72.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4093,
+        "twr_kerbin": 1.63,
+        "part_count": 73
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_pol12.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_pol12.vessel.json"
+    },
+    {
+      "id": "sat_sl_pol24",
+      "name": "Starlink Polar Mesh ×24",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_polar",
+      "tags": [
+        "starlink",
+        "polar"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink Polar Mesh ×24",
+      "stats": {
+        "mass_t": 129.29,
+        "fuel_t": 72.0,
+        "thrust_vac_kn": 2900.0,
+        "estimated_dv_ms": 2148,
+        "twr_kerbin": 2.29,
+        "part_count": 135
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_pol24.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_pol24.vessel.json"
+    },
+    {
+      "id": "sat_sl_pol48",
+      "name": "Starlink Polar Heavy ×48",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_polar",
+      "tags": [
+        "starlink",
+        "polar"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink Polar Heavy ×48",
+      "stats": {
+        "mass_t": 174.91,
+        "fuel_t": 76.0,
+        "thrust_vac_kn": 4240.0,
+        "estimated_dv_ms": 1418,
+        "twr_kerbin": 2.47,
+        "part_count": 258
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_pol48.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_pol48.vessel.json"
+    },
+    {
+      "id": "sat_sl_gto24",
+      "name": "Starlink GTO ×24",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_gto",
+      "tags": [
+        "starlink",
+        "gto"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink GTO ×24",
+      "stats": {
+        "mass_t": 133.91,
+        "fuel_t": 76.0,
+        "thrust_vac_kn": 2900.0,
+        "estimated_dv_ms": 2213,
+        "twr_kerbin": 2.21,
+        "part_count": 136
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_gto24.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_gto24.vessel.json"
+    },
+    {
+      "id": "sat_sl_gto36",
+      "name": "Starlink GTO Express ×36",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_gto",
+      "tags": [
+        "starlink",
+        "gto"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink GTO Express ×36",
+      "stats": {
+        "mass_t": 165.21,
+        "fuel_t": 76.0,
+        "thrust_vac_kn": 4240.0,
+        "estimated_dv_ms": 1533,
+        "twr_kerbin": 2.62,
+        "part_count": 198
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_gto36.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_gto36.vessel.json"
+    },
+    {
+      "id": "sat_sl_meo",
+      "name": "Starlink MEO Bridge ×8",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_meo",
+      "tags": [
+        "starlink",
+        "meo"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink MEO Bridge ×8",
+      "stats": {
+        "mass_t": 122.91,
+        "fuel_t": 76.0,
+        "thrust_vac_kn": 2900.0,
+        "estimated_dv_ms": 2543,
+        "twr_kerbin": 2.41,
+        "part_count": 56
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_meo.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_meo.vessel.json"
+    },
+    {
+      "id": "sat_sl_heo",
+      "name": "Starlink HEO Guard ×6",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_heo",
+      "tags": [
+        "starlink",
+        "heo"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink HEO Guard ×6",
+      "stats": {
+        "mass_t": 121.34,
+        "fuel_t": 76.0,
+        "thrust_vac_kn": 2900.0,
+        "estimated_dv_ms": 2599,
+        "twr_kerbin": 2.44,
+        "part_count": 46
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_heo.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_heo.vessel.json"
+    },
+    {
+      "id": "sat_sl_spare",
+      "name": "Starlink Spare Rack ×20",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "spare"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink Spare Rack ×20",
+      "stats": {
+        "mass_t": 102.11,
+        "fuel_t": 72.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 3729,
+        "twr_kerbin": 1.56,
+        "part_count": 113
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_spare.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_spare.vessel.json"
+    },
+    {
+      "id": "sat_sl_laser",
+      "name": "Starlink Laser Test ×6",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "laser"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink Laser Test ×6",
+      "stats": {
+        "mass_t": 93.51,
+        "fuel_t": 72.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4488,
+        "twr_kerbin": 1.7,
+        "part_count": 43
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_laser.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_laser.vessel.json"
+    },
+    {
+      "id": "sat_sl_emerg",
+      "name": "Starlink Emergency Mesh ×16",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_polar",
+      "tags": [
+        "starlink",
+        "emergency"
+      ],
+      "preview": "starlink",
+      "notes": "Starlink Emergency Mesh ×16",
+      "stats": {
+        "mass_t": 124.21,
+        "fuel_t": 72.0,
+        "thrust_vac_kn": 2900.0,
+        "estimated_dv_ms": 2288,
+        "twr_kerbin": 2.38,
+        "part_count": 95
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_emerg.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_emerg.vessel.json"
+    },
+    {
+      "id": "sat_sl_starship60",
+      "name": "Starlink Starship Deploy ×60",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "starship",
+        "mega"
+      ],
+      "preview": "starship",
+      "notes": "Déploiement Starlink depuis baie Starship-K + SuperHeavy.",
+      "stats": {
+        "mass_t": 690.7,
+        "fuel_t": 500.0,
+        "thrust_vac_kn": 15000.0,
+        "estimated_dv_ms": 4103,
+        "twr_kerbin": 2.21,
+        "part_count": 269
+      },
+      "blueprint": "Blueprints/satellite/sat_sl_starship60.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_sl_starship60.vessel.json"
+    },
+    {
+      "id": "sat_comm_geo",
+      "name": "CommSat GEO Kerbin",
+      "type": "satellite",
+      "subtype": "comms",
+      "destination": "kerbin_gto",
+      "tags": [
+        "comms",
+        "geo"
+      ],
+      "preview": "comms",
+      "notes": "Relais haute orbite.",
+      "stats": {
+        "mass_t": 22.04,
+        "fuel_t": 16.0,
+        "thrust_vac_kn": 275.0,
+        "estimated_dv_ms": 4132,
+        "twr_kerbin": 1.27,
+        "part_count": 23
+      },
+      "blueprint": "Blueprints/satellite/sat_comm_geo.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_comm_geo.vessel.json"
+    },
+    {
+      "id": "sat_comm_mun",
+      "name": "MunComm Relay Trio",
+      "type": "satellite",
+      "subtype": "comms",
+      "destination": "mun",
+      "tags": [
+        "comms",
+        "mun"
+      ],
+      "preview": "comms",
+      "notes": "3 relais Mun.",
+      "stats": {
+        "mass_t": 21.926,
+        "fuel_t": 16.51,
+        "thrust_vac_kn": 380.0,
+        "estimated_dv_ms": 4292,
+        "twr_kerbin": 1.77,
+        "part_count": 41
+      },
+      "blueprint": "Blueprints/satellite/sat_comm_mun.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_comm_mun.vessel.json"
+    },
+    {
+      "id": "sat_data_leo",
+      "name": "DataBird LEO",
+      "type": "satellite",
+      "subtype": "data",
+      "destination": "kerbin_leo",
+      "tags": [
+        "data",
+        "leo"
+      ],
+      "preview": "data",
+      "notes": "Satellite données LEO.",
+      "stats": {
+        "mass_t": 7.018,
+        "fuel_t": 4.5,
+        "thrust_vac_kn": 235.0,
+        "estimated_dv_ms": 3213,
+        "twr_kerbin": 3.41,
+        "part_count": 16
+      },
+      "blueprint": "Blueprints/satellite/sat_data_leo.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_data_leo.vessel.json"
+    },
+    {
+      "id": "sat_data_mun",
+      "name": "MunScan DataSat",
+      "type": "satellite",
+      "subtype": "data",
+      "destination": "mun",
+      "tags": [
+        "data",
+        "mun"
+      ],
+      "preview": "data",
+      "notes": "Cartographie Mun.",
+      "stats": {
+        "mass_t": 16.21,
+        "fuel_t": 12.0,
+        "thrust_vac_kn": 320.0,
+        "estimated_dv_ms": 4132,
+        "twr_kerbin": 2.01,
+        "part_count": 14
+      },
+      "blueprint": "Blueprints/satellite/sat_data_mun.blueprint.json",
+      "vessel": "Vehicles/satellite/sat_data_mun.vessel.json"
+    },
+    {
+      "id": "rkt_ss_crew",
+      "name": "Starship-K Crew LEO",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starship",
+        "crew"
+      ],
+      "preview": "starship",
+      "notes": "Équipage + SuperHeavy.",
+      "stats": {
+        "mass_t": 650.475,
+        "fuel_t": 500.0,
+        "thrust_vac_kn": 15000.0,
+        "estimated_dv_ms": 4667,
+        "twr_kerbin": 2.35,
+        "part_count": 47
+      },
+      "blueprint": "Blueprints/rocket/rkt_ss_crew.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_ss_crew.vessel.json"
+    },
+    {
+      "id": "rkt_ss_cargo",
+      "name": "Starship-K Cargo LEO",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starship",
+        "cargo"
+      ],
+      "preview": "starship",
+      "notes": "Baie cargo.",
+      "stats": {
+        "mass_t": 645.975,
+        "fuel_t": 500.0,
+        "thrust_vac_kn": 15000.0,
+        "estimated_dv_ms": 4741,
+        "twr_kerbin": 2.37,
+        "part_count": 47
+      },
+      "blueprint": "Blueprints/rocket/rkt_ss_cargo.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_ss_cargo.vessel.json"
+    },
+    {
+      "id": "rkt_ss_tanker",
+      "name": "Starship-K Tanker",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starship",
+        "tanker"
+      ],
+      "preview": "starship",
+      "notes": "Ravitailleur LEO.",
+      "stats": {
+        "mass_t": 915.975,
+        "fuel_t": 740.0,
+        "thrust_vac_kn": 15000.0,
+        "estimated_dv_ms": 5259,
+        "twr_kerbin": 1.67,
+        "part_count": 48
+      },
+      "blueprint": "Blueprints/rocket/rkt_ss_tanker.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_ss_tanker.vessel.json"
+    },
+    {
+      "id": "rkt_ss_mun",
+      "name": "Starship-K Mun HLS",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "mun",
+      "tags": [
+        "starship",
+        "mun",
+        "hls"
+      ],
+      "preview": "starship",
+      "notes": "Human Landing System Mun.",
+      "stats": {
+        "mass_t": 920.475,
+        "fuel_t": 740.0,
+        "thrust_vac_kn": 15000.0,
+        "estimated_dv_ms": 5194,
+        "twr_kerbin": 1.66,
+        "part_count": 48
+      },
+      "blueprint": "Blueprints/rocket/rkt_ss_mun.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_ss_mun.vessel.json"
+    },
+    {
+      "id": "rkt_ss_duna",
+      "name": "Starship-K Duna Transport",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "duna",
+      "tags": [
+        "starship",
+        "duna"
+      ],
+      "preview": "starship",
+      "notes": "Transport colonie Duna.",
+      "stats": {
+        "mass_t": 924.475,
+        "fuel_t": 740.0,
+        "thrust_vac_kn": 15000.0,
+        "estimated_dv_ms": 5138,
+        "twr_kerbin": 1.65,
+        "part_count": 49
+      },
+      "blueprint": "Blueprints/rocket/rkt_ss_duna.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_ss_duna.vessel.json"
+    },
+    {
+      "id": "rkt_ss_hop",
+      "name": "Starship-K Hop Test",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starship",
+        "test"
+      ],
+      "preview": "starship",
+      "notes": "Hop suborbital sans SuperHeavy.",
+      "stats": {
+        "mass_t": 101.775,
+        "fuel_t": 72.0,
+        "thrust_vac_kn": 2000.0,
+        "estimated_dv_ms": 4099,
+        "twr_kerbin": 2.0,
+        "part_count": 27
+      },
+      "blueprint": "Blueprints/rocket/rkt_ss_hop.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_ss_hop.vessel.json"
+    },
+    {
+      "id": "rkt_ss_depot",
+      "name": "Starship-K Orbital Depot",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starship",
+        "depot"
+      ],
+      "preview": "starship",
+      "notes": "Dépôt fuel LEO.",
+      "stats": {
+        "mass_t": 897.975,
+        "fuel_t": 740.0,
+        "thrust_vac_kn": 11000.0,
+        "estimated_dv_ms": 5447,
+        "twr_kerbin": 1.25,
+        "part_count": 46
+      },
+      "blueprint": "Blueprints/rocket/rkt_ss_depot.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_ss_depot.vessel.json"
+    },
+    {
+      "id": "rkt_ss_ptp",
+      "name": "Starship-K Point-to-Point",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starship",
+        "passenger"
+      ],
+      "preview": "starship",
+      "notes": "Vol point-à-point Kerbin.",
+      "stats": {
+        "mass_t": 650.475,
+        "fuel_t": 500.0,
+        "thrust_vac_kn": 15000.0,
+        "estimated_dv_ms": 4667,
+        "twr_kerbin": 2.35,
+        "part_count": 47
+      },
+      "blueprint": "Blueprints/rocket/rkt_ss_ptp.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_ss_ptp.vessel.json"
+    },
+    {
+      "id": "rkt_mun",
+      "name": "Mun Hopper",
+      "type": "rocket",
+      "subtype": "lander",
+      "destination": "mun",
+      "tags": [
+        "mun"
+      ],
+      "preview": "rocket",
+      "notes": "Aller-retour Mun.",
+      "stats": {
+        "mass_t": 53.035,
+        "fuel_t": 40.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4286,
+        "twr_kerbin": 3.0,
+        "part_count": 18
+      },
+      "blueprint": "Blueprints/rocket/rkt_mun.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_mun.vessel.json"
+    },
+    {
+      "id": "rkt_minmus",
+      "name": "Minmus Depot Run",
+      "type": "rocket",
+      "subtype": "transfer",
+      "destination": "minmus",
+      "tags": [
+        "minmus"
+      ],
+      "preview": "rocket",
+      "notes": "Dépôt Minmus.",
+      "stats": {
+        "mass_t": 53.035,
+        "fuel_t": 40.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4286,
+        "twr_kerbin": 3.0,
+        "part_count": 18
+      },
+      "blueprint": "Blueprints/rocket/rkt_minmus.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_minmus.vessel.json"
+    },
+    {
+      "id": "rkt_duna",
+      "name": "Duna Nerv Transfer",
+      "type": "rocket",
+      "subtype": "interplanetary",
+      "destination": "duna",
+      "tags": [
+        "duna",
+        "nerv"
+      ],
+      "preview": "rocket",
+      "notes": "Nerv cruise Duna.",
+      "stats": {
+        "mass_t": 64.735,
+        "fuel_t": 48.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4364,
+        "twr_kerbin": 2.46,
+        "part_count": 18
+      },
+      "blueprint": "Blueprints/rocket/rkt_duna.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_duna.vessel.json"
+    },
+    {
+      "id": "rkt_eve",
+      "name": "Eve Escape Heavy",
+      "type": "rocket",
+      "subtype": "hardcore",
+      "destination": "eve",
+      "tags": [
+        "eve"
+      ],
+      "preview": "rocket",
+      "notes": "Ascension Eve.",
+      "stats": {
+        "mass_t": 344.06,
+        "fuel_t": 280.0,
+        "thrust_vac_kn": 6490.0,
+        "estimated_dv_ms": 5128,
+        "twr_kerbin": 1.92,
+        "part_count": 28
+      },
+      "blueprint": "Blueprints/rocket/rkt_eve.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_eve.vessel.json"
+    },
+    {
+      "id": "rkt_jool",
+      "name": "Jool System Probe",
+      "type": "rocket",
+      "subtype": "probe",
+      "destination": "jool",
+      "tags": [
+        "jool"
+      ],
+      "preview": "rocket",
+      "notes": "Probe système Jool.",
+      "stats": {
+        "mass_t": 63.595,
+        "fuel_t": 48.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4534,
+        "twr_kerbin": 2.5,
+        "part_count": 16
+      },
+      "blueprint": "Blueprints/rocket/rkt_jool.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_jool.vessel.json"
+    },
+    {
+      "id": "rkt_laythe",
+      "name": "Laythe Splash Probe",
+      "type": "rocket",
+      "subtype": "probe",
+      "destination": "laythe",
+      "tags": [
+        "laythe"
+      ],
+      "preview": "rocket",
+      "notes": "Probe atmosphère Laythe.",
+      "stats": {
+        "mass_t": 63.995,
+        "fuel_t": 48.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4472,
+        "twr_kerbin": 2.48,
+        "part_count": 18
+      },
+      "blueprint": "Blueprints/rocket/rkt_laythe.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_laythe.vessel.json"
+    },
+    {
+      "id": "rkt_tylo",
+      "name": "Tylo Hammer Lander",
+      "type": "rocket",
+      "subtype": "hardcore",
+      "destination": "tylo",
+      "tags": [
+        "tylo"
+      ],
+      "preview": "rocket",
+      "notes": "Lander Tylo.",
+      "stats": {
+        "mass_t": 64.535,
+        "fuel_t": 48.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4392,
+        "twr_kerbin": 2.46,
+        "part_count": 20
+      },
+      "blueprint": "Blueprints/rocket/rkt_tylo.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_tylo.vessel.json"
+    },
+    {
+      "id": "rkt_moho",
+      "name": "Moho Express",
+      "type": "rocket",
+      "subtype": "interplanetary",
+      "destination": "moho",
+      "tags": [
+        "moho"
+      ],
+      "preview": "rocket",
+      "notes": "Express Moho Nerv.",
+      "stats": {
+        "mass_t": 64.335,
+        "fuel_t": 48.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4422,
+        "twr_kerbin": 2.47,
+        "part_count": 16
+      },
+      "blueprint": "Blueprints/rocket/rkt_moho.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_moho.vessel.json"
+    },
+    {
+      "id": "rkt_eeloo",
+      "name": "Eeloo Iceprobe",
+      "type": "rocket",
+      "subtype": "probe",
+      "destination": "eeloo",
+      "tags": [
+        "eeloo"
+      ],
+      "preview": "rocket",
+      "notes": "Probe Eeloo.",
+      "stats": {
+        "mass_t": 63.595,
+        "fuel_t": 48.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4534,
+        "twr_kerbin": 2.5,
+        "part_count": 16
+      },
+      "blueprint": "Blueprints/rocket/rkt_eeloo.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_eeloo.vessel.json"
+    },
+    {
+      "id": "rkt_dres",
+      "name": "Dres Rockhound",
+      "type": "rocket",
+      "subtype": "probe",
+      "destination": "dres",
+      "tags": [
+        "dres"
+      ],
+      "preview": "rocket",
+      "notes": "Rendez-vous Dres.",
+      "stats": {
+        "mass_t": 63.595,
+        "fuel_t": 48.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4534,
+        "twr_kerbin": 2.5,
+        "part_count": 16
+      },
+      "blueprint": "Blueprints/rocket/rkt_dres.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_dres.vessel.json"
+    },
+    {
+      "id": "rkt_ike",
+      "name": "Ike Shuttle",
+      "type": "rocket",
+      "subtype": "lander",
+      "destination": "ike",
+      "tags": [
+        "ike"
+      ],
+      "preview": "rocket",
+      "notes": "Navette Ike.",
+      "stats": {
+        "mass_t": 53.035,
+        "fuel_t": 40.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4286,
+        "twr_kerbin": 3.0,
+        "part_count": 18
+      },
+      "blueprint": "Blueprints/rocket/rkt_ike.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_ike.vessel.json"
+    },
+    {
+      "id": "rkt_gilly",
+      "name": "Gilly Hopper",
+      "type": "rocket",
+      "subtype": "lander",
+      "destination": "gilly",
+      "tags": [
+        "gilly"
+      ],
+      "preview": "rocket",
+      "notes": "Micro-gravité.",
+      "stats": {
+        "mass_t": 53.035,
+        "fuel_t": 40.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4286,
+        "twr_kerbin": 3.0,
+        "part_count": 18
+      },
+      "blueprint": "Blueprints/rocket/rkt_gilly.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_gilly.vessel.json"
+    },
+    {
+      "id": "rkt_vall",
+      "name": "Vall Glacier Lander",
+      "type": "rocket",
+      "subtype": "lander",
+      "destination": "vall",
+      "tags": [
+        "vall"
+      ],
+      "preview": "rocket",
+      "notes": "Lander Vall.",
+      "stats": {
+        "mass_t": 64.535,
+        "fuel_t": 48.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4392,
+        "twr_kerbin": 2.46,
+        "part_count": 20
+      },
+      "blueprint": "Blueprints/rocket/rkt_vall.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_vall.vessel.json"
+    },
+    {
+      "id": "rkt_bop",
+      "name": "Bop Dust Probe",
+      "type": "rocket",
+      "subtype": "probe",
+      "destination": "bop",
+      "tags": [
+        "bop"
+      ],
+      "preview": "rocket",
+      "notes": "Probe Bop.",
+      "stats": {
+        "mass_t": 63.595,
+        "fuel_t": 48.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4534,
+        "twr_kerbin": 2.5,
+        "part_count": 16
+      },
+      "blueprint": "Blueprints/rocket/rkt_bop.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_bop.vessel.json"
+    },
+    {
+      "id": "rkt_pol",
+      "name": "Pol Pebble Lander",
+      "type": "rocket",
+      "subtype": "probe",
+      "destination": "pol",
+      "tags": [
+        "pol"
+      ],
+      "preview": "rocket",
+      "notes": "Micro-lander Pol.",
+      "stats": {
+        "mass_t": 63.795,
+        "fuel_t": 48.0,
+        "thrust_vac_kn": 1560.0,
+        "estimated_dv_ms": 4503,
+        "twr_kerbin": 2.49,
+        "part_count": 20
+      },
+      "blueprint": "Blueprints/rocket/rkt_pol.blueprint.json",
+      "vessel": "Vehicles/rocket/rkt_pol.vessel.json"
+    },
+    {
+      "id": "rover_mun",
+      "name": "Mun Scout Rover",
+      "type": "rover",
+      "subtype": "science",
+      "destination": "mun",
+      "tags": [
+        "rover",
+        "mun"
+      ],
+      "preview": "rover",
+      "notes": "Rover Mun + lander.",
+      "stats": {
+        "mass_t": 54.085,
+        "fuel_t": 41.0,
+        "thrust_vac_kn": 1620.0,
+        "estimated_dv_ms": 4351,
+        "twr_kerbin": 3.05,
+        "part_count": 27
+      },
+      "blueprint": "Blueprints/rover/rover_mun.blueprint.json",
+      "vessel": "Vehicles/rover/rover_mun.vessel.json"
+    },
+    {
+      "id": "rover_duna",
+      "name": "Duna Curiosity-K",
+      "type": "rover",
+      "subtype": "science",
+      "destination": "duna",
+      "tags": [
+        "rover",
+        "duna"
+      ],
+      "preview": "rover",
+      "notes": "Rover science Duna.",
+      "stats": {
+        "mass_t": 54.185,
+        "fuel_t": 41.0,
+        "thrust_vac_kn": 1620.0,
+        "estimated_dv_ms": 4334,
+        "twr_kerbin": 3.05,
+        "part_count": 29
+      },
+      "blueprint": "Blueprints/rover/rover_duna.blueprint.json",
+      "vessel": "Vehicles/rover/rover_duna.vessel.json"
+    },
+    {
+      "id": "rover_minmus",
+      "name": "Minmus Ice Crawler",
+      "type": "rover",
+      "subtype": "utility",
+      "destination": "minmus",
+      "tags": [
+        "rover",
+        "minmus"
+      ],
+      "preview": "rover",
+      "notes": "Léger Minmus.",
+      "stats": {
+        "mass_t": 54.085,
+        "fuel_t": 41.0,
+        "thrust_vac_kn": 1620.0,
+        "estimated_dv_ms": 4351,
+        "twr_kerbin": 3.05,
+        "part_count": 27
+      },
+      "blueprint": "Blueprints/rover/rover_minmus.blueprint.json",
+      "vessel": "Vehicles/rover/rover_minmus.vessel.json"
+    },
+    {
+      "id": "rover_eve",
+      "name": "Eve Surface Tank",
+      "type": "rover",
+      "subtype": "heavy",
+      "destination": "eve",
+      "tags": [
+        "rover",
+        "eve"
+      ],
+      "preview": "rover",
+      "notes": "Rover lourd Eve one-way.",
+      "stats": {
+        "mass_t": 54.185,
+        "fuel_t": 41.0,
+        "thrust_vac_kn": 1620.0,
+        "estimated_dv_ms": 4334,
+        "twr_kerbin": 3.05,
+        "part_count": 29
+      },
+      "blueprint": "Blueprints/rover/rover_eve.blueprint.json",
+      "vessel": "Vehicles/rover/rover_eve.vessel.json"
+    },
+    {
+      "id": "rover_laythe",
+      "name": "Laythe Amphib Rover",
+      "type": "rover",
+      "subtype": "amphibious",
+      "destination": "laythe",
+      "tags": [
+        "rover",
+        "laythe"
+      ],
+      "preview": "rover",
+      "notes": "Amphibie Laythe.",
+      "stats": {
+        "mass_t": 54.085,
+        "fuel_t": 41.0,
+        "thrust_vac_kn": 1620.0,
+        "estimated_dv_ms": 4351,
+        "twr_kerbin": 3.05,
+        "part_count": 27
+      },
+      "blueprint": "Blueprints/rover/rover_laythe.blueprint.json",
+      "vessel": "Vehicles/rover/rover_laythe.vessel.json"
+    }
+  ],
+  "parts_catalog": "data/parts_catalog.json",
+  "ksp2_import": {
+    "windows": "%USERPROFILE%\\AppData\\LocalLow\\Intercept Games\\Kerbal Space Program 2",
+    "method_recommended": "Rebuild in VAB using Blueprints checklist (real stock part display names)",
+    "method_experimental": "Vehicles/KSP2_ImportPack/*.json scaffolds",
+    "assets_note": "OrbitWorks does NOT redistribute proprietary KSP2 meshes. 3D previews are procedural."
+  }
+}

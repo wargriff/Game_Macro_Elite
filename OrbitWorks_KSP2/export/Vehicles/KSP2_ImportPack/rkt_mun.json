@@ -1,0 +1,89 @@
+{
+  "schema": "orbitworks.ksp2.vessel_scaffold/1",
+  "warning": "Scaffold expérimental — pas un fichier craft KSP2 officiel. Utilisez le blueprint Markdown pour reconstruire dans le VAB.",
+  "metadata": {
+    "id": "rkt_mun",
+    "name": "Mun Hopper",
+    "category": "rockets",
+    "type": "rocket",
+    "subtype": "lander",
+    "destination": "mun",
+    "tags": [
+      "mun"
+    ],
+    "preview": "rocket",
+    "total_mass_t": 53.035
+  },
+  "assembly": [
+    {
+      "partName": "pod_1v_conical_crew",
+      "displayName": "Mk1 Conical Command Pod",
+      "quantity": 1,
+      "role": "core",
+      "mass_t": 0.84
+    },
+    {
+      "partName": "landingleg_lt1",
+      "displayName": "LT-1 Landing Struts",
+      "quantity": 4,
+      "role": "lander",
+      "mass_t": 0.05
+    },
+    {
+      "partName": "antenna_hg55",
+      "displayName": "HG-55",
+      "quantity": 1,
+      "role": "comms",
+      "mass_t": 0.075
+    },
+    {
+      "partName": "panel_gigantor",
+      "displayName": "Gigantor XL Solar Array",
+      "quantity": 1,
+      "role": "power",
+      "mass_t": 0.3
+    },
+    {
+      "partName": "engine_1v_methalox_terrier",
+      "displayName": "LV-909 Terrier",
+      "quantity": 1,
+      "role": "cruise",
+      "mass_t": 0.5
+    },
+    {
+      "partName": "fueltank_1v_inline_methalox_1x8",
+      "displayName": "FL-T800",
+      "quantity": 2,
+      "role": "cruise",
+      "mass_t": 4.5
+    },
+    {
+      "partName": "decoupler_1v_stack",
+      "displayName": "TR-18A Stack Decoupler",
+      "quantity": 1,
+      "role": "stage",
+      "mass_t": 0.04
+    },
+    {
+      "partName": "engine_2v_methalox_mainsail",
+      "displayName": "RE-M3 Mainsail",
+      "quantity": 1,
+      "role": "booster",
+      "mass_t": 6.0
+    },
+    {
+      "partName": "fueltank_2v_inline_methalox_1x4",
+      "displayName": "X200-32",
+      "quantity": 2,
+      "role": "booster",
+      "mass_t": 18.0
+    },
+    {
+      "partName": "fin_delta_deluxe",
+      "displayName": "Delta-Deluxe Winglet",
+      "quantity": 4,
+      "role": "aero",
+      "mass_t": 0.02
+    }
+  ]
+}

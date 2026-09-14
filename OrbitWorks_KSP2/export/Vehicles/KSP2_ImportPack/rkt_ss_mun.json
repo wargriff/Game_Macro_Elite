@@ -1,0 +1,126 @@
+{
+  "schema": "orbitworks.ksp2.vessel_scaffold/1",
+  "warning": "Scaffold expérimental — pas un fichier craft KSP2 officiel. Utilisez le blueprint Markdown pour reconstruire dans le VAB.",
+  "metadata": {
+    "id": "rkt_ss_mun",
+    "name": "Starship-K Mun HLS",
+    "category": "starship",
+    "type": "rocket",
+    "subtype": "starship",
+    "destination": "mun",
+    "tags": [
+      "starship",
+      "mun",
+      "hls"
+    ],
+    "preview": "starship",
+    "total_mass_t": 920.475
+  },
+  "assembly": [
+    {
+      "partName": "nosecone_3v_heatshield",
+      "displayName": "Starship-K Heatshield Nose",
+      "quantity": 1,
+      "role": "ship",
+      "mass_t": 2.5
+    },
+    {
+      "partName": "body_starship_crew",
+      "displayName": "Starship-K Crew Cabin",
+      "quantity": 1,
+      "role": "ship",
+      "mass_t": 8.5
+    },
+    {
+      "partName": "wing_starship_flap",
+      "displayName": "Starship-K Elevon",
+      "quantity": 4,
+      "role": "ship",
+      "mass_t": 0.35
+    },
+    {
+      "partName": "landingleg_starship",
+      "displayName": "Starship-K Catch / Landing Leg",
+      "quantity": 6,
+      "role": "ship",
+      "mass_t": 0.4
+    },
+    {
+      "partName": "rcs_rv105",
+      "displayName": "RV-105 RCS Thruster Block",
+      "quantity": 8,
+      "role": "ship",
+      "mass_t": 0.05
+    },
+    {
+      "partName": "panel_gigantor",
+      "displayName": "Gigantor XL Solar Array",
+      "quantity": 2,
+      "role": "ship",
+      "mass_t": 0.3
+    },
+    {
+      "partName": "battery_z4k",
+      "displayName": "Z-4k Battery",
+      "quantity": 2,
+      "role": "ship",
+      "mass_t": 0.2
+    },
+    {
+      "partName": "antenna_hg55",
+      "displayName": "HG-55",
+      "quantity": 1,
+      "role": "ship",
+      "mass_t": 0.075
+    },
+    {
+      "partName": "engine_3v_methalox_rhino",
+      "displayName": "S3 KS-25x4 / Rhino-class",
+      "quantity": 3,
+      "role": "ship",
+      "mass_t": 9.0
+    },
+    {
+      "partName": "fueltank_3v_inline_methalox_1x8",
+      "displayName": "S4-25600",
+      "quantity": 3,
+      "role": "ship",
+      "mass_t": 144.0
+    },
+    {
+      "partName": "decoupler_3v_stack",
+      "displayName": "TR-XL Stack Decoupler",
+      "quantity": 1,
+      "role": "stage",
+      "mass_t": 0.2
+    },
+    {
+      "partName": "body_superheavy",
+      "displayName": "SuperHeavy-K Booster Core",
+      "quantity": 1,
+      "role": "booster",
+      "mass_t": 120.0
+    },
+    {
+      "partName": "engine_3v_methalox_vector",
+      "displayName": "S3 KS-25 Vector",
+      "quantity": 9,
+      "role": "booster",
+      "mass_t": 4.0
+    },
+    {
+      "partName": "fueltank_3v_inline_methalox_1x8",
+      "displayName": "S4-25600",
+      "quantity": 2,
+      "role": "booster",
+      "mass_t": 144.0
+    },
+    {
+      "partName": "gridfin_heavy",
+      "displayName": "Heavy Grid Fin",
+      "quantity": 4,
+      "role": "booster",
+      "mass_t": 0.25
+    }
+  ]
+}

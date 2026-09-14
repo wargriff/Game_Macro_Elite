@@ -1,0 +1,104 @@
+{
+  "schema": "orbitworks.ksp2.vessel_scaffold/1",
+  "warning": "Scaffold expérimental — pas un fichier craft KSP2 officiel. Utilisez le blueprint Markdown pour reconstruire dans le VAB.",
+  "metadata": {
+    "id": "sat_data_leo",
+    "name": "DataBird LEO",
+    "category": "data",
+    "type": "satellite",
+    "subtype": "data",
+    "destination": "kerbin_leo",
+    "tags": [
+      "data",
+      "leo"
+    ],
+    "preview": "data",
+    "total_mass_t": 7.0175
+  },
+  "assembly": [
+    {
+      "partName": "probe_1v_cube",
+      "displayName": "Probodobodyne QBE",
+      "quantity": 1,
+      "role": "core",
+      "mass_t": 0.05
+    },
+    {
+      "partName": "payload_data_core",
+      "displayName": "Orbital Data Core",
+      "quantity": 1,
+      "role": "payload",
+      "mass_t": 0.15
+    },
+    {
+      "partName": "science_thermometer",
+      "displayName": "2HOT Thermometer",
+      "quantity": 1,
+      "role": "science",
+      "mass_t": 0.005
+    },
+    {
+      "partName": "science_barometer",
+      "displayName": "PresMat Barometer",
+      "quantity": 1,
+      "role": "science",
+      "mass_t": 0.005
+    },
+    {
+      "partName": "antenna_comm16",
+      "displayName": "Communotron 16",
+      "quantity": 1,
+      "role": "comms",
+      "mass_t": 0.005
+    },
+    {
+      "partName": "panel_oxstat",
+      "displayName": "OX-STAT Photovoltaic Panels",
+      "quantity": 4,
+      "role": "power",
+      "mass_t": 0.005
+    },
+    {
+      "partName": "battery_z1k",
+      "displayName": "Z-1k Battery",
+      "quantity": 1,
+      "role": "power",
+      "mass_t": 0.05
+    },
+    {
+      "partName": "engine_1v_methalox_spark",
+      "displayName": "48-7S Spark",
+      "quantity": 1,
+      "role": "upper",
+      "mass_t": 0.13
+    },
+    {
+      "partName": "fueltank_1v_inline_methalox_1x1",
+      "displayName": "FL-T100",
+      "quantity": 1,
+      "role": "upper",
+      "mass_t": 0.5625
+    },
+    {
+      "partName": "decoupler_1v_stack",
+      "displayName": "TR-18A Stack Decoupler",
+      "quantity": 1,
+      "role": "stage",
+      "mass_t": 0.04
+    },
+    {
+      "partName": "engine_1v_methalox_swivel",
+      "displayName": "LV-T45 Swivel",
+      "quantity": 1,
+      "role": "booster",
+      "mass_t": 1.5
+    },
+    {
+      "partName": "fueltank_1v_inline_methalox_1x4",
+      "displayName": "FL-T400",
+      "quantity": 2,
+      "role": "booster",
+      "mass_t": 2.25
+    }
+  ]
+}

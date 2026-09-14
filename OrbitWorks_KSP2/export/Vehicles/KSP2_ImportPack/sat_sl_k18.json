@@ -1,0 +1,111 @@
+{
+  "schema": "orbitworks.ksp2.vessel_scaffold/1",
+  "warning": "Scaffold expérimental — pas un fichier craft KSP2 officiel. Utilisez le blueprint Markdown pour reconstruire dans le VAB.",
+  "metadata": {
+    "id": "sat_sl_k18",
+    "name": "Starlink Shell-A ×18",
+    "category": "starlink",
+    "type": "satellite",
+    "subtype": "starlink",
+    "destination": "kerbin_leo",
+    "tags": [
+      "starlink",
+      "shell"
+    ],
+    "preview": "starlink",
+    "total_mass_t": 100.77
+  },
+  "assembly": [
+    {
+      "partName": "payload_dispenser_24",
+      "displayName": "Constellation Dispenser x24",
+      "quantity": 1,
+      "role": "payload",
+      "mass_t": 0.8
+    },
+    {
+      "partName": "payload_starlink_bus",
+      "displayName": "Starlink-K Flat Bus",
+      "quantity": 18,
+      "role": "sat",
+      "mass_t": 0.26
+    },
+    {
+      "partName": "panel_gigantor",
+      "displayName": "Gigantor XL Solar Array",
+      "quantity": 18,
+      "role": "sat",
+      "mass_t": 0.3
+    },
+    {
+      "partName": "antenna_comm16",
+      "displayName": "Communotron 16",
+      "quantity": 18,
+      "role": "sat",
+      "mass_t": 0.005
+    },
+    {
+      "partName": "probe_1v_octo",
+      "displayName": "Probodobodyne OKTO",
+      "quantity": 18,
+      "role": "sat",
+      "mass_t": 0.1
+    },
+    {
+      "partName": "battery_z100",
+      "displayName": "Z-100 Rechargeable Battery",
+      "quantity": 18,
+      "role": "sat",
+      "mass_t": 0.005
+    },
+    {
+      "partName": "engine_1v_methalox_terrier",
+      "displayName": "LV-909 Terrier",
+      "quantity": 1,
+      "role": "upper",
+      "mass_t": 0.5
+    },
+    {
+      "partName": "fueltank_1v_inline_methalox_1x8",
+      "displayName": "FL-T800",
+      "quantity": 2,
+      "role": "upper",
+      "mass_t": 4.5
+    },
+    {
+      "partName": "decoupler_2v_stack",
+      "displayName": "TR-38-D Stack Decoupler",
+      "quantity": 1,
+      "role": "stage",
+      "mass_t": 0.08
+    },
+    {
+      "partName": "engine_2v_methalox_mainsail",
+      "displayName": "RE-M3 Mainsail",
+      "quantity": 1,
+      "role": "booster",
+      "mass_t": 6.0
+    },
+    {
+      "partName": "fueltank_2v_inline_methalox_1x8",
+      "displayName": "X200-64",
+      "quantity": 2,
+      "role": "booster",
+      "mass_t": 36.0
+    },
+    {
+      "partName": "fairing_2v",
+      "displayName": "AE-FF2 Airstream Protective Shell",
+      "quantity": 1,
+      "role": "aero",
+      "mass_t": 0.25
+    },
+    {
+      "partName": "fin_delta_deluxe",
+      "displayName": "Delta-Deluxe Winglet",
+      "quantity": 4,
+      "role": "aero",
+      "mass_t": 0.02
+    }
+  ]
+}

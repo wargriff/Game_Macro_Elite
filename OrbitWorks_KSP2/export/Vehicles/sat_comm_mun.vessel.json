@@ -1,0 +1,104 @@
+{
+  "schema": "orbitworks.ksp2.vessel_scaffold/1",
+  "warning": "Scaffold expérimental — pas un fichier craft KSP2 officiel. Utilisez le blueprint Markdown pour reconstruire dans le VAB.",
+  "metadata": {
+    "id": "sat_comm_mun",
+    "name": "MunComm Relay Trio",
+    "category": "comms",
+    "type": "satellite",
+    "subtype": "comms",
+    "destination": "mun",
+    "tags": [
+      "comms",
+      "mun"
+    ],
+    "preview": "comms",
+    "total_mass_t": 21.926
+  },
+  "assembly": [
+    {
+      "partName": "probe_1v_hecs",
+      "displayName": "Probodobodyne HECS",
+      "quantity": 3,
+      "role": "core",
+      "mass_t": 0.1
+    },
+    {
+      "partName": "antenna_ra2",
+      "displayName": "RA-2 Relay Antenna",
+      "quantity": 3,
+      "role": "comms",
+      "mass_t": 0.15
+    },
+    {
+      "partName": "antenna_hg5",
+      "displayName": "HG-5 High Gain Antenna",
+      "quantity": 3,
+      "role": "comms",
+      "mass_t": 0.07
+    },
+    {
+      "partName": "panel_oxstat",
+      "displayName": "OX-STAT Photovoltaic Panels",
+      "quantity": 12,
+      "role": "power",
+      "mass_t": 0.005
+    },
+    {
+      "partName": "battery_z1k",
+      "displayName": "Z-1k Battery",
+      "quantity": 3,
+      "role": "power",
+      "mass_t": 0.05
+    },
+    {
+      "partName": "engine_1v_methalox_spark",
+      "displayName": "48-7S Spark",
+      "quantity": 3,
+      "role": "sat",
+      "mass_t": 0.13
+    },
+    {
+      "partName": "fueltank_0v_inline_methalox_oscar",
+      "displayName": "Oscar-B",
+      "quantity": 6,
+      "role": "sat",
+      "mass_t": 0.096
+    },
+    {
+      "partName": "engine_1v_methalox_terrier",
+      "displayName": "LV-909 Terrier",
+      "quantity": 1,
+      "role": "transfer",
+      "mass_t": 0.5
+    },
+    {
+      "partName": "fueltank_1v_inline_methalox_1x4",
+      "displayName": "FL-T400",
+      "quantity": 2,
+      "role": "transfer",
+      "mass_t": 2.25
+    },
+    {
+      "partName": "decoupler_1v_stack",
+      "displayName": "TR-18A Stack Decoupler",
+      "quantity": 1,
+      "role": "stage",
+      "mass_t": 0.04
+    },
+    {
+      "partName": "engine_1v_methalox_reliant",
+      "displayName": "LV-T30 Reliant",
+      "quantity": 1,
+      "role": "booster",
+      "mass_t": 1.25
+    },
+    {
+      "partName": "fueltank_1v_inline_methalox_1x8",
+      "displayName": "FL-T800",
+      "quantity": 3,
+      "role": "booster",
+      "mass_t": 4.5
+    }
+  ]
+}

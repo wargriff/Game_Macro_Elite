@@ -38,11 +38,14 @@ Windows : `GO_OrbitWorks.bat`
 
 ## UI atelier
 
-- Onglets + chips destinations + recherche
+- Onglets avec compteurs + chips destinations + recherche (effacement ✕)
 - Tri (nom / masse / Δv / pièces)
-- Checklist pièces collée au HUD (noms jeu)
+- Checklist pièces + résumé par rôle dans le HUD
 - Copier checklist, blueprint Markdown, wireframe, auto-rotate
-- Raccourcis : `←` `→` crafts, `W` wireframe, `R` rotate
+- Export JSON craft + Export MD blueprint
+- Mémorise le dernier craft sélectionné (`localStorage`)
+- Toasts de confirmation
+- Raccourcis : `←` `→` crafts, `W` wireframe, `R` rotate, `B` blueprint, `C` copy
 
 ## Import dans le vrai jeu
 

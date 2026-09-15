@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>OrbitWorks KSP2 — Atelier 3D</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%233ec4ff'/%3E%3Cstop offset='1' stop-color='%23f0a33a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='26' font-family='Segoe UI,Arial' font-weight='700' fill='%23041018'%3EOW%3C/text%3E%3C/svg%3E"/>
+  <link rel="stylesheet" href="/web/css/app.css"/>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">OW</div>
+        <div>
+          <h1>OrbitWorks</h1>
+          <p>KSP 2 · plans VAB · preview 3D</p>
+        </div>
+      </div>
+
+      <div class="tabs" id="tabs"></div>
+      <div class="search-row">
+        <input id="q" placeholder="Starship, Starlink, Mun, Eve…" autocomplete="off"/>
+        <button id="btn-clear" class="ghost" title="Effacer">✕</button>
+      </div>
+      <div class="toolbar">
+        <select id="sort" title="Trier">
+          <option value="name">Nom</option>
+          <option value="mass">Masse</option>
+          <option value="dv">Δv</option>
+          <option value="parts">Pièces</option>
+        </select>
+        <button id="btn-prev" class="ghost" title="Précédent">◀</button>
+        <button id="btn-next" class="ghost" title="Suivant">▶</button>
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="status">
+        <span id="status">Chargement…</span>
+        <span class="toast" id="toast"></span>
+      </div>
+      <div class="list" id="list"></div>
+    </aside>
+
+    <main class="stage">
+      <div id="viewport"></div>
+
+      <div class="topbar">
+        <div class="notice">
+          Preview 3D procédurale — pour les <b>vrais modèles KSP2</b>, reconstruis dans le VAB via le blueprint.
+        </div>
+        <div class="view-actions">
+          <button id="btn-wire" class="ghost">Wireframe</button>
+          <button id="btn-rotate" class="ghost on">Auto-rotate ON</button>
+          <button id="btn-reset" class="ghost">Recadrer</button>
+          <button id="btn-download" class="ghost">Export JSON</button>
+          <button id="btn-md" class="ghost">Export MD</button>
+        </div>
+      </div>
+
+      <div class="hud" id="hud">
+        <div class="hud-head">
+          <div>
+            <h2 id="hud-title">Sélectionne un modèle</h2>
+            <p id="hud-sub">Prévisualisation OrbitWorks</p>
+          </div>
+          <div class="hud-actions">
+            <button id="btn-blueprint" class="primary">Blueprint</button>
+            <button id="btn-copy" class="ghost">Copier checklist</button>
+          </div>
+        </div>
+        <div class="stats" id="hud-stats"></div>
+        <div class="role-summary" id="role-summary"></div>
+        <div class="parts-wrap">
+          <h3>Checklist pièces (noms jeu)</h3>
+          <div class="parts-table" id="parts-table"></div>
+        </div>
+        <pre id="blueprint-box" class="hidden"></pre>
+      </div>
+    </main>
+  </div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="/web/js/app.js"></script>
+</body>
+</html>

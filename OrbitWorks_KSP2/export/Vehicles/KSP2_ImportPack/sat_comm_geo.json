@@ -1,0 +1,118 @@
+{
+  "schema": "orbitworks.ksp2.vessel_scaffold/1",
+  "warning": "Scaffold expérimental — pas un fichier craft KSP2 officiel. Utilisez le blueprint Markdown pour reconstruire dans le VAB.",
+  "metadata": {
+    "id": "sat_comm_geo",
+    "name": "CommSat GEO Kerbin",
+    "category": "comms",
+    "type": "satellite",
+    "subtype": "comms",
+    "destination": "kerbin_gto",
+    "tags": [
+      "comms",
+      "geo"
+    ],
+    "preview": "comms",
+    "total_mass_t": 22.04
+  },
+  "assembly": [
+    {
+      "partName": "probe_1v_hecs",
+      "displayName": "Probodobodyne HECS",
+      "quantity": 1,
+      "role": "core",
+      "mass_t": 0.1
+    },
+    {
+      "partName": "payload_relay_hub",
+      "displayName": "Comm Relay Hub",
+      "quantity": 1,
+      "role": "payload",
+      "mass_t": 0.2
+    },
+    {
+      "partName": "antenna_ra15",
+      "displayName": "RA-15 Relay Antenna",
+      "quantity": 1,
+      "role": "comms",
+      "mass_t": 0.3
+    },
+    {
+      "partName": "antenna_hg55",
+      "displayName": "HG-55",
+      "quantity": 2,
+      "role": "comms",
+      "mass_t": 0.075
+    },
+    {
+      "partName": "panel_gigantor",
+      "displayName": "Gigantor XL Solar Array",
+      "quantity": 2,
+      "role": "power",
+      "mass_t": 0.3
+    },
+    {
+      "partName": "battery_z4k",
+      "displayName": "Z-4k Battery",
+      "quantity": 1,
+      "role": "power",
+      "mass_t": 0.2
+    },
+    {
+      "partName": "rcs_rv105",
+      "displayName": "RV-105 RCS Thruster Block",
+      "quantity": 4,
+      "role": "control",
+      "mass_t": 0.05
+    },
+    {
+      "partName": "rcs_tank_str",
+      "displayName": "Stratus-V Roundified Monopropellant Tank",
+      "quantity": 2,
+      "role": "control",
+      "mass_t": 0.075
+    },
+    {
+      "partName": "engine_1v_methalox_terrier",
+      "displayName": "LV-909 Terrier",
+      "quantity": 1,
+      "role": "upper",
+      "mass_t": 0.5
+    },
+    {
+      "partName": "fueltank_1v_inline_methalox_1x4",
+      "displayName": "FL-T400",
+      "quantity": 2,
+      "role": "upper",
+      "mass_t": 2.25
+    },
+    {
+      "partName": "decoupler_1v_stack",
+      "displayName": "TR-18A Stack Decoupler",
+      "quantity": 1,
+      "role": "stage",
+      "mass_t": 0.04
+    },
+    {
+      "partName": "engine_1v_methalox_swivel",
+      "displayName": "LV-T45 Swivel",
+      "quantity": 1,
+      "role": "booster",
+      "mass_t": 1.5
+    },
+    {
+      "partName": "fueltank_1v_inline_methalox_1x8",
+      "displayName": "FL-T800",
+      "quantity": 3,
+      "role": "booster",
+      "mass_t": 4.5
+    },
+    {
+      "partName": "fairing_1v",
+      "displayName": "AE-FF1 Airstream Protective Shell",
+      "quantity": 1,
+      "role": "aero",
+      "mass_t": 0.1
+    }
+  ]
+}

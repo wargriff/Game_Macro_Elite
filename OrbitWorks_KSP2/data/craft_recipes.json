@@ -1,0 +1,5555 @@
+{
+  "destinations": [
+    {
+      "id": "kerbin_leo",
+      "name": "Kerbin LEO",
+      "planet": "Kerbin",
+      "dv": 3400,
+      "difficulty": 1
+    },
+    {
+      "id": "kerbin_polar",
+      "name": "Kerbin Polaire",
+      "planet": "Kerbin",
+      "dv": 3600,
+      "difficulty": 2
+    },
+    {
+      "id": "kerbin_sso",
+      "name": "Kerbin SSO",
+      "planet": "Kerbin",
+      "dv": 3700,
+      "difficulty": 2
+    },
+    {
+      "id": "kerbin_gto",
+      "name": "Kerbin GTO",
+      "planet": "Kerbin",
+      "dv": 4200,
+      "difficulty": 2
+    },
+    {
+      "id": "kerbin_meo",
+      "name": "Kerbin MEO",
+      "planet": "Kerbin",
+      "dv": 4500,
+      "difficulty": 2
+    },
+    {
+      "id": "kerbin_heo",
+      "name": "Kerbin HEO",
+      "planet": "Kerbin",
+      "dv": 5000,
+      "difficulty": 3
+    },
+    {
+      "id": "mun",
+      "name": "Mun",
+      "planet": "Mun",
+      "dv": 5200,
+      "difficulty": 2
+    },
+    {
+      "id": "minmus",
+      "name": "Minmus",
+      "planet": "Minmus",
+      "dv": 4800,
+      "difficulty": 2
+    },
+    {
+      "id": "duna",
+      "name": "Duna",
+      "planet": "Duna",
+      "dv": 7000,
+      "difficulty": 3
+    },
+    {
+      "id": "ike",
+      "name": "Ike",
+      "planet": "Ike",
+      "dv": 7200,
+      "difficulty": 3
+    },
+    {
+      "id": "eve",
+      "name": "Eve",
+      "planet": "Eve",
+      "dv": 11000,
+      "difficulty": 5
+    },
+    {
+      "id": "gilly",
+      "name": "Gilly",
+      "planet": "Gilly",
+      "dv": 6500,
+      "difficulty": 3
+    },
+    {
+      "id": "jool",
+      "name": "Jool",
+      "planet": "Jool",
+      "dv": 9000,
+      "difficulty": 4
+    },
+    {
+      "id": "laythe",
+      "name": "Laythe",
+      "planet": "Laythe",
+      "dv": 9500,
+      "difficulty": 4
+    },
+    {
+      "id": "tylo",
+      "name": "Tylo",
+      "planet": "Tylo",
+      "dv": 10500,
+      "difficulty": 5
+    },
+    {
+      "id": "vall",
+      "name": "Vall",
+      "planet": "Vall",
+      "dv": 9800,
+      "difficulty": 4
+    },
+    {
+      "id": "bop",
+      "name": "Bop",
+      "planet": "Bop",
+      "dv": 9200,
+      "difficulty": 4
+    },
+    {
+      "id": "pol",
+      "name": "Pol",
+      "planet": "Pol",
+      "dv": 9100,
+      "difficulty": 4
+    },
+    {
+      "id": "dres",
+      "name": "Dres",
+      "planet": "Dres",
+      "dv": 8500,
+      "difficulty": 4
+    },
+    {
+      "id": "eeloo",
+      "name": "Eeloo",
+      "planet": "Eeloo",
+      "dv": 10000,
+      "difficulty": 4
+    },
+    {
+      "id": "moho",
+      "name": "Moho",
+      "planet": "Moho",
+      "dv": 8500,
+      "difficulty": 4
+    }
+  ],
+  "crafts": [
+    {
+      "id": "sat_sl_k12",
+      "name": "Starlink Rideshare ×12",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "rideshare"
+      ],
+      "stages": 2,
+      "notes": "Starlink Rideshare ×12",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_bus",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_k18",
+      "name": "Starlink Shell-A ×18",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "shell"
+      ],
+      "stages": 2,
+      "notes": "Starlink Shell-A ×18",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_bus",
+          "qty": 18,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 18,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 18,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 18,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 18,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_k24",
+      "name": "Starlink Cluster ×24",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "leo"
+      ],
+      "stages": 2,
+      "notes": "Starlink Cluster ×24",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_bus",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_k36",
+      "name": "Starlink Dense ×36",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "dense"
+      ],
+      "stages": 2,
+      "notes": "Starlink Dense ×36",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_36",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_bus",
+          "qty": 36,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 36,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_hg5",
+          "qty": 36,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 36,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 36,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        },
+        {
+          "part": "engine_srf_kickback",
+          "qty": 2,
+          "role": "boosters"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_k48",
+      "name": "Starlink Train ×48",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "train"
+      ],
+      "stages": 2,
+      "notes": "Starlink Train ×48",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_48",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_v2",
+          "qty": 48,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 48,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_hg5",
+          "qty": 48,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 48,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 48,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 3,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        },
+        {
+          "part": "engine_srf_kickback",
+          "qty": 2,
+          "role": "boosters"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_k60",
+      "name": "Starlink Mega ×60",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "mega"
+      ],
+      "stages": 2,
+      "notes": "Starlink Mega ×60",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_60",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_v2",
+          "qty": 60,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 60,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_hg5",
+          "qty": 60,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 60,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 60,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 3,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        },
+        {
+          "part": "engine_srf_kickback",
+          "qty": 4,
+          "role": "boosters"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_v2_24",
+      "name": "Starlink V2 Mini ×24",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "v2"
+      ],
+      "stages": 2,
+      "notes": "Starlink V2 Mini ×24",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_v2",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_hg5",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        },
+        {
+          "part": "engine_srf_kickback",
+          "qty": 2,
+          "role": "boosters"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_dtc",
+      "name": "Starlink Direct-to-Cell ×12",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "dtc"
+      ],
+      "stages": 2,
+      "notes": "Starlink Direct-to-Cell ×12",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_dtc",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_sso24",
+      "name": "Starlink SSO ×24",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_sso",
+      "tags": [
+        "starlink",
+        "sso"
+      ],
+      "stages": 2,
+      "notes": "Starlink SSO ×24",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_bus",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_hg5",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        },
+        {
+          "part": "engine_srf_kickback",
+          "qty": 2,
+          "role": "boosters"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_sso36",
+      "name": "Starlink SSO Dense ×36",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_sso",
+      "tags": [
+        "starlink",
+        "sso"
+      ],
+      "stages": 2,
+      "notes": "Starlink SSO Dense ×36",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_36",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_v2",
+          "qty": 36,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 36,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_hg5",
+          "qty": 36,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 36,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 36,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 3,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        },
+        {
+          "part": "engine_srf_kickback",
+          "qty": 2,
+          "role": "boosters"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_pol12",
+      "name": "Starlink Polar ×12",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_polar",
+      "tags": [
+        "starlink",
+        "polar"
+      ],
+      "stages": 2,
+      "notes": "Starlink Polar ×12",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_bus",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_hg5",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_pol24",
+      "name": "Starlink Polar Mesh ×24",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_polar",
+      "tags": [
+        "starlink",
+        "polar"
+      ],
+      "stages": 2,
+      "notes": "Starlink Polar Mesh ×24",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_v2",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_hg5",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        },
+        {
+          "part": "engine_srf_kickback",
+          "qty": 2,
+          "role": "boosters"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_pol48",
+      "name": "Starlink Polar Heavy ×48",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_polar",
+      "tags": [
+        "starlink",
+        "polar"
+      ],
+      "stages": 2,
+      "notes": "Starlink Polar Heavy ×48",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_48",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_v2",
+          "qty": 48,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 48,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 48,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 48,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 48,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 3,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        },
+        {
+          "part": "engine_srf_kickback",
+          "qty": 4,
+          "role": "boosters"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_gto24",
+      "name": "Starlink GTO ×24",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_gto",
+      "tags": [
+        "starlink",
+        "gto"
+      ],
+      "stages": 2,
+      "notes": "Starlink GTO ×24",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_v2",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 24,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 3,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        },
+        {
+          "part": "engine_srf_kickback",
+          "qty": 2,
+          "role": "boosters"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_gto36",
+      "name": "Starlink GTO Express ×36",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_gto",
+      "tags": [
+        "starlink",
+        "gto"
+      ],
+      "stages": 2,
+      "notes": "Starlink GTO Express ×36",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_36",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_v2",
+          "qty": 36,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 36,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 36,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 36,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 36,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 3,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        },
+        {
+          "part": "engine_srf_kickback",
+          "qty": 4,
+          "role": "boosters"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_meo",
+      "name": "Starlink MEO Bridge ×8",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_meo",
+      "tags": [
+        "starlink",
+        "meo"
+      ],
+      "stages": 2,
+      "notes": "Starlink MEO Bridge ×8",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_v2",
+          "qty": 8,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 8,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_ra15",
+          "qty": 8,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 8,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 8,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 3,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        },
+        {
+          "part": "engine_srf_kickback",
+          "qty": 2,
+          "role": "boosters"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_heo",
+      "name": "Starlink HEO Guard ×6",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_heo",
+      "tags": [
+        "starlink",
+        "heo"
+      ],
+      "stages": 2,
+      "notes": "Starlink HEO Guard ×6",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_dtc",
+          "qty": 6,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 6,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_ra15",
+          "qty": 6,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 6,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 6,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 3,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        },
+        {
+          "part": "engine_srf_kickback",
+          "qty": 2,
+          "role": "boosters"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_spare",
+      "name": "Starlink Spare Rack ×20",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "spare"
+      ],
+      "stages": 2,
+      "notes": "Starlink Spare Rack ×20",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_bus",
+          "qty": 20,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 20,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 20,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 20,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 20,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_laser",
+      "name": "Starlink Laser Test ×6",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "laser"
+      ],
+      "stages": 2,
+      "notes": "Starlink Laser Test ×6",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_v2",
+          "qty": 6,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 6,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 6,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 6,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 6,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_emerg",
+      "name": "Starlink Emergency Mesh ×16",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_polar",
+      "tags": [
+        "starlink",
+        "emergency"
+      ],
+      "stages": 2,
+      "notes": "Starlink Emergency Mesh ×16",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_dtc",
+          "qty": 16,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 16,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_hg5",
+          "qty": 16,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 16,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 16,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        },
+        {
+          "part": "engine_srf_kickback",
+          "qty": 2,
+          "role": "boosters"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_starship60",
+      "name": "Starlink Starship Deploy ×60",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "starship",
+        "mega"
+      ],
+      "stages": 2,
+      "preview": "starship",
+      "notes": "Déploiement Starlink depuis baie Starship-K + SuperHeavy.",
+      "stack": [
+        {
+          "part": "nosecone_3v_heatshield",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "body_starship_cargo",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "payload_dispenser_60",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_v2",
+          "qty": 60,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 60,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_hg5",
+          "qty": 60,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 60,
+          "role": "sat"
+        },
+        {
+          "part": "wing_starship_flap",
+          "qty": 4,
+          "role": "ship"
+        },
+        {
+          "part": "engine_3v_methalox_rhino",
+          "qty": 3,
+          "role": "ship"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "decoupler_3v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "body_superheavy",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "engine_3v_methalox_vector",
+          "qty": 9,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "gridfin_heavy",
+          "qty": 4,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "sat_comm_geo",
+      "name": "CommSat GEO Kerbin",
+      "type": "satellite",
+      "subtype": "comms",
+      "destination": "kerbin_gto",
+      "tags": [
+        "comms",
+        "geo"
+      ],
+      "stages": 2,
+      "preview": "comms",
+      "notes": "Relais haute orbite.",
+      "stack": [
+        {
+          "part": "probe_1v_hecs",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "payload_relay_hub",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "antenna_ra15",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 2,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 2,
+          "role": "power"
+        },
+        {
+          "part": "battery_z4k",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "rcs_rv105",
+          "qty": 4,
+          "role": "control"
+        },
+        {
+          "part": "rcs_tank_str",
+          "qty": 2,
+          "role": "control"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_1v_methalox_swivel",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 3,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_1v",
+          "qty": 1,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "sat_comm_mun",
+      "name": "MunComm Relay Trio",
+      "type": "satellite",
+      "subtype": "comms",
+      "destination": "mun",
+      "tags": [
+        "comms",
+        "mun"
+      ],
+      "stages": 3,
+      "preview": "comms",
+      "notes": "3 relais Mun.",
+      "stack": [
+        {
+          "part": "probe_1v_hecs",
+          "qty": 3,
+          "role": "core"
+        },
+        {
+          "part": "antenna_ra2",
+          "qty": 3,
+          "role": "comms"
+        },
+        {
+          "part": "antenna_hg5",
+          "qty": 3,
+          "role": "comms"
+        },
+        {
+          "part": "panel_oxstat",
+          "qty": 12,
+          "role": "power"
+        },
+        {
+          "part": "battery_z1k",
+          "qty": 3,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_methalox_spark",
+          "qty": 3,
+          "role": "sat"
+        },
+        {
+          "part": "fueltank_0v_inline_methalox_oscar",
+          "qty": 6,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "transfer"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "transfer"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_1v_methalox_reliant",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 3,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "sat_data_leo",
+      "name": "DataBird LEO",
+      "type": "satellite",
+      "subtype": "data",
+      "destination": "kerbin_leo",
+      "tags": [
+        "data",
+        "leo"
+      ],
+      "stages": 2,
+      "preview": "data",
+      "notes": "Satellite données LEO.",
+      "stack": [
+        {
+          "part": "probe_1v_cube",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "payload_data_core",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "science_thermometer",
+          "qty": 1,
+          "role": "science"
+        },
+        {
+          "part": "science_barometer",
+          "qty": 1,
+          "role": "science"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_oxstat",
+          "qty": 4,
+          "role": "power"
+        },
+        {
+          "part": "battery_z1k",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_methalox_spark",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x1",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_1v_methalox_swivel",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "sat_data_mun",
+      "name": "MunScan DataSat",
+      "type": "satellite",
+      "subtype": "data",
+      "destination": "mun",
+      "tags": [
+        "data",
+        "mun"
+      ],
+      "stages": 3,
+      "preview": "data",
+      "notes": "Cartographie Mun.",
+      "stack": [
+        {
+          "part": "probe_1v_hecs",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "payload_data_core",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "science_sc9001",
+          "qty": 1,
+          "role": "science"
+        },
+        {
+          "part": "antenna_hg5",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "battery_z1k",
+          "qty": 2,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "transfer"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "transfer"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_1v_methalox_reliant",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rkt_ss_crew",
+      "name": "Starship-K Crew LEO",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starship",
+        "crew"
+      ],
+      "stages": 2,
+      "preview": "starship",
+      "notes": "Équipage + SuperHeavy.",
+      "stack": [
+        {
+          "part": "nosecone_3v_heatshield",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "body_starship_crew",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "wing_starship_flap",
+          "qty": 4,
+          "role": "ship"
+        },
+        {
+          "part": "landingleg_starship",
+          "qty": 6,
+          "role": "ship"
+        },
+        {
+          "part": "rcs_rv105",
+          "qty": 8,
+          "role": "ship"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "battery_z4k",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "engine_3v_methalox_rhino",
+          "qty": 3,
+          "role": "ship"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "decoupler_3v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "body_superheavy",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "engine_3v_methalox_vector",
+          "qty": 9,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "gridfin_heavy",
+          "qty": 4,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rkt_ss_cargo",
+      "name": "Starship-K Cargo LEO",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starship",
+        "cargo"
+      ],
+      "stages": 2,
+      "preview": "starship",
+      "notes": "Baie cargo.",
+      "stack": [
+        {
+          "part": "nosecone_3v_heatshield",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "body_starship_cargo",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "wing_starship_flap",
+          "qty": 4,
+          "role": "ship"
+        },
+        {
+          "part": "landingleg_starship",
+          "qty": 6,
+          "role": "ship"
+        },
+        {
+          "part": "rcs_rv105",
+          "qty": 8,
+          "role": "ship"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "battery_z4k",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "engine_3v_methalox_rhino",
+          "qty": 3,
+          "role": "ship"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "decoupler_3v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "body_superheavy",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "engine_3v_methalox_vector",
+          "qty": 9,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "gridfin_heavy",
+          "qty": 4,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rkt_ss_tanker",
+      "name": "Starship-K Tanker",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starship",
+        "tanker"
+      ],
+      "stages": 2,
+      "preview": "starship",
+      "notes": "Ravitailleur LEO.",
+      "stack": [
+        {
+          "part": "nosecone_3v_heatshield",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "body_starship_cargo",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "wing_starship_flap",
+          "qty": 4,
+          "role": "ship"
+        },
+        {
+          "part": "landingleg_starship",
+          "qty": 6,
+          "role": "ship"
+        },
+        {
+          "part": "rcs_rv105",
+          "qty": 8,
+          "role": "ship"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "battery_z4k",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "engine_3v_methalox_rhino",
+          "qty": 3,
+          "role": "ship"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x8",
+          "qty": 3,
+          "role": "ship"
+        },
+        {
+          "part": "decoupler_3v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "body_superheavy",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "engine_3v_methalox_vector",
+          "qty": 9,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "gridfin_heavy",
+          "qty": 4,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rkt_ss_mun",
+      "name": "Starship-K Mun HLS",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "mun",
+      "tags": [
+        "starship",
+        "mun",
+        "hls"
+      ],
+      "stages": 2,
+      "preview": "starship",
+      "notes": "Human Landing System Mun.",
+      "stack": [
+        {
+          "part": "nosecone_3v_heatshield",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "body_starship_crew",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "wing_starship_flap",
+          "qty": 4,
+          "role": "ship"
+        },
+        {
+          "part": "landingleg_starship",
+          "qty": 6,
+          "role": "ship"
+        },
+        {
+          "part": "rcs_rv105",
+          "qty": 8,
+          "role": "ship"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "battery_z4k",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "engine_3v_methalox_rhino",
+          "qty": 3,
+          "role": "ship"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x8",
+          "qty": 3,
+          "role": "ship"
+        },
+        {
+          "part": "decoupler_3v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "body_superheavy",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "engine_3v_methalox_vector",
+          "qty": 9,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "gridfin_heavy",
+          "qty": 4,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rkt_ss_duna",
+      "name": "Starship-K Duna Transport",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "duna",
+      "tags": [
+        "starship",
+        "duna"
+      ],
+      "stages": 2,
+      "preview": "starship",
+      "notes": "Transport colonie Duna.",
+      "stack": [
+        {
+          "part": "nosecone_3v_heatshield",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "body_starship_crew",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "body_starship_cargo",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "wing_starship_flap",
+          "qty": 4,
+          "role": "ship"
+        },
+        {
+          "part": "landingleg_starship",
+          "qty": 6,
+          "role": "ship"
+        },
+        {
+          "part": "rcs_rv105",
+          "qty": 8,
+          "role": "ship"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "battery_z4k",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "engine_3v_methalox_rhino",
+          "qty": 3,
+          "role": "ship"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x8",
+          "qty": 3,
+          "role": "ship"
+        },
+        {
+          "part": "decoupler_3v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "body_superheavy",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "engine_3v_methalox_vector",
+          "qty": 9,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "gridfin_heavy",
+          "qty": 4,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rkt_ss_hop",
+      "name": "Starship-K Hop Test",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starship",
+        "test"
+      ],
+      "stages": 1,
+      "preview": "starship",
+      "notes": "Hop suborbital sans SuperHeavy.",
+      "stack": [
+        {
+          "part": "nosecone_3v_heatshield",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "body_starship_cargo",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "wing_starship_flap",
+          "qty": 4,
+          "role": "ship"
+        },
+        {
+          "part": "landingleg_starship",
+          "qty": 6,
+          "role": "ship"
+        },
+        {
+          "part": "rcs_rv105",
+          "qty": 8,
+          "role": "ship"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "battery_z4k",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "engine_3v_methalox_rhino",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x4",
+          "qty": 1,
+          "role": "ship"
+        }
+      ]
+    },
+    {
+      "id": "rkt_ss_depot",
+      "name": "Starship-K Orbital Depot",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starship",
+        "depot"
+      ],
+      "stages": 2,
+      "preview": "starship",
+      "notes": "Dépôt fuel LEO.",
+      "stack": [
+        {
+          "part": "nosecone_3v_heatshield",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "body_starship_cargo",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "wing_starship_flap",
+          "qty": 4,
+          "role": "ship"
+        },
+        {
+          "part": "landingleg_starship",
+          "qty": 6,
+          "role": "ship"
+        },
+        {
+          "part": "rcs_rv105",
+          "qty": 8,
+          "role": "ship"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "battery_z4k",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "engine_3v_methalox_rhino",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x8",
+          "qty": 3,
+          "role": "ship"
+        },
+        {
+          "part": "decoupler_3v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "body_superheavy",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "engine_3v_methalox_vector",
+          "qty": 9,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "gridfin_heavy",
+          "qty": 4,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rkt_ss_ptp",
+      "name": "Starship-K Point-to-Point",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starship",
+        "passenger"
+      ],
+      "stages": 2,
+      "preview": "starship",
+      "notes": "Vol point-à-point Kerbin.",
+      "stack": [
+        {
+          "part": "nosecone_3v_heatshield",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "body_starship_crew",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "wing_starship_flap",
+          "qty": 4,
+          "role": "ship"
+        },
+        {
+          "part": "landingleg_starship",
+          "qty": 6,
+          "role": "ship"
+        },
+        {
+          "part": "rcs_rv105",
+          "qty": 8,
+          "role": "ship"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "battery_z4k",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "engine_3v_methalox_rhino",
+          "qty": 3,
+          "role": "ship"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "decoupler_3v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "body_superheavy",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "engine_3v_methalox_vector",
+          "qty": 9,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "gridfin_heavy",
+          "qty": 4,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rkt_mun",
+      "name": "Mun Hopper",
+      "type": "rocket",
+      "subtype": "lander",
+      "destination": "mun",
+      "tags": [
+        "mun"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Aller-retour Mun.",
+      "stack": [
+        {
+          "part": "pod_1v_conical_crew",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rkt_minmus",
+      "name": "Minmus Depot Run",
+      "type": "rocket",
+      "subtype": "transfer",
+      "destination": "minmus",
+      "tags": [
+        "minmus"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Dépôt Minmus.",
+      "stack": [
+        {
+          "part": "pod_1v_conical_crew",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rkt_duna",
+      "name": "Duna Nerv Transfer",
+      "type": "rocket",
+      "subtype": "interplanetary",
+      "destination": "duna",
+      "tags": [
+        "duna",
+        "nerv"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Nerv cruise Duna.",
+      "stack": [
+        {
+          "part": "pod_1v_conical_crew",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "parachute_mk16",
+          "qty": 1,
+          "role": "reentry"
+        },
+        {
+          "part": "heatshield_1v",
+          "qty": 1,
+          "role": "reentry"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_nuclear_nerv",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 4,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rkt_eve",
+      "name": "Eve Escape Heavy",
+      "type": "rocket",
+      "subtype": "hardcore",
+      "destination": "eve",
+      "tags": [
+        "eve"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Ascension Eve.",
+      "stack": [
+        {
+          "part": "pod_1v_conical_crew",
+          "qty": 1,
+          "role": "crew"
+        },
+        {
+          "part": "heatshield_1v",
+          "qty": 1,
+          "role": "reentry"
+        },
+        {
+          "part": "parachute_mk16",
+          "qty": 3,
+          "role": "reentry"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "ascent"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "ascent"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_1v_methalox_swivel",
+          "qty": 2,
+          "role": "mid"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 4,
+          "role": "mid"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 4,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 8,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rkt_jool",
+      "name": "Jool System Probe",
+      "type": "rocket",
+      "subtype": "probe",
+      "destination": "jool",
+      "tags": [
+        "jool"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Probe système Jool.",
+      "stack": [
+        {
+          "part": "probe_1v_hecs",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_nuclear_nerv",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 4,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rkt_laythe",
+      "name": "Laythe Splash Probe",
+      "type": "rocket",
+      "subtype": "probe",
+      "destination": "laythe",
+      "tags": [
+        "laythe"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Probe atmosphère Laythe.",
+      "stack": [
+        {
+          "part": "probe_1v_hecs",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "parachute_mk16",
+          "qty": 1,
+          "role": "reentry"
+        },
+        {
+          "part": "heatshield_1v",
+          "qty": 1,
+          "role": "reentry"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_nuclear_nerv",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 4,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rkt_tylo",
+      "name": "Tylo Hammer Lander",
+      "type": "rocket",
+      "subtype": "hardcore",
+      "destination": "tylo",
+      "tags": [
+        "tylo"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Lander Tylo.",
+      "stack": [
+        {
+          "part": "pod_1v_conical_crew",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_nuclear_nerv",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 4,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rkt_moho",
+      "name": "Moho Express",
+      "type": "rocket",
+      "subtype": "interplanetary",
+      "destination": "moho",
+      "tags": [
+        "moho"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Express Moho Nerv.",
+      "stack": [
+        {
+          "part": "pod_1v_conical_crew",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_nuclear_nerv",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 4,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rkt_eeloo",
+      "name": "Eeloo Iceprobe",
+      "type": "rocket",
+      "subtype": "probe",
+      "destination": "eeloo",
+      "tags": [
+        "eeloo"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Probe Eeloo.",
+      "stack": [
+        {
+          "part": "probe_1v_hecs",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_nuclear_nerv",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 4,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rkt_dres",
+      "name": "Dres Rockhound",
+      "type": "rocket",
+      "subtype": "probe",
+      "destination": "dres",
+      "tags": [
+        "dres"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Rendez-vous Dres.",
+      "stack": [
+        {
+          "part": "probe_1v_hecs",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_nuclear_nerv",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 4,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rkt_ike",
+      "name": "Ike Shuttle",
+      "type": "rocket",
+      "subtype": "lander",
+      "destination": "ike",
+      "tags": [
+        "ike"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Navette Ike.",
+      "stack": [
+        {
+          "part": "pod_1v_conical_crew",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rkt_gilly",
+      "name": "Gilly Hopper",
+      "type": "rocket",
+      "subtype": "lander",
+      "destination": "gilly",
+      "tags": [
+        "gilly"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Micro-gravité.",
+      "stack": [
+        {
+          "part": "pod_1v_conical_crew",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rkt_vall",
+      "name": "Vall Glacier Lander",
+      "type": "rocket",
+      "subtype": "lander",
+      "destination": "vall",
+      "tags": [
+        "vall"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Lander Vall.",
+      "stack": [
+        {
+          "part": "pod_1v_conical_crew",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_nuclear_nerv",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 4,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rkt_bop",
+      "name": "Bop Dust Probe",
+      "type": "rocket",
+      "subtype": "probe",
+      "destination": "bop",
+      "tags": [
+        "bop"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Probe Bop.",
+      "stack": [
+        {
+          "part": "probe_1v_hecs",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_nuclear_nerv",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 4,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rkt_pol",
+      "name": "Pol Pebble Lander",
+      "type": "rocket",
+      "subtype": "probe",
+      "destination": "pol",
+      "tags": [
+        "pol"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Micro-lander Pol.",
+      "stack": [
+        {
+          "part": "probe_1v_hecs",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_nuclear_nerv",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 4,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rover_mun",
+      "name": "Mun Scout Rover",
+      "type": "rover",
+      "subtype": "science",
+      "destination": "mun",
+      "tags": [
+        "rover",
+        "mun"
+      ],
+      "stages": 3,
+      "preview": "rover",
+      "notes": "Rover Mun + lander.",
+      "stack": [
+        {
+          "part": "probe_1v_hecs",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "chassis_rover_tr2l",
+          "qty": 1,
+          "role": "chassis"
+        },
+        {
+          "part": "wheel_rover_m1",
+          "qty": 4,
+          "role": "wheels"
+        },
+        {
+          "part": "science_thermometer",
+          "qty": 1,
+          "role": "science"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_oxstat",
+          "qty": 4,
+          "role": "power"
+        },
+        {
+          "part": "battery_z1k",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "lander"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x2",
+          "qty": 1,
+          "role": "lander"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "transfer"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "transfer"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rover_duna",
+      "name": "Duna Curiosity-K",
+      "type": "rover",
+      "subtype": "science",
+      "destination": "duna",
+      "tags": [
+        "rover",
+        "duna"
+      ],
+      "stages": 3,
+      "preview": "rover",
+      "notes": "Rover science Duna.",
+      "stack": [
+        {
+          "part": "probe_1v_hecs",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "chassis_rover_tr2l",
+          "qty": 1,
+          "role": "chassis"
+        },
+        {
+          "part": "wheel_rover_m1",
+          "qty": 6,
+          "role": "wheels"
+        },
+        {
+          "part": "science_thermometer",
+          "qty": 1,
+          "role": "science"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_oxstat",
+          "qty": 4,
+          "role": "power"
+        },
+        {
+          "part": "battery_z1k",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "lander"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x2",
+          "qty": 1,
+          "role": "lander"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "transfer"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "transfer"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rover_minmus",
+      "name": "Minmus Ice Crawler",
+      "type": "rover",
+      "subtype": "utility",
+      "destination": "minmus",
+      "tags": [
+        "rover",
+        "minmus"
+      ],
+      "stages": 3,
+      "preview": "rover",
+      "notes": "Léger Minmus.",
+      "stack": [
+        {
+          "part": "probe_1v_hecs",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "chassis_rover_tr2l",
+          "qty": 1,
+          "role": "chassis"
+        },
+        {
+          "part": "wheel_rover_m1",
+          "qty": 4,
+          "role": "wheels"
+        },
+        {
+          "part": "science_thermometer",
+          "qty": 1,
+          "role": "science"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_oxstat",
+          "qty": 4,
+          "role": "power"
+        },
+        {
+          "part": "battery_z1k",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "lander"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x2",
+          "qty": 1,
+          "role": "lander"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "transfer"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "transfer"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rover_eve",
+      "name": "Eve Surface Tank",
+      "type": "rover",
+      "subtype": "heavy",
+      "destination": "eve",
+      "tags": [
+        "rover",
+        "eve"
+      ],
+      "stages": 3,
+      "preview": "rover",
+      "notes": "Rover lourd Eve one-way.",
+      "stack": [
+        {
+          "part": "probe_1v_hecs",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "chassis_rover_tr2l",
+          "qty": 1,
+          "role": "chassis"
+        },
+        {
+          "part": "wheel_rover_m1",
+          "qty": 6,
+          "role": "wheels"
+        },
+        {
+          "part": "science_thermometer",
+          "qty": 1,
+          "role": "science"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_oxstat",
+          "qty": 4,
+          "role": "power"
+        },
+        {
+          "part": "battery_z1k",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "lander"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x2",
+          "qty": 1,
+          "role": "lander"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "transfer"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "transfer"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rover_laythe",
+      "name": "Laythe Amphib Rover",
+      "type": "rover",
+      "subtype": "amphibious",
+      "destination": "laythe",
+      "tags": [
+        "rover",
+        "laythe"
+      ],
+      "stages": 3,
+      "preview": "rover",
+      "notes": "Amphibie Laythe.",
+      "stack": [
+        {
+          "part": "probe_1v_hecs",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "chassis_rover_tr2l",
+          "qty": 1,
+          "role": "chassis"
+        },
+        {
+          "part": "wheel_rover_m1",
+          "qty": 4,
+          "role": "wheels"
+        },
+        {
+          "part": "science_thermometer",
+          "qty": 1,
+          "role": "science"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_oxstat",
+          "qty": 4,
+          "role": "power"
+        },
+        {
+          "part": "battery_z1k",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "lander"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x2",
+          "qty": 1,
+          "role": "lander"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "transfer"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "transfer"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_k72",
+      "name": "Starlink Shell Dense ×72",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "extended"
+      ],
+      "stages": 2,
+      "notes": "Shell dense LEO — reconstruction VAB multi-vols.",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_bus",
+          "qty": 72,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_k96",
+      "name": "Starlink Mega Plane ×96",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "extended"
+      ],
+      "stages": 2,
+      "notes": "Plan orbital saturé — à lancer en plusieurs rideshares.",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_bus",
+          "qty": 96,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 16,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 16,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 16,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 16,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_eq48",
+      "name": "Starlink Equatorial ×48",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starlink",
+        "extended"
+      ],
+      "stages": 2,
+      "notes": "Plan équatorial Kerbin pour couverture tropiques.",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_bus",
+          "qty": 48,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 8,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 8,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 8,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 8,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_mun_relay",
+      "name": "Starlink Mun Relay ×12",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "mun",
+      "tags": [
+        "starlink",
+        "extended"
+      ],
+      "stages": 2,
+      "notes": "Relais Mun inspiré Starlink + antennes HG.",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_bus",
+          "qty": 12,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 2,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 2,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 2,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 2,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "sat_sl_minmus",
+      "name": "Starlink Minmus Node ×8",
+      "type": "satellite",
+      "subtype": "starlink",
+      "destination": "minmus",
+      "tags": [
+        "starlink",
+        "extended"
+      ],
+      "stages": 2,
+      "notes": "Nœuds glace Minmus — faible Δv.",
+      "preview": "starlink",
+      "stack": [
+        {
+          "part": "payload_dispenser_24",
+          "qty": 1,
+          "role": "payload"
+        },
+        {
+          "part": "payload_starlink_bus",
+          "qty": 8,
+          "role": "sat"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 2,
+          "role": "sat"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 2,
+          "role": "sat"
+        },
+        {
+          "part": "probe_1v_octo",
+          "qty": 2,
+          "role": "sat"
+        },
+        {
+          "part": "battery_z100",
+          "qty": 2,
+          "role": "sat"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "upper"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "upper"
+        },
+        {
+          "part": "decoupler_2v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fairing_2v",
+          "qty": 1,
+          "role": "aero"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rkt_ss_rescue",
+      "name": "Starship-K Rescue LEO",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starship",
+        "crew",
+        "rescue"
+      ],
+      "stages": 2,
+      "preview": "starship",
+      "notes": "Version sauvetage équipage — docking prioritaire.",
+      "stack": [
+        {
+          "part": "nosecone_3v_heatshield",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "body_starship_crew",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "wing_starship_flap",
+          "qty": 4,
+          "role": "ship"
+        },
+        {
+          "part": "landingleg_starship",
+          "qty": 6,
+          "role": "ship"
+        },
+        {
+          "part": "rcs_rv105",
+          "qty": 8,
+          "role": "ship"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "battery_z4k",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "engine_3v_methalox_rhino",
+          "qty": 3,
+          "role": "ship"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "decoupler_3v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "body_superheavy",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "engine_3v_methalox_vector",
+          "qty": 9,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "gridfin_heavy",
+          "qty": 4,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rkt_ss_fuel_depot",
+      "name": "Starship-K Fuel Farm",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "kerbin_leo",
+      "tags": [
+        "starship",
+        "depot"
+      ],
+      "stages": 2,
+      "preview": "starship",
+      "notes": "Dépôt méthane/oxydant en LEO pour ravitaillement.",
+      "stack": [
+        {
+          "part": "nosecone_3v_heatshield",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "body_starship_crew",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "wing_starship_flap",
+          "qty": 4,
+          "role": "ship"
+        },
+        {
+          "part": "landingleg_starship",
+          "qty": 6,
+          "role": "ship"
+        },
+        {
+          "part": "rcs_rv105",
+          "qty": 8,
+          "role": "ship"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "battery_z4k",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "engine_3v_methalox_rhino",
+          "qty": 3,
+          "role": "ship"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "decoupler_3v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "body_superheavy",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "engine_3v_methalox_vector",
+          "qty": 9,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "gridfin_heavy",
+          "qty": 4,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rkt_ss_eve_scout",
+      "name": "Starship-K Eve Scout",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "eve",
+      "tags": [
+        "starship",
+        "eve",
+        "probe"
+      ],
+      "stages": 2,
+      "preview": "starship",
+      "notes": "Sonde lourde Eve — pas d'atterrissage équipage.",
+      "stack": [
+        {
+          "part": "nosecone_3v_heatshield",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "body_starship_crew",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "wing_starship_flap",
+          "qty": 4,
+          "role": "ship"
+        },
+        {
+          "part": "landingleg_starship",
+          "qty": 6,
+          "role": "ship"
+        },
+        {
+          "part": "rcs_rv105",
+          "qty": 8,
+          "role": "ship"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "battery_z4k",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "engine_3v_methalox_rhino",
+          "qty": 3,
+          "role": "ship"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "decoupler_3v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "body_superheavy",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "engine_3v_methalox_vector",
+          "qty": 9,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "gridfin_heavy",
+          "qty": 4,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rkt_ss_jool_flyby",
+      "name": "Starship-K Jool Flyby",
+      "type": "rocket",
+      "subtype": "starship",
+      "destination": "jool",
+      "tags": [
+        "starship",
+        "jool"
+      ],
+      "stages": 2,
+      "preview": "starship",
+      "notes": "Survol Jool avec science lourde.",
+      "stack": [
+        {
+          "part": "nosecone_3v_heatshield",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "body_starship_crew",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "wing_starship_flap",
+          "qty": 4,
+          "role": "ship"
+        },
+        {
+          "part": "landingleg_starship",
+          "qty": 6,
+          "role": "ship"
+        },
+        {
+          "part": "rcs_rv105",
+          "qty": 8,
+          "role": "ship"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "battery_z4k",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "ship"
+        },
+        {
+          "part": "engine_3v_methalox_rhino",
+          "qty": 3,
+          "role": "ship"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "ship"
+        },
+        {
+          "part": "decoupler_3v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "body_superheavy",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "engine_3v_methalox_vector",
+          "qty": 9,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_3v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "gridfin_heavy",
+          "qty": 4,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rkt_station_core",
+      "name": "Kerbin Station Core",
+      "type": "rocket",
+      "subtype": "probe",
+      "destination": "kerbin_leo",
+      "tags": [
+        "rocket",
+        "probe"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Cœur de station LEO — docking + panneaux.",
+      "stack": [
+        {
+          "part": "pod_1v_conical_crew",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rkt_mun_shuttle",
+      "name": "Mun Crew Shuttle",
+      "type": "rocket",
+      "subtype": "lander",
+      "destination": "mun",
+      "tags": [
+        "rocket",
+        "lander"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Navette Mun équipage 2 + retour.",
+      "stack": [
+        {
+          "part": "pod_1v_conical_crew",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rkt_duna_ascent",
+      "name": "Duna Ascent Taxi",
+      "type": "rocket",
+      "subtype": "lander",
+      "destination": "duna",
+      "tags": [
+        "rocket",
+        "lander"
+      ],
+      "stages": 3,
+      "preview": "rocket",
+      "notes": "Taxi remontée Duna vers orbite.",
+      "stack": [
+        {
+          "part": "pod_1v_conical_crew",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "antenna_hg55",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_gigantor",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "cruise"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "cruise"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        },
+        {
+          "part": "fin_delta_deluxe",
+          "qty": 4,
+          "role": "aero"
+        }
+      ]
+    },
+    {
+      "id": "rover_ike",
+      "name": "Ike Prospect Rover",
+      "type": "rover",
+      "subtype": "science",
+      "destination": "ike",
+      "tags": [
+        "rover",
+        "extended"
+      ],
+      "stages": 3,
+      "preview": "rover",
+      "notes": "Rover Ike — prospection minerais.",
+      "stack": [
+        {
+          "part": "probe_1v_hecs",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "chassis_rover_tr2l",
+          "qty": 1,
+          "role": "chassis"
+        },
+        {
+          "part": "wheel_rover_m1",
+          "qty": 4,
+          "role": "wheels"
+        },
+        {
+          "part": "science_thermometer",
+          "qty": 1,
+          "role": "science"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_oxstat",
+          "qty": 4,
+          "role": "power"
+        },
+        {
+          "part": "battery_z1k",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "lander"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x2",
+          "qty": 1,
+          "role": "lander"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "transfer"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "transfer"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        }
+      ]
+    },
+    {
+      "id": "rover_vall",
+      "name": "Vall Glacier Rover",
+      "type": "rover",
+      "subtype": "science",
+      "destination": "vall",
+      "tags": [
+        "rover",
+        "extended"
+      ],
+      "stages": 3,
+      "preview": "rover",
+      "notes": "Rover froid Vall — batteries renforcées.",
+      "stack": [
+        {
+          "part": "probe_1v_hecs",
+          "qty": 1,
+          "role": "core"
+        },
+        {
+          "part": "chassis_rover_tr2l",
+          "qty": 1,
+          "role": "chassis"
+        },
+        {
+          "part": "wheel_rover_m1",
+          "qty": 4,
+          "role": "wheels"
+        },
+        {
+          "part": "science_thermometer",
+          "qty": 1,
+          "role": "science"
+        },
+        {
+          "part": "antenna_comm16",
+          "qty": 1,
+          "role": "comms"
+        },
+        {
+          "part": "panel_oxstat",
+          "qty": 4,
+          "role": "power"
+        },
+        {
+          "part": "battery_z1k",
+          "qty": 1,
+          "role": "power"
+        },
+        {
+          "part": "landingleg_lt1",
+          "qty": 4,
+          "role": "lander"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "lander"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x2",
+          "qty": 1,
+          "role": "lander"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_1v_methalox_terrier",
+          "qty": 1,
+          "role": "transfer"
+        },
+        {
+          "part": "fueltank_1v_inline_methalox_1x8",
+          "qty": 2,
+          "role": "transfer"
+        },
+        {
+          "part": "decoupler_1v_stack",
+          "qty": 1,
+          "role": "stage"
+        },
+        {
+          "part": "engine_2v_methalox_mainsail",
+          "qty": 1,
+          "role": "booster"
+        },
+        {
+          "part": "fueltank_2v_inline_methalox_1x4",
+          "qty": 2,
+          "role": "booster"
+        }
+      ]
+    }
+  ]
+}

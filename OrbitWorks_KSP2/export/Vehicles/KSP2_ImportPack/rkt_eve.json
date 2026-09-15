@@ -1,0 +1,96 @@
+{
+  "schema": "orbitworks.ksp2.vessel_scaffold/1",
+  "warning": "Scaffold expérimental — pas un fichier craft KSP2 officiel. Utilisez le blueprint Markdown pour reconstruire dans le VAB.",
+  "metadata": {
+    "id": "rkt_eve",
+    "name": "Eve Escape Heavy",
+    "category": "rockets",
+    "type": "rocket",
+    "subtype": "hardcore",
+    "destination": "eve",
+    "tags": [
+      "eve"
+    ],
+    "preview": "rocket",
+    "total_mass_t": 344.06
+  },
+  "assembly": [
+    {
+      "partName": "pod_1v_conical_crew",
+      "displayName": "Mk1 Conical Command Pod",
+      "quantity": 1,
+      "role": "crew",
+      "mass_t": 0.84
+    },
+    {
+      "partName": "heatshield_1v",
+      "displayName": "Heat Shield (1.25m)",
+      "quantity": 1,
+      "role": "reentry",
+      "mass_t": 0.3
+    },
+    {
+      "partName": "parachute_mk16",
+      "displayName": "Mk16 Parachute",
+      "quantity": 3,
+      "role": "reentry",
+      "mass_t": 0.1
+    },
+    {
+      "partName": "engine_1v_methalox_terrier",
+      "displayName": "LV-909 Terrier",
+      "quantity": 1,
+      "role": "ascent",
+      "mass_t": 0.5
+    },
+    {
+      "partName": "fueltank_1v_inline_methalox_1x8",
+      "displayName": "FL-T800",
+      "quantity": 2,
+      "role": "ascent",
+      "mass_t": 4.5
+    },
+    {
+      "partName": "decoupler_1v_stack",
+      "displayName": "TR-18A Stack Decoupler",
+      "quantity": 1,
+      "role": "stage",
+      "mass_t": 0.04
+    },
+    {
+      "partName": "engine_1v_methalox_swivel",
+      "displayName": "LV-T45 Swivel",
+      "quantity": 2,
+      "role": "mid",
+      "mass_t": 1.5
+    },
+    {
+      "partName": "fueltank_1v_inline_methalox_1x8",
+      "displayName": "FL-T800",
+      "quantity": 4,
+      "role": "mid",
+      "mass_t": 4.5
+    },
+    {
+      "partName": "decoupler_2v_stack",
+      "displayName": "TR-38-D Stack Decoupler",
+      "quantity": 1,
+      "role": "stage",
+      "mass_t": 0.08
+    },
+    {
+      "partName": "engine_2v_methalox_mainsail",
+      "displayName": "RE-M3 Mainsail",
+      "quantity": 4,
+      "role": "booster",
+      "mass_t": 6.0
+    },
+    {
+      "partName": "fueltank_2v_inline_methalox_1x8",
+      "displayName": "X200-64",
+      "quantity": 8,
+      "role": "booster",
+      "mass_t": 36.0
+    }
+  ]
+}

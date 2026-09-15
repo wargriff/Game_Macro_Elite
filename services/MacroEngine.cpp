@@ -14,6 +14,18 @@
 #define NOMINMAX
 #endif
 #include <windows.h>
+#else
+// Portable fallbacks for Windows virtual-key codes so shared logic compiles on
+// non-Windows platforms. Actual key injection (simulateKeyLabel) is Windows-only.
+#ifndef VK_SPACE
+#define VK_SPACE 0x20
+#define VK_RETURN 0x0D
+#define VK_TAB 0x09
+#define VK_ESCAPE 0x1B
+#define VK_SHIFT 0x10
+#define VK_CONTROL 0x11
+#define VK_MENU 0x12
+#endif
 #endif
 
 #ifdef Q_OS_WIN

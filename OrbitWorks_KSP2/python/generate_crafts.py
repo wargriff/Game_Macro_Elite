@@ -271,6 +271,12 @@ def main() -> None:
     (WEB / "catalog.json").write_text(
         json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
+    flutter_assets = ROOT / "flutter_app" / "assets"
+    if flutter_assets.parent.exists():
+        flutter_assets.mkdir(parents=True, exist_ok=True)
+        (flutter_assets / "catalog.json").write_text(
+            json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        )
     print(f"OK — {len(crafts_out)} crafts générés")
     for k, v in sorted(by_cat.items()):
         print(f"  {k}: {v}")
